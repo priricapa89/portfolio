@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gallery — PRicapa.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#F8F7FF;--bg2:#EDE8F5;--bg3:#E0D8F0;--white:#FFFFFF;
+  --navy:#1A1A2E;--navy2:#2D1B6E;
+  --gray:#6B6B80;--gray-lt:#9898AC;
+  --magenta:#E84393;--purple:#7B4FD4;
+  --coral:#FF6B4A;--peach:#FFB347;--teal:#8AB4C2;
+  --card-pur:#C9B8F0;
+  --grad-soft:linear-gradient(135deg,#7B4FD4,#E84393);
+  --grad-warm:linear-gradient(135deg,#FF6B4A,#FFB347);
+  --grad-ai:linear-gradient(135deg,#6EC6FF,#A855F7,#EC4899);
+  --shadow-sm:0 2px 16px rgba(123,79,212,0.10);
+  --shadow-md:0 8px 40px rgba(123,79,212,0.14);
+  --shadow-lg:0 20px 60px rgba(123,79,212,0.18);
+  --radius:16px;--radius-sm:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--navy);font-family:'DM Sans',sans-serif;font-size:17px;line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav.topnav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(248,247,255,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(123,79,212,0.10);}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;text-decoration:none;color:var(--navy);}
+.nav-logo .pr{background:var(--grad-soft);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;}
+.nav-logo .dot{color:var(--magenta);}
+.nav-back{font-size:0.8rem;font-weight:600;color:var(--purple);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.nav-back:hover{color:var(--magenta);}
+
+/* PAGE HERO */
+.page-hero{padding:110px 48px 60px;background:var(--navy2);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 60% 50%,rgba(139,92,246,0.22) 0%,transparent 70%);pointer-events:none;}
+.page-hero-inner{position:relative;z-index:1;max-width:800px;}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:20px;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px;letter-spacing:-0.02em;}
+.page-hero h1 em{background:var(--grad-ai);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;}
+.page-hero p{color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.8;max-width:620px;}
+
+/* EVENT STICKY NAV */
+.event-nav{position:sticky;top:68px;z-index:100;background:rgba(248,247,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(123,79,212,0.10);overflow-x:auto;}
+.event-nav-inner{display:flex;padding:0 48px;min-width:max-content;}
+.enl{display:inline-flex;align-items:center;gap:8px;padding:0 18px;height:52px;font-size:0.78rem;font-weight:600;color:var(--gray);text-decoration:none;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+.enl:hover{color:var(--purple);}
+.enl.active{color:var(--purple);border-bottom-color:var(--purple);}
+.en-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block;}
+
+/* CLOUDINARY TIP */
+.cloud-tip{margin:36px 48px 0;padding:16px 22px;background:rgba(123,79,212,0.05);border-radius:var(--radius-sm);border:1px solid rgba(123,79,212,0.13);display:flex;gap:14px;align-items:flex-start;}
+.cloud-tip .ci{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.cloud-tip p{font-size:0.82rem;color:var(--gray);line-height:1.75;}
+.cloud-tip strong{color:var(--purple);}
+.cloud-tip a{color:var(--magenta);font-weight:600;text-decoration:none;}
+.cloud-tip code{background:rgba(123,79,212,0.08);padding:1px 6px;border-radius:4px;font-size:0.78rem;}
+
+/* EVENT SECTIONS */
+.ev{padding:72px 48px 56px;}
+.ev+.ev{border-top:2px solid rgba(123,79,212,0.07);}
+.ev-date{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--purple);letter-spacing:0.06em;margin-bottom:8px;}
+.ev-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--navy);line-height:1.15;letter-spacing:-0.02em;margin-bottom:14px;}
+.ev-desc{font-size:0.98rem;color:var(--gray);line-height:1.85;max-width:700px;margin-bottom:48px;}
+
+/* VENUE BLOCK */
+.venue{margin-bottom:56px;}
+.venue-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid rgba(123,79,212,0.09);}
+.vbadge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:40px;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;border:1.5px solid;}
+.vsub{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--gray-lt);}
+
+/* PHOTO GRID */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pgrid.two{grid-template-columns:repeat(2,1fr);}
+
+/* PHOTO CARD */
+.pc{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid rgba(123,79,212,0.07);transition:box-shadow .25s,transform .25s;}
+.pc:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+.pc.feat{grid-column:span 2;}
+
+/* IMAGE AREA */
+.pimg{position:relative;width:100%;aspect-ratio:4/3;background:var(--bg2);overflow:hidden;cursor:zoom-in;}
+.pimg.wide{aspect-ratio:16/9;}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.pc:hover .pimg img{transform:scale(1.04);}
+.ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--bg2),var(--bg3));}
+.ph-icon{font-size:1.8rem;}
+.ph-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-lt);text-align:center;padding:0 20px;}
+.ph-url{font-family:'DM Mono',monospace;font-size:0.56rem;color:rgba(123,79,212,0.45);margin-top:2px;padding:3px 8px;background:rgba(123,79,212,0.07);border-radius:4px;max-width:90%;text-align:center;word-break:break-all;}
+.pzoom{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.88);border:none;display:flex;align-items:center;justify-content:center;font-size:0.75rem;opacity:0;transition:opacity .2s;cursor:pointer;}
+.pc:hover .pzoom{opacity:1;}
+
+/* PHOTO INFO */
+.pinfo{padding:16px 18px 20px;}
+.pcap{font-size:0.95rem;font-weight:600;color:var(--navy);line-height:1.45;margin-bottom:8px;}
+.pctx{font-size:0.85rem;color:var(--gray);line-height:1.75;margin-bottom:14px;}
+.ptags{display:flex;flex-wrap:wrap;gap:7px;}
+.ptag{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:40px;background:rgba(123,79,212,0.07);border:1px solid rgba(123,79,212,0.14);font-size:0.7rem;font-weight:600;color:var(--purple);text-decoration:none;transition:all .2s;}
+.ptag:hover{background:var(--purple);color:#fff;}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(26,26,46,0.96);display:none;align-items:center;justify-content:center;padding:24px;}
+.lb.open{display:flex;}
+.lb-wrap{position:relative;max-width:900px;width:100%;}
+.lb img{width:100%;max-height:70vh;object-fit:contain;border-radius:var(--radius-sm);}
+.lb-info{background:rgba(255,255,255,0.05);padding:18px 22px;border-radius:0 0 var(--radius-sm) var(--radius-sm);}
+.lb-cap{color:#fff;font-size:0.98rem;font-weight:600;margin-bottom:6px;}
+.lb-ctx{color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.7;}
+.lb-close{position:absolute;top:-44px;right:0;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;padding:8px;transition:color .2s;}
+.lb-close:hover{color:#fff;}
+
+/* BOOK */
+.book-sec{background:var(--white);padding:72px 48px;border-top:1px solid rgba(123,79,212,0.07);}
+.book-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:center;}
+.book-cover{width:190px;height:270px;border-radius:8px;background:linear-gradient(145deg,#2D1B6E,#7B4FD4,#E84393);display:flex;align-items:stretch;box-shadow:0 20px 60px rgba(45,27,110,0.38);transition:transform .3s;cursor:default;}
+.book-cover:hover{transform:perspective(800px) rotateY(-6deg);}
+.bci{display:flex;flex-direction:column;justify-content:space-between;padding:26px 22px;width:100%;}
+.bc-tag{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,184,240,0.65);}
+.bc-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;line-height:1.2;}
+.bc-title em{color:#C9B8F0;font-style:italic;}
+.bc-sub{font-size:0.7rem;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.45);}
+.book-notify{display:flex;margin-bottom:10px;}
+.book-notify input{border-radius:40px 0 0 40px;border-right:none;padding:12px 18px;font-family:'DM Sans',sans-serif;font-size:0.88rem;background:var(--bg);border:1.5px solid rgba(123,79,212,0.16);border-right:none;outline:none;color:var(--navy);width:230px;}
+.book-notify button{border-radius:0 40px 40px 0;border:none;padding:12px 22px;background:var(--grad-soft);color:#fff;font-size:0.8rem;font-weight:600;cursor:pointer;}
+.book-notify input:focus{border-color:var(--purple);}
+
+/* FOOTER */
+.gfooter{background:var(--navy);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;}
+.gfooter a{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;}
+.gfooter a:hover{color:#fff;}
+.gfooter-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:rgba(255,255,255,0.9);}
+.gfooter-logo .pr{color:var(--card-pur);font-style:italic;}
+.gfooter-logo .dot{color:var(--magenta);}
+
+@media(max-width:900px){
+  nav.topnav{padding:0 20px;}
+  .page-hero{padding:110px 20px 48px;}
+  .event-nav-inner{padding:0 20px;}
+  .cloud-tip{margin:24px 20px 0;}
+  .ev{padding:56px 20px 40px;}
+  .pgrid{grid-template-columns:1fr;}
+  .pgrid.two{grid-template-columns:1fr;}
+  .pc.feat{grid-column:span 1;}
+  .book-grid{grid-template-columns:1fr;gap:40px;}
+  .gfooter{flex-direction:column;gap:16px;text-align:center;padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="nav-logo"><span class="pr">PR</span>icapa<span class="dot">.</span>ai</a>
+  <a href="index.html" class="nav-back">← Back to main site</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill">Photo Diary</div>
+    <h1>In the <em>room.</em></h1>
+    <p>A documented record of the conversations, people, and moments shaping the future of AI and quantum — with context on who was there, what we discussed, and why it mattered.</p>
+  </div>
+</div>
+
+<nav class="event-nav">
+  <div class="event-nav-inner">
+    <a href="#wef2025" class="enl active"><span class="en-dot" style="background:#C9B8F0;"></span>WEF Davos 2025</a>
+    <a href="#tedxboston2025" class="enl"><span class="en-dot" style="background:#E84393;"></span>TEDxBoston 2025</a>
+    <a href="#dassault2025" class="enl"><span class="en-dot" style="background:#7B4FD4;"></span>Dassault 2025</a>
+    <a href="#harvardq2026" class="enl"><span class="en-dot" style="background:#6EC6FF;"></span>Harvard Quantum 2026</a>
+    <a href="#tedxmit2024" class="enl"><span class="en-dot" style="background:#FF6B4A;"></span>TEDxMIT 2024</a>
+    <a href="#mitai2023" class="enl"><span class="en-dot" style="background:#A855F7;"></span>MIT AI Week 2023</a>
+  </div>
+</nav>
+
+<div class="cloud-tip">
+  <span class="ci">☁️</span>
+  <p><strong>How to add photos without redeploying:</strong> Go to <a href="https://cloudinary.com" target="_blank">Cloudinary.com</a> → create a free account → upload any photo → copy the URL it gives you → paste it into <code>src=""</code> inside any <code>&lt;img&gt;</code> tag below. Done. No coding or redeployment needed.</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     WEF DAVOS 2025
+══════════════════════════════════════════ -->
+<section class="ev" id="wef2025">
+  <div class="ev-date">January 2025 · Davos, Switzerland</div>
+  <div class="ev-title">World Economic Forum — Davos 2025</div>
+  <p class="ev-desc">Five days at the crossroads of global capital, technology, and policy. I moved between the houses — each with its own distinct energy: the WSJ's calculated optimism, MIT's intellectual density, the AI House's feverish excitement, Saudi Arabia's trillion-dollar conviction, and CNBC's media pulse. Here's what I saw, and who I met.</p>
+
+  <!-- WSJ HOUSE -->
+  <div class="venue" id="wef-wsj">
+    <div class="venue-head">
+      <span class="vbadge" style="color:#E84393;border-color:rgba(232,67,147,0.3);background:rgba(232,67,147,0.07);">📰 WSJ House</span>
+      <span class="vsub">Wall Street Journal · Promenade</span>
+    </div>
+    <div class="pgrid">
+
+      <div class="pc">
+        <div class="pimg">
+          <!-- HOW TO ADD: upload to cloudinary.com → copy URL → replace # below with your URL -->
+          <img src="davos.jpg" alt="WSJ House Davos 2025">
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">WSJ House · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL in src=""</span></div>
+          <button class="pzoom" onclick="zoom(this)">⛶</button>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption — who's here and what was this moment</div>
+          <div class="pctx">Add 1–3 sentences about the conversation: what was discussed, what surprised you, why it matters.</div>
+          <div class="ptags"><a href="#" class="ptag">🔗 Person Name · Title / Org</a></div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pimg">
+          <!-- <img src="YOUR_URL" alt=""> -->
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">WSJ House · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL in src=""</span></div>
+          <button class="pzoom" onclick="zoom(this)">⛶</button>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption</div>
+          <div class="pctx">Add context about this moment.</div>
+          <div class="ptags"></div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pimg">
+          <!-- <img src="YOUR_URL" alt=""> -->
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">WSJ House · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL in src=""</span></div>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption</div>
+          <div class="pctx">Add context.</div>
+          <div class="ptags"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MIT HOUSE -->
+  <div class="venue" id="wef-mit">
+    <div class="venue-head">
+      <span class="vbadge" style="color:#7B4FD4;border-color:rgba(123,79,212,0.3);background:rgba(123,79,212,0.07);">🎓 MIT House</span>
+      <span class="vsub">Massachusetts Institute of Technology · Davos</span>
+    </div>
+    <div class="pgrid">
+
+      <!-- EXAMPLE: Erik Brynjolfsson — fill in your Cloudinary URL -->
+      <div class="pc feat">
+        <div class="pimg wide">
+          <!-- <img src="YOUR_CLOUDINARY_URL" alt="With Prof. Erik Brynjolfsson at MIT House, Davos 2025"> -->
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">With Prof. Erik Brynjolfsson · MIT House (featured)</span><span class="ph-url">upload to cloudinary → paste URL in src=""</span></div>
+          <button class="pzoom" onclick="zoom(this)">⛶</button>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">With Prof. Erik Brynjolfsson — MIT House, Davos 2025</div>
+          <div class="pctx">Prof. Brynjolfsson leads the Stanford Digital Economy Lab and is one of the most rigorous economists studying how AI reshapes labor markets. We discussed his "Turing Trap" thesis — the danger of building AI that replaces humans rather than augments them. His argument: the real opportunity is in human-AI collaboration, not substitution. A framing I keep coming back to when I think about what the AI era actually means for people.</div>
+          <div class="ptags">
+            <a href="https://digitaleconomy.stanford.edu/people/erik-brynjolfsson/" target="_blank" class="ptag">🔗 Prof. Erik Brynjolfsson · Stanford Digital Economy Lab</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pimg">
+          <!-- <img src="YOUR_URL" alt=""> -->
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT House · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL in src=""</span></div>
+          <button class="pzoom" onclick="zoom(this)">⛶</button>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption</div>
+          <div class="pctx">Add context about this moment at MIT House.</div>
+          <div class="ptags"></div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pimg">
+          <!-- <img src="YOUR_URL" alt=""> -->
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT House · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL in src=""</span></div>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption</div>
+          <div class="pctx">Add context.</div>
+          <div class="ptags"></div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pimg">
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT House · Photo 4</span><span class="ph-url">upload to cloudinary → paste URL</span></div>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption</div>
+          <div class="pctx">Add context.</div>
+          <div class="ptags"></div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pimg">
+          <div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT House · Photo 5</span><span class="ph-url">upload to cloudinary → paste URL</span></div>
+        </div>
+        <div class="pinfo">
+          <div class="pcap">✏️ Add caption</div>
+          <div class="pctx">Add context.</div>
+          <div class="ptags"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AI HOUSE -->
+  <div class="venue" id="wef-aihouse">
+    <div class="venue-head">
+      <span class="vbadge" style="color:#6EC6FF;border-color:rgba(110,198,255,0.35);background:rgba(110,198,255,0.08);">🤖 AI House</span>
+      <span class="vsub">Global AI & Tech Leaders · Davos</span>
+    </div>
+    <div class="pgrid">
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI House · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context about who you met at AI House and what the energy was like.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI House · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI House · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI House · Photo 4</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI House · Photo 5</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI House · Photo 6</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    </div>
+  </div>
+
+  <!-- SAUDI HOUSE -->
+  <div class="venue" id="wef-saudi">
+    <div class="venue-head">
+      <span class="vbadge" style="color:#FFB347;border-color:rgba(255,179,71,0.35);background:rgba(255,179,71,0.08);">🌙 Saudi House</span>
+      <span class="vsub">Kingdom of Saudi Arabia · Davos</span>
+    </div>
+    <div class="pgrid">
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Saudi House · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Saudi Arabia announced a $600B AI commitment at Davos. Add context about the energy here and who you connected with.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Saudi House · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Saudi House · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    </div>
+  </div>
+
+  <!-- CNBC HOUSE -->
+  <div class="venue" id="wef-cnbc">
+    <div class="venue-head">
+      <span class="vbadge" style="color:#FF6B4A;border-color:rgba(255,107,74,0.3);background:rgba(255,107,74,0.07);">📺 CNBC House</span>
+      <span class="vsub">CNBC Media Center · Promenade</span>
+    </div>
+    <div class="pgrid">
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">CNBC House · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context about CNBC House — who you ran into, what was being filmed or recorded, the conversations happening around you.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">CNBC House · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">CNBC House · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    </div>
+  </div>
+
+  <!-- IMPERIAL COLLEGE AI DINNER -->
+  <div class="venue" id="wef-imperial">
+    <div class="venue-head">
+      <span class="vbadge" style="color:#8AB4C2;border-color:rgba(138,180,194,0.35);background:rgba(138,180,194,0.08);">🎖 Imperial College AI Dinner</span>
+    </div>
+    <div class="pgrid">
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI Dinner · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context about the Imperial College AI Dinner — who was invited, the conversation threads, what surprised you.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI Dinner · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+      <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">AI Dinner · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TEDXBOSTON 2025
+══════════════════════════════════════════ -->
+<section class="ev" id="tedxboston2025">
+  <div class="ev-date">2025 · Boston, MA</div>
+  <div class="ev-title">TEDxBoston — Planet Action</div>
+  <p class="ev-desc">Three days spanning MIT CSAIL, the MIT Museum, and the New England Aquarium. Planet Action brought together scientists, technologists, and policymakers working on climate, biodiversity, and the role of AI in Earth systems. I attended as a participant — here's what I walked away with.</p>
+  <div class="pgrid">
+    <div class="pc feat"><div class="pimg wide"><div class="ph"><span class="ph-icon">🎤</span><span class="ph-label">TEDxBoston 2025 · Featured photo</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add your featured TEDxBoston caption</div><div class="pctx">Add the story behind this moment — who you were with, what had just been said, what you were thinking.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxBoston · MIT CSAIL day</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption — MIT CSAIL</div><div class="pctx">Add context about the MIT CSAIL day.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxBoston · MIT Museum</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption — MIT Museum</div><div class="pctx">Add context about the MIT Museum day.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxBoston · New England Aquarium</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption — Aquarium day</div><div class="pctx">Add context about day three.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxBoston · Photo 5</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DASSAULT 2025
+══════════════════════════════════════════ -->
+<section class="ev" id="dassault2025">
+  <div class="ev-date">2025 · Boston, MA</div>
+  <div class="ev-title">Dassault Systèmes Science Week</div>
+  <p class="ev-desc">A week at the intersection of AI, digital twins, and human longevity — led by CEO Bernard Charles and Chief Health Officer Claire Biot. Central thesis: virtual human models combined with AI could fundamentally transform medicine. I was there for the conversations on the business, capital, and ethical implications of that claim.</p>
+  <div class="pgrid">
+    <div class="pc feat"><div class="pimg wide"><div class="ph"><span class="ph-icon">🔬</span><span class="ph-label">Dassault Science Week · Featured</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add featured caption</div><div class="pctx">Add context about the moment, who's here, and what was being discussed.</div><div class="ptags"><a href="https://www.3ds.com/about-3ds/leadership/bernard-charles" target="_blank" class="ptag">🔗 Bernard Charles · CEO, Dassault Systèmes</a></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Dassault · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Dassault · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Dassault · Photo 4</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     HARVARD QUANTUM 2026
+══════════════════════════════════════════ -->
+<section class="ev" id="harvardq2026">
+  <div class="ev-date">2026 · Cambridge, MA</div>
+  <div class="ev-title">Harvard Quantum Symposium — Quantum & AI Impact Series</div>
+  <p class="ev-desc">A day inside Harvard's quantum research conversation — panels featuring Qblox, QuEra Computing, and IBM Quantum. The central question: are we at the quantum ENIAC moment? The researchers in the room were cautious. The investors were not. That tension is the most interesting signal to track right now.</p>
+  <div class="pgrid">
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">⚛</span><span class="ph-label">Harvard Quantum · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context — who was on the panel, what the key debate was, what you found most surprising about the discussion.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Harvard Quantum · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">Harvard Quantum · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TEDXMIT 2024
+══════════════════════════════════════════ -->
+<section class="ev" id="tedxmit2024">
+  <div class="ev-date">2024 · Cambridge, MA</div>
+  <div class="ev-title">TEDxMIT · MIT Sloan School of Management</div>
+  <p class="ev-desc">The event that coincided with Google's announcement of the Willow quantum chip. Prof. Daniela Rus, Director of MIT CSAIL, spoke on AI autonomy and human collaboration. Being in that room — with people who could actually decode what Willow meant — was exactly the kind of signal I try to translate into language everyone else can act on.</p>
+  <div class="pgrid">
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxMIT 2024 · Photo 1</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context about what you experienced at TEDxMIT — the atmosphere, specific talks, people you connected with.</div><div class="ptags"><a href="https://danielarus.csail.mit.edu/" target="_blank" class="ptag">🔗 Prof. Daniela Rus · Director, MIT CSAIL</a></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxMIT · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">TEDxMIT · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MIT GENERATIVE AI WEEK 2023
+══════════════════════════════════════════ -->
+<section class="ev" id="mitai2023">
+  <div class="ev-date">2023 · Cambridge, MA</div>
+  <div class="ev-title">MIT Generative AI Week — Imagination in Action</div>
+  <p class="ev-desc">The week that crystallized the shift. Sam Altman, Lex Fridman, Vinod Khosla, Stephen Wolfram, Joscha Bach — in the same rooms, on the same week, debating the same question: what happens when intelligence scales? I left with more questions than answers, which felt exactly right.</p>
+  <div class="pgrid">
+    <div class="pc feat"><div class="pimg wide"><div class="ph"><span class="ph-icon">🤖</span><span class="ph-label">MIT AI Week 2023 · Featured photo</span><span class="ph-url">upload to cloudinary → paste URL</span></div><button class="pzoom" onclick="zoom(this)">⛶</button></div><div class="pinfo"><div class="pcap">✏️ Add featured caption</div><div class="pctx">Add context about who you were with and what had just been said or decided.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT AI Week · Photo 2</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT AI Week · Photo 3</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+    <div class="pc"><div class="pimg"><div class="ph"><span class="ph-icon">📷</span><span class="ph-label">MIT AI Week · Photo 4</span><span class="ph-url">upload to cloudinary → paste URL</span></div></div><div class="pinfo"><div class="pcap">✏️ Add caption</div><div class="pctx">Add context.</div><div class="ptags"></div></div></div>
+  </div>
+</section>
+
+
+<!-- BOOK TEASER -->
+<section class="book-sec">
+  <div class="book-grid">
+    <div>
+      <div class="pill" style="background:rgba(255,107,74,0.1);border-color:rgba(255,107,74,0.2);color:var(--coral);margin-bottom:16px;">Coming Soon</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:-0.02em;">The book is <span style="background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;">coming.</span></h2>
+      <p style="color:var(--gray);font-size:1rem;line-height:1.8;max-width:440px;margin-bottom:28px;">A work in progress — on the decade we're living through: AI, quantum, capital, and what it means to be human in an era of machine cognition. More details soon.</p>
+      <div class="book-notify">
+        <input type="email" id="be" placeholder="your@email.com"/>
+        <button onclick="var e=document.getElementById('be').value;if(e){document.getElementById('bm').style.display='block';document.getElementById('be').value='';}">Notify me</button>
+      </div>
+      <div id="bm" style="display:none;margin-top:12px;font-size:0.85rem;color:var(--purple);font-weight:500;">✅ You're on the list!</div>
+      <p style="font-size:0.72rem;color:var(--gray-lt);margin-top:10px;">No spam. Just one email when it's ready.</p>
+    </div>
+    <div>
+      <div class="book-cover">
+        <div class="bci">
+          <div class="bc-tag">PRicapa.ai</div>
+          <div class="bc-title">Title<br/><em>coming soon</em></div>
+          <div class="bc-sub">Pricilla Ricapa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="gfooter">
+  <div class="gfooter-logo"><span class="pr">PR</span>icapa<span class="dot">.</span>ai</div>
+  <a href="index.html">← Back to main site</a>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="if(event.target===this)closeLb()">
+  <div class="lb-wrap">
+    <button class="lb-close" onclick="closeLb()">✕</button>
+    <img id="lbimg" src="" alt=""/>
+    <div class="lb-info">
+      <div class="lb-cap" id="lbcap"></div>
+      <div class="lb-ctx" id="lbctx"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Active nav on scroll
+const evs = document.querySelectorAll('.ev');
+const nls = document.querySelectorAll('.enl');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  evs.forEach(s => { if (window.scrollY >= s.offsetTop - 180) cur = s.id; });
+  nls.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+});
+
+// Lightbox
+function zoom(btn) {
+  const card = btn.closest('.pc');
+  const img = card.querySelector('.pimg img');
+  if (!img) return;
+  document.getElementById('lbimg').src = img.src;
+  document.getElementById('lbcap').textContent = card.querySelector('.pcap')?.textContent || '';
+  document.getElementById('lbctx').textContent = card.querySelector('.pctx')?.textContent || '';
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>
