@@ -17,7 +17,7 @@ export function GalleryTeaser() {
           <Link to={ev.to} className="event-preview-card" key={ev.to}>
             <div className="ep-thumb" style={{ background: ev.gradient }}>
               <span className="ep-year">{ev.year}</span>
-              <div className="ep-overlay"><div className="ep-icon">{ev.icon}</div></div>
+              {ev.image && <img src={ev.image} alt={ev.title} />}
             </div>
             <div className="ep-info">
               <div className="ep-label">{ev.label}</div>

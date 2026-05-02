@@ -2,7 +2,7 @@ export interface GalleryEvent {
   to: string;
   year: string;
   gradient: string;
-  icon: string;
+  image: string;
   label: string;
   title: string;
   sub: string;
@@ -14,7 +14,7 @@ export const galleryEvents: GalleryEvent[] = [
     to: "/gallery",
     year: "2026",
     gradient: "linear-gradient(135deg,#6EC6FF,#A855F7,#EC4899)",
-    icon: "🤖",
+    image: "/IIA-04-15-2025-V2.JPG",
     label: "2026 · Cambridge, MA",
     title: "MIT Imagination in Action",
     sub: "Leading in an Intelligent World",
@@ -24,7 +24,7 @@ export const galleryEvents: GalleryEvent[] = [
     to: "/gallery#wef2025",
     year: "2025",
     gradient: "linear-gradient(135deg,#1A1A2E,#2D1B6E)",
-    icon: "🌍",
+    image: "/WEF-01-01-2025-Profilepic.JPG",
     label: "Jan 2025 · Davos, Switzerland",
     title: "World Economic Forum — Davos 2025",
     sub: "WSJ House · MIT House · AI House · Saudi House · Imperial College AI Dinner",
@@ -34,7 +34,7 @@ export const galleryEvents: GalleryEvent[] = [
     to: "/gallery#tedxboston2025",
     year: "2025",
     gradient: "linear-gradient(135deg,#E84393,#FF6B4A)",
-    icon: "🎤",
+    image: "/TEDxBoston 11-16-2025.JPG",
     label: "2025 · Boston, MA",
     title: "TEDxBoston — Planet Action",
     sub: "MIT CSAIL · MIT Museum · New England Aquarium",
@@ -44,7 +44,7 @@ export const galleryEvents: GalleryEvent[] = [
     to: "/gallery#dassault2025",
     year: "2025",
     gradient: "linear-gradient(135deg,#7B4FD4,#6EC6FF)",
-    icon: "🔬",
+    image: "/ScienceWeekinBoston 31-10-2025.JPG",
     label: "2025 · Boston, MA",
     title: "Dassault Systèmes Science Week",
     sub: "AI, digital twins, human longevity",
@@ -54,7 +54,7 @@ export const galleryEvents: GalleryEvent[] = [
     to: "/gallery#tedxmit2024",
     year: "2024",
     gradient: "linear-gradient(135deg,#FF6B4A,#FFB347)",
-    icon: "⚛",
+    image: "/IIA-04-15-2025 - Profilepic.JPG",
     label: "2024 · Cambridge, MA",
     title: "TEDxMIT · MIT Sloan",
     sub: "Quantum vs. supercomputing · Google Willow",
