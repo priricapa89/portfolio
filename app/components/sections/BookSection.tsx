@@ -44,13 +44,12 @@ export function BookSection() {
                 buttonStyle={{
                   borderRadius: "0 40px 40px 0",
                   border: "none",
-                  padding: "13px 24px",
-                  background: "var(--grad-warm)",
+                  padding: "12px 22px",
+                  background: "var(--grad-soft)",
                   color: "#fff",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
+                  fontSize: "0.8rem",
+                  fontWeight: "600",
                   cursor: "pointer",
-                  whiteSpace: "nowrap",
                 }}
               />
             </div>
