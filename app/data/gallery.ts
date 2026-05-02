@@ -11,6 +11,16 @@ export interface GalleryEvent {
 
 export const galleryEvents: GalleryEvent[] = [
   {
+    to: "/gallery",
+    year: "2026",
+    gradient: "linear-gradient(135deg,#6EC6FF,#A855F7,#EC4899)",
+    icon: "🤖",
+    label: "2026 · Cambridge, MA",
+    title: "MIT Imagination in Action",
+    sub: "Leading in an Intelligent World",
+    count: "Forbes · MIT · Akamai",
+  },
+  {
     to: "/gallery#wef2025",
     year: "2025",
     gradient: "linear-gradient(135deg,#1A1A2E,#2D1B6E)",
@@ -49,15 +59,5 @@ export const galleryEvents: GalleryEvent[] = [
     title: "TEDxMIT · MIT Sloan",
     sub: "Quantum vs. supercomputing · Google Willow",
     count: "Daniela Rus",
-  },
-  {
-    to: "/gallery#mitai2023",
-    year: "2023",
-    gradient: "linear-gradient(135deg,#6EC6FF,#A855F7,#EC4899)",
-    icon: "🤖",
-    label: "2023 · Cambridge, MA",
-    title: "MIT Generative AI Week",
-    sub: "Imagination in Action",
-    count: "Sam Altman · Lex Fridman · Vinod Khosla",
   },
 ];
