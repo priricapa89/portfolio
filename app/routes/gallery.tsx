@@ -13,7 +13,7 @@ import { Lightbox } from "~/components/gallery/Lightbox/Lightbox";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Gallery — PRicapa.ai" },
+    { title: "Gallery — PRicapa.com" },
     {
       name: "description",
       content:
@@ -49,10 +49,15 @@ export default function Gallery() {
 
   useEffect(() => {
     document.body.style.overflow = lightbox ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [lightbox]);
 
-  const openLightbox = useCallback((state: LightboxState) => setLightbox(state), []);
+  const openLightbox = useCallback(
+    (state: LightboxState) => setLightbox(state),
+    [],
+  );
 
   return (
     <>

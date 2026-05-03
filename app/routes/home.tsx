@@ -16,7 +16,7 @@ import { ContactSection } from "~/components/sections/ContactSection/ContactSect
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "PRicapa.ai — AI & Quantum Strategist" },
+    { title: "PRicapa.com — AI & Quantum Strategist" },
     {
       name: "description",
       content:

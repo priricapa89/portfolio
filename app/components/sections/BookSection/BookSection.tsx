@@ -32,7 +32,7 @@ export function BookSection() {
           <div className="book-mockup">
             <div className="book-cover">
               <div className="book-cover-inner">
-                <div className="book-cover-tag">PRicapa.ai</div>
+                <div className="book-cover-tag">PRicapa.com</div>
                 <div className="book-cover-title">
                   Title
                   <br />
