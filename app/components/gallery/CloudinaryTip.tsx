@@ -1,3 +1,5 @@
+import "./CloudinaryTip.css";
+
 export function CloudinaryTip() {
   return (
     <div className="cloud-tip">

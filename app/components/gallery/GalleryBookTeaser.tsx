@@ -1,3 +1,4 @@
+import "./GalleryBookTeaser.css";
 import { useState } from "react";
 
 export function GalleryBookTeaser() {
@@ -8,16 +9,12 @@ export function GalleryBookTeaser() {
     <section className="book-sec">
       <div className="book-grid">
         <div>
-          <div className="pill" style={{ background: "rgba(255,107,74,0.1)", borderColor: "rgba(255,107,74,0.2)", color: "var(--coral)", marginBottom: 16 }}>
-            Coming Soon
-          </div>
-          <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "2rem", fontWeight: 700, color: "var(--navy)", marginBottom: 14, letterSpacing: "-0.02em" }}>
+          <div className="pill">Coming Soon</div>
+          <h2>
             The book is{" "}
-            <span style={{ background: "var(--grad-warm)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontStyle: "italic" }}>
-              coming.
-            </span>
+            <span className="warm-hl">coming.</span>
           </h2>
-          <p style={{ color: "var(--gray)", fontSize: "1rem", lineHeight: 1.8, maxWidth: 440, marginBottom: 28 }}>
+          <p className="book-sec-desc">
             A work in progress — on the decade we&apos;re living through: AI, quantum, capital,
             and what it means to be human in an era of machine cognition. More details soon.
           </p>
@@ -33,13 +30,9 @@ export function GalleryBookTeaser() {
             </button>
           </div>
           {submitted && (
-            <div style={{ marginTop: 12, fontSize: "0.85rem", color: "var(--purple)", fontWeight: 500 }}>
-              ✅ You&apos;re on the list!
-            </div>
+            <div className="book-sec-confirm">✅ You&apos;re on the list!</div>
           )}
-          <p style={{ fontSize: "0.72rem", color: "var(--gray-lt)", marginTop: 10 }}>
-            No spam. Just one email when it&apos;s ready.
-          </p>
+          <p className="book-sec-note">No spam. Just one email when it&apos;s ready.</p>
         </div>
         <div>
           <div className="book-cover-gal">

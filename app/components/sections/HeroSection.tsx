@@ -1,3 +1,5 @@
+import "./HeroSection.css";
+
 export function HeroSection() {
   return (
     <section className="hero" id="home">
@@ -14,7 +16,7 @@ export function HeroSection() {
         <p>
           I&apos;m an economist, MBA and technology strategist at the
           intersection of{" "}
-          <strong style={{ color: "var(--navy)" }}>
+          <strong>
             AI infrastructure, quantum computing, and capital markets
           </strong>
           . I translate the most complex technology shifts of our time into

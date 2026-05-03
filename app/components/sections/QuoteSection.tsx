@@ -1,3 +1,5 @@
+import "./QuoteSection.css";
+
 export function QuoteSection() {
   return (
     <div className="quote-section">

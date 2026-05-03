@@ -1,3 +1,4 @@
+import "./VenueBlock.css";
 import type { Venue, LightboxState } from "./types";
 import { PhotoGrid } from "./PhotoGrid";
 

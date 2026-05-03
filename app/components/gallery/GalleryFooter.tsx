@@ -1,3 +1,4 @@
+import "./GalleryFooter.css";
 import { Link } from "react-router";
 
 export function GalleryFooter() {

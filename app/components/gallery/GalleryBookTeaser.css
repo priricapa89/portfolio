@@ -1,0 +1,125 @@
+.book-sec {
+  background: var(--white);
+  padding: 72px 48px;
+  border-top: 1px solid rgba(123, 79, 212, 0.07);
+}
+.book-sec .pill {
+  background: rgba(255, 107, 74, 0.1);
+  border-color: rgba(255, 107, 74, 0.2);
+  color: var(--coral);
+  margin-bottom: 16px;
+}
+.book-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.book-sec h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+.book-sec-desc {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 28px;
+}
+.book-notify-gal {
+  display: flex;
+  margin-bottom: 10px;
+}
+.book-notify-gal input {
+  border-radius: 40px 0 0 40px;
+  border-right: none;
+  padding: 12px 18px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.88rem;
+  background: var(--bg);
+  border: 1.5px solid rgba(123, 79, 212, 0.16);
+  border-right: none;
+  outline: none;
+  color: var(--navy);
+  width: 230px;
+}
+.book-notify-gal input:focus {
+  border-color: var(--purple);
+}
+.book-notify-gal button {
+  border-radius: 0 40px 40px 0;
+  border: none;
+  padding: 12px 22px;
+  background: var(--grad-soft);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.book-sec-confirm {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--purple);
+  font-weight: 500;
+}
+.book-sec-note {
+  font-size: 0.72rem;
+  color: var(--gray-lt);
+  margin-top: 10px;
+}
+.book-cover-gal {
+  width: 190px;
+  height: 270px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2d1b6e, #7b4fd4, #e84393);
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 20px 60px rgba(45, 27, 110, 0.38);
+  transition: transform 0.3s;
+  cursor: default;
+}
+.book-cover-gal:hover {
+  transform: perspective(800px) rotateY(-6deg);
+}
+.bci {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px 22px;
+  width: 100%;
+}
+.bc-tag {
+  font-family: "DM Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(201, 184, 240, 0.65);
+}
+.bc-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.bc-title em {
+  color: #c9b8f0;
+  font-style: italic;
+}
+.bc-sub {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 960px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

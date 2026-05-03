@@ -1,11 +1,12 @@
+import "./SectionPill.css";
+
 interface SectionPillProps {
   children: React.ReactNode;
-  style?: React.CSSProperties;
 }
 
-export function SectionPill({ children, style }: SectionPillProps) {
+export function SectionPill({ children }: SectionPillProps) {
   return (
-    <div className="section-pill" style={style}>
+    <div className="section-pill">
       {children}
     </div>
   );

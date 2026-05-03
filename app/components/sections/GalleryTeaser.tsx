@@ -1,3 +1,4 @@
+import "./GalleryTeaser.css";
 import { Link } from "react-router";
 import { SectionPill } from "../ui/SectionPill";
 import { galleryEvents } from "~/data/gallery";
@@ -7,7 +8,7 @@ export function GalleryTeaser() {
     <section className="gallery" id="gallery">
       <SectionPill>Gallery</SectionPill>
       <h2>In the <em>room</em></h2>
-      <p style={{ color: "var(--gray)", fontSize: "1rem", maxWidth: 600, marginTop: -28, marginBottom: 40 }}>
+      <p className="gallery-intro">
         A photo diary of the conversations, events, and people shaping the future of AI and
         quantum — with context on who was there and what we talked about.
       </p>
@@ -29,12 +30,10 @@ export function GalleryTeaser() {
         ))}
 
         <Link to="/gallery" className="event-preview-card ep-more">
-          <div className="ep-thumb" style={{ background: "var(--bg3)" }}>
-            <div className="ep-overlay" style={{ background: "none" }}>
-              <div style={{ fontSize: "2.5rem", color: "var(--purple)" }}>+</div>
-              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--purple)", marginTop: 4 }}>
-                More events
-              </div>
+          <div className="ep-thumb">
+            <div className="ep-overlay">
+              <div className="ep-more-icon">+</div>
+              <div className="ep-more-label">More events</div>
             </div>
           </div>
           <div className="ep-info">
@@ -45,8 +44,8 @@ export function GalleryTeaser() {
         </Link>
       </div>
 
-      <div style={{ textAlign: "center", marginTop: 40 }}>
-        <Link to="/gallery" className="btn-primary" style={{ display: "inline-block" }}>
+      <div className="gallery-cta">
+        <Link to="/gallery" className="btn-primary">
           View full photo diary →
         </Link>
       </div>

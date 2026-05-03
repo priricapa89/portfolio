@@ -1,3 +1,4 @@
+import "./EventSection.css";
 import type { GalleryFullEvent, LightboxState } from "./types";
 import { VenueBlock } from "./VenueBlock";
 import { PhotoGrid } from "./PhotoGrid";

@@ -1,17 +1,14 @@
+import "./HumanistSISection.css";
 import { SectionPill } from "../ui/SectionPill";
 import { EmailSubscribeForm } from "../ui/EmailSubscribeForm";
 
 export function HumanistSISection() {
   return (
     <section className="humanist-si" id="humanist">
-      <SectionPill style={{ background: "rgba(255,107,74,0.09)", borderColor: "rgba(255,107,74,0.2)", color: "var(--coral)" }}>
-        Announcements
-      </SectionPill>
+      <SectionPill>Announcements</SectionPill>
       <h2>
         Towards{" "}
-        <em style={{ background: "var(--grad-warm)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          Humanist Superintelligence
-        </em>
+        <em>Humanist Superintelligence</em>
       </h2>
       <p className="hsi-intro">
         What happens to humanity when machines surpass us cognitively — and how do we make sure
@@ -51,10 +48,8 @@ export function HumanistSISection() {
       <div className="hsi-subscribe">
         <div className="hsi-subscribe-inner">
           <div>
-            <div style={{ fontFamily: "'Playfair Display',serif", fontSize: "1.3rem", fontWeight: 700, marginBottom: 8, color: "var(--navy)" }}>
-              Stay in the conversation
-            </div>
-            <p style={{ fontSize: "0.9rem", color: "var(--gray)", maxWidth: 380 }}>
+            <div className="hsi-subscribe-title">Stay in the conversation</div>
+            <p className="hsi-subscribe-desc">
               Get my latest thinking on AI, quantum, and Humanist Superintelligence — straight
               to your inbox.
             </p>
@@ -63,8 +58,6 @@ export function HumanistSISection() {
             <EmailSubscribeForm
               buttonLabel="Subscribe"
               confirmationMessage="✅ You're in! Watch your inbox."
-              inputStyle={{ borderRadius: "40px 0 0 40px", borderRight: "none", padding: "13px 20px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.9rem", background: "var(--white)", border: "1.5px solid rgba(123,79,212,0.18)", borderRightWidth: 0, outline: "none", color: "var(--navy)", width: 240 }}
-              buttonStyle={{ borderRadius: "0 40px 40px 0", border: "none", padding: "13px 24px", background: "var(--grad-warm)", color: "#fff", fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", whiteSpace: "nowrap" }}
             />
           </div>
         </div>
