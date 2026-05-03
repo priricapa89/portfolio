@@ -29,3 +29,6 @@ npm-debug.log*
 .idea/
 *.swp
 *.swo
+
+# misc
+/.claude
