@@ -1,4 +1,4 @@
-import "../layout/Nav.css";
+import "../../layout/Nav/Nav.css";
 import { Link } from "react-router";
 
 export function GalleryNav() {

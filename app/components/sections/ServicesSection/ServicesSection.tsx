@@ -1,5 +1,5 @@
 import "./ServicesSection.css";
-import { SectionPill } from "../ui/SectionPill";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
 
 const SERVICES = [
   {

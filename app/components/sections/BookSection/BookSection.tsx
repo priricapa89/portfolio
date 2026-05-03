@@ -1,6 +1,6 @@
 import "./BookSection.css";
-import { SectionPill } from "../ui/SectionPill";
-import { EmailSubscribeForm } from "../ui/EmailSubscribeForm";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { EmailSubscribeForm } from "../../ui/EmailSubscribeForm/EmailSubscribeForm";
 
 export function BookSection() {
   return (

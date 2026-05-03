@@ -1,7 +1,7 @@
 import "./EventSection.css";
-import type { GalleryFullEvent, LightboxState } from "./types";
-import { VenueBlock } from "./VenueBlock";
-import { PhotoGrid } from "./PhotoGrid";
+import type { GalleryFullEvent, LightboxState } from "../types";
+import { VenueBlock } from "../VenueBlock/VenueBlock";
+import { PhotoGrid } from "../PhotoGrid/PhotoGrid";
 
 export function EventSection({ event, onZoom }: { event: GalleryFullEvent; onZoom: (state: LightboxState) => void }) {
   return (

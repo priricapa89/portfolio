@@ -2,14 +2,14 @@ import { useState, useEffect, useCallback } from "react";
 import type { Route } from "./+types/gallery";
 import type { LightboxState } from "~/components/gallery/types";
 import { EVENTS, EVENT_NAV } from "~/components/gallery/data";
-import { GalleryNav } from "~/components/gallery/GalleryNav";
-import { GalleryHero } from "~/components/gallery/GalleryHero";
-import { EventStickyNav } from "~/components/gallery/EventStickyNav";
-import { CloudinaryTip } from "~/components/gallery/CloudinaryTip";
-import { EventSection } from "~/components/gallery/EventSection";
-import { GalleryBookTeaser } from "~/components/gallery/GalleryBookTeaser";
-import { GalleryFooter } from "~/components/gallery/GalleryFooter";
-import { Lightbox } from "~/components/gallery/Lightbox";
+import { GalleryNav } from "~/components/gallery/GalleryNav/GalleryNav";
+import { GalleryHero } from "~/components/gallery/GalleryHero/GalleryHero";
+import { EventStickyNav } from "~/components/gallery/EventStickyNav/EventStickyNav";
+import { CloudinaryTip } from "~/components/gallery/CloudinaryTip/CloudinaryTip";
+import { EventSection } from "~/components/gallery/EventSection/EventSection";
+import { GalleryBookTeaser } from "~/components/gallery/GalleryBookTeaser/GalleryBookTeaser";
+import { GalleryFooter } from "~/components/gallery/GalleryFooter/GalleryFooter";
+import { Lightbox } from "~/components/gallery/Lightbox/Lightbox";
 
 export function meta({}: Route.MetaArgs) {
   return [

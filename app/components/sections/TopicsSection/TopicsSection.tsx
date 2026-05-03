@@ -1,5 +1,5 @@
 import "./TopicsSection.css";
-import { SectionPill } from "../ui/SectionPill";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
 import { topics } from "~/data/topics";
 
 export function TopicsSection() {

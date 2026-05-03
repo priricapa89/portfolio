@@ -1,5 +1,5 @@
 import "./Lightbox.css";
-import type { LightboxState } from "./types";
+import type { LightboxState } from "../types";
 
 export function Lightbox({ state, onClose }: { state: LightboxState | null; onClose: () => void }) {
   if (!state) return null;

@@ -1,5 +1,5 @@
 import "./AboutSection.css";
-import { SectionPill } from "../ui/SectionPill";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
 
 const INDUSTRY_TAGS = [
   { label: "⚡ Oil & Gas · Energy", href: "https://www.repsol.com" },

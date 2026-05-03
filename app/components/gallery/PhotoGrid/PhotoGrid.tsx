@@ -1,6 +1,6 @@
 import "./PhotoGrid.css";
-import type { Photo, LightboxState } from "./types";
-import { PhotoCard } from "./PhotoCard";
+import type { Photo, LightboxState } from "../types";
+import { PhotoCard } from "../PhotoCard/PhotoCard";
 
 export function PhotoGrid({ photos, columns = 3, onZoom }: {
   photos: Photo[];

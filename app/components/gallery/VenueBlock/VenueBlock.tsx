@@ -1,6 +1,6 @@
 import "./VenueBlock.css";
-import type { Venue, LightboxState } from "./types";
-import { PhotoGrid } from "./PhotoGrid";
+import type { Venue, LightboxState } from "../types";
+import { PhotoGrid } from "../PhotoGrid/PhotoGrid";
 
 export function VenueBlock({ venue, onZoom }: { venue: Venue; onZoom: (state: LightboxState) => void }) {
   return (

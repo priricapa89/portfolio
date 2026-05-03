@@ -1,5 +1,5 @@
 import "./PhotoCard.css";
-import type { Photo, LightboxState } from "./types";
+import type { Photo, LightboxState } from "../types";
 
 export function PhotoCard({ photo, onZoom }: { photo: Photo; onZoom: (state: LightboxState) => void }) {
   const { imgSrc, imgAlt = "", icon = "📷", label, cap, ctx, tags = [], featured, wide } = photo;
