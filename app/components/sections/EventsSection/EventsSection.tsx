@@ -1,5 +1,5 @@
 import "./EventsSection.css";
-import { SectionPill } from "../ui/SectionPill";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
 import { events } from "~/data/events";
 
 export function EventsSection() {

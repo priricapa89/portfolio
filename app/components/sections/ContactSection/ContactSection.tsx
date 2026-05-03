@@ -1,6 +1,6 @@
 import "./ContactSection.css";
 import { useState } from "react";
-import { SectionPill } from "../ui/SectionPill";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
 
 export function ContactSection() {
   const [contactSent, setContactSent] = useState(false);

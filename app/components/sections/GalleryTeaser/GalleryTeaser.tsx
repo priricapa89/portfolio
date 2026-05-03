@@ -1,6 +1,6 @@
 import "./GalleryTeaser.css";
 import { Link } from "react-router";
-import { SectionPill } from "../ui/SectionPill";
+import { SectionPill } from "../../ui/SectionPill/SectionPill";
 import { galleryEvents } from "~/data/gallery";
 
 export function GalleryTeaser() {
