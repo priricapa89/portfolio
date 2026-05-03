@@ -1,0 +1,118 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 68px;
+  background: rgba(248, 247, 255, 0.76);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(123, 79, 212, 0.1);
+}
+.nav-logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.nav-logo .pr {
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+}
+.nav-logo .dot {
+  color: var(--magenta);
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--purple);
+}
+.nav-cta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 9px 22px;
+  background: var(--grad-soft);
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.lang-flags {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.1rem;
+  cursor: default;
+}
+.lang-flags span {
+  transition: transform 0.15s;
+  display: inline-block;
+}
+.lang-flags span:hover {
+  transform: scale(1.2);
+}
+nav.topnav {
+  background: rgba(248, 247, 255, 0.88);
+}
+.nav-back {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.nav-back:hover {
+  color: var(--magenta);
+}
+
+@media (max-width: 960px) {
+  nav {
+    padding: 0 20px;
+  }
+  .nav-links {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .lang-flags {
+    display: none;
+  }
+  .nav-cta {
+    padding: 7px 14px;
+    font-size: 0.75rem;
+  }
+}

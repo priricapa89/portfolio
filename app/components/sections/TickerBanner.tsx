@@ -1,3 +1,5 @@
+import "./TickerBanner.css";
+
 const TICKER_ITEMS = [
   "WEF Davos 2025",
   "MIT",

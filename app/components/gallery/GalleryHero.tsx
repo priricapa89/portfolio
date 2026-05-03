@@ -1,3 +1,5 @@
+import "./GalleryHero.css";
+
 export function GalleryHero() {
   return (
     <div className="page-hero">

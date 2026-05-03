@@ -1,0 +1,40 @@
+.cloud-tip {
+  margin: 36px 48px 0;
+  padding: 16px 22px;
+  background: rgba(123, 79, 212, 0.05);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(123, 79, 212, 0.13);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.cloud-tip .ci {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cloud-tip p {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.75;
+}
+.cloud-tip strong {
+  color: var(--purple);
+}
+.cloud-tip a {
+  color: var(--magenta);
+  font-weight: 600;
+  text-decoration: none;
+}
+.cloud-tip code {
+  background: rgba(123, 79, 212, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 960px) {
+  .cloud-tip {
+    margin: 24px 20px 0;
+  }
+}

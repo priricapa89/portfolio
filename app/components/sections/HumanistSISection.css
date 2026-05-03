@@ -1,0 +1,158 @@
+.humanist-si {
+  background: var(--white);
+  padding: 96px 48px;
+}
+.humanist-si .section-pill {
+  background: rgba(255, 107, 74, 0.09);
+  border-color: rgba(255, 107, 74, 0.2);
+  color: var(--coral);
+}
+.humanist-si h2 em {
+  background: var(--grad-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hsi-intro {
+  font-size: 1.05rem;
+  color: var(--gray);
+  line-height: 1.85;
+  max-width: 680px;
+  margin: -28px 0 48px;
+}
+.hsi-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.hsi-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border: 1.5px solid transparent;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.hsi-card:hover {
+  border-color: rgba(255, 107, 74, 0.25);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.hsi-featured {
+  background: linear-gradient(135deg, #fff8f5, #fff0fa);
+  border-color: rgba(255, 107, 74, 0.15);
+}
+.hsi-card-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 14px;
+}
+.hsi-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.hsi-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.hsi-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--coral);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.hsi-link:hover {
+  color: var(--magenta);
+}
+.hsi-subscribe {
+  background: linear-gradient(135deg, #fff8f5, #fef0ff);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  border: 1.5px solid rgba(255, 107, 74, 0.12);
+}
+.hsi-subscribe-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.hsi-subscribe-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+.hsi-subscribe-desc {
+  font-size: 0.9rem;
+  color: var(--gray);
+  max-width: 380px;
+}
+.hsi-form {
+  display: flex;
+}
+.hsi-form input {
+  border-radius: 40px 0 0 40px;
+  border-right: none;
+  padding: 13px 20px;
+  background: var(--white);
+  border: 1.5px solid rgba(123, 79, 212, 0.18);
+  width: 240px;
+}
+.hsi-form button {
+  border-radius: 0 40px 40px 0;
+  border: none;
+  padding: 13px 24px;
+  background: var(--grad-warm);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .humanist-si {
+    padding: 64px 24px;
+  }
+  .hsi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .humanist-si {
+    padding: 48px 16px;
+  }
+  .hsi-subscribe-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .hsi-form {
+    flex-direction: column;
+  }
+  .hsi-form input {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border-right: 1.5px solid rgba(123, 79, 212, 0.18);
+  }
+  .hsi-form button {
+    border-radius: var(--radius-sm);
+    width: 100%;
+  }
+}

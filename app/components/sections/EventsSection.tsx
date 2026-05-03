@@ -1,3 +1,4 @@
+import "./EventsSection.css";
 import { SectionPill } from "../ui/SectionPill";
 import { events } from "~/data/events";
 

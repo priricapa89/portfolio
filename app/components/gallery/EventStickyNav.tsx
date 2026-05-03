@@ -1,3 +1,4 @@
+import "./EventStickyNav.css";
 import type { EventNavItem } from "./types";
 
 export function EventStickyNav({ items, activeEvent }: { items: EventNavItem[]; activeEvent: string }) {

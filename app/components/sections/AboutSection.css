@@ -1,0 +1,127 @@
+.about {
+  background: var(--white);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-text p {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 18px;
+}
+.about-text strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+.about-text a {
+  color: var(--purple);
+  text-decoration: none;
+  font-weight: 500;
+}
+.about-text a:hover {
+  color: var(--magenta);
+  text-decoration: underline;
+}
+.ind-title {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-lt);
+  margin: 36px 0 14px;
+}
+.ind-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ind-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  border: 1.5px solid transparent;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.ind-tag:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  background: rgba(123, 79, 212, 0.05);
+  transform: translateY(-1px);
+}
+.ind-tag.nolink {
+  cursor: default;
+  pointer-events: none;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+.stat {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 24px 20px;
+  border: 1px solid rgba(123, 79, 212, 0.09);
+  text-align: center;
+}
+.stat-n {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  line-height: 1.1;
+}
+.stat-l {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-lt);
+  margin-top: 6px;
+  display: block;
+}
+.prifit-card {
+  background: linear-gradient(135deg, #f5f0ff, #ffeef6);
+  border-radius: var(--radius);
+  padding: 28px;
+  border: 1.5px solid rgba(232, 67, 147, 0.15);
+  margin-top: 40px;
+  box-shadow: var(--shadow-sm);
+}
+.prifit-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+.prifit-card p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,3 +1,4 @@
+import "./PhotoGrid.css";
 import type { Photo, LightboxState } from "./types";
 import { PhotoCard } from "./PhotoCard";
 

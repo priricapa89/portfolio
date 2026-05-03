@@ -1,3 +1,4 @@
+import "./ContactSection.css";
 import { useState } from "react";
 import { SectionPill } from "../ui/SectionPill";
 
@@ -51,11 +52,9 @@ export function ContactSection() {
             <textarea id="msg" placeholder="Tell me about your project or event…"></textarea>
           </div>
           {contactSent && (
-            <div style={{ padding: "16px 20px", background: "linear-gradient(135deg,#f0ebff,#ffe8f5)", borderRadius: 10, border: "1.5px solid rgba(123,79,212,0.2)", fontSize: "0.9rem", color: "var(--purple)", fontWeight: 500 }}>
+            <div className="contact-sent">
               ✅ Message sent! I&apos;ll get back to you within 48 hours. You can also email{" "}
-              <a href="mailto:pri.ricapa89@gmail.com" style={{ color: "var(--magenta)" }}>
-                pri.ricapa89@gmail.com
-              </a>{" "}
+              <a href="mailto:pri.ricapa89@gmail.com">pri.ricapa89@gmail.com</a>{" "}
               directly.
             </div>
           )}
@@ -64,7 +63,6 @@ export function ContactSection() {
               type="button"
               onClick={() => setContactSent(true)}
               className="btn-primary"
-              style={{ width: "fit-content", border: "none" }}
             >
               Send message
             </button>

@@ -1,3 +1,4 @@
+import "./SocialSection.css";
 import { SectionPill } from "../ui/SectionPill";
 
 // SVG icons kept inline — they're unique per platform and not reused elsewhere

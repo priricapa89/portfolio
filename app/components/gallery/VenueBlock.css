@@ -1,0 +1,28 @@
+.venue {
+  margin-bottom: 56px;
+}
+.venue-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(123, 79, 212, 0.09);
+}
+.vbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 40px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1.5px solid;
+}
+.vsub {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--gray-lt);
+}

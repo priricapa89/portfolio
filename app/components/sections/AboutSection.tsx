@@ -1,3 +1,4 @@
+import "./AboutSection.css";
 import { SectionPill } from "../ui/SectionPill";
 
 const INDUSTRY_TAGS = [

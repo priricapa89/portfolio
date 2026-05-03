@@ -1,3 +1,4 @@
+import "./PhotoCard.css";
 import type { Photo, LightboxState } from "./types";
 
 export function PhotoCard({ photo, onZoom }: { photo: Photo; onZoom: (state: LightboxState) => void }) {

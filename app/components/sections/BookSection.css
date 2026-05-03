@@ -1,0 +1,154 @@
+.book-section {
+  background: var(--white);
+  padding: 96px 48px;
+}
+.book-section .section-pill {
+  background: rgba(255, 107, 74, 0.1);
+  border-color: rgba(255, 107, 74, 0.2);
+  color: var(--coral);
+}
+.book-section h2 {
+  margin-bottom: 20px;
+}
+.book-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.book-section-desc {
+  color: var(--gray);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+.book-notify {
+  display: flex;
+}
+.book-notify input {
+  border-radius: 40px 0 0 40px;
+  border-right: none;
+  width: 260px;
+}
+.book-notify button {
+  border-radius: 0 40px 40px 0;
+  border: none;
+  padding: 12px 22px;
+  background: var(--grad-soft);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.book-section-note {
+  font-size: 0.75rem;
+  color: var(--gray-lt);
+  margin-top: 10px;
+}
+.book-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.book-cover {
+  width: 220px;
+  height: 300px;
+  border-radius: 4px 12px 12px 4px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b6e 50%, #7b4fd4 100%);
+  box-shadow:
+    8px 12px 40px rgba(45, 27, 110, 0.35),
+    -2px 0 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform: perspective(800px) rotateY(-8deg);
+  transition: transform 0.3s;
+}
+.book-cover:hover {
+  transform: perspective(800px) rotateY(-2deg);
+}
+.book-cover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  background: rgba(0, 0, 0, 0.25);
+}
+.book-cover-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 24px 24px 34px;
+}
+.book-cover-tag {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(201, 184, 240, 0.7);
+}
+.book-cover-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.book-cover-title em {
+  color: #c9b8f0;
+  font-style: italic;
+}
+.book-cover-sub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.5);
+}
+.book-cover-grad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, rgba(232, 67, 147, 0.3), transparent);
+}
+.book-shadow {
+  width: 180px;
+  height: 16px;
+  background: radial-gradient(ellipse, rgba(45, 27, 110, 0.3) 0%, transparent 70%);
+  margin-top: 8px;
+}
+
+@media (max-width: 960px) {
+  .book-section {
+    padding: 64px 24px;
+  }
+  .book-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .book-section {
+    padding: 48px 16px;
+  }
+  .book-notify {
+    flex-direction: column;
+  }
+  .book-notify input {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border-right: 1.5px solid rgba(123, 79, 212, 0.14);
+  }
+  .book-notify button {
+    border-radius: 40px;
+    width: 100%;
+  }
+}

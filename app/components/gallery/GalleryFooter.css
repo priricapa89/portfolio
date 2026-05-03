@@ -1,0 +1,39 @@
+.gfooter {
+  background: var(--navy);
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gfooter a {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+.gfooter a:hover {
+  color: #fff;
+}
+.gfooter-logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.gfooter-logo .pr {
+  color: var(--card-pur);
+  font-style: italic;
+}
+.gfooter-logo .dot {
+  color: var(--magenta);
+}
+
+@media (max-width: 960px) {
+  .gfooter {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px 20px;
+  }
+}

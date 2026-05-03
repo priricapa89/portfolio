@@ -1,0 +1,9 @@
+.subscribe-form {
+  display: flex;
+}
+.subscribe-confirmation {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--purple);
+  font-weight: 500;
+}

@@ -1,3 +1,4 @@
+import "./BookSection.css";
 import { SectionPill } from "../ui/SectionPill";
 import { EmailSubscribeForm } from "../ui/EmailSubscribeForm";
 
@@ -6,27 +7,11 @@ export function BookSection() {
     <section className="book-section" id="book">
       <div className="book-inner">
         <div className="book-left">
-          <SectionPill
-            style={{
-              background: "rgba(255,107,74,0.10)",
-              borderColor: "rgba(255,107,74,0.2)",
-              color: "var(--coral)",
-            }}
-          >
-            Coming Soon
-          </SectionPill>
-          <h2 style={{ marginBottom: 20 }}>
+          <SectionPill>Coming Soon</SectionPill>
+          <h2>
             The book is <span className="warm-hl">coming.</span>
           </h2>
-          <p
-            style={{
-              color: "var(--gray)",
-              fontSize: "1.05rem",
-              lineHeight: 1.8,
-              maxWidth: 480,
-              marginBottom: 32,
-            }}
-          >
+          <p className="book-section-desc">
             A work in progress — on the decade we&apos;re living through: AI,
             quantum, capital, and what it means to be human in an era of machine
             cognition. More details soon.
@@ -36,30 +21,9 @@ export function BookSection() {
               <EmailSubscribeForm
                 buttonLabel="Notify me"
                 confirmationMessage="✅ You're on the list! I'll reach out when it's ready."
-                inputStyle={{
-                  borderRadius: "40px 0 0 40px",
-                  borderRight: "none",
-                  width: 260,
-                }}
-                buttonStyle={{
-                  borderRadius: "0 40px 40px 0",
-                  border: "none",
-                  padding: "12px 22px",
-                  background: "var(--grad-soft)",
-                  color: "#fff",
-                  fontSize: "0.8rem",
-                  fontWeight: "600",
-                  cursor: "pointer",
-                }}
               />
             </div>
-            <p
-              style={{
-                fontSize: "0.75rem",
-                color: "var(--gray-lt)",
-                marginTop: 10,
-              }}
-            >
+            <p className="book-section-note">
               No spam. Just one email when the book is ready.
             </p>
           </div>
