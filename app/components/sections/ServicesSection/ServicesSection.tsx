@@ -1,5 +1,5 @@
 import "./ServicesSection.css";
-import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 
 const SERVICES = [
   {
@@ -31,8 +31,10 @@ const SERVICES = [
 export function ServicesSection() {
   return (
     <section className="services" id="services">
-      <SectionPill>Work with me</SectionPill>
-      <h2>Three ways to <span className="warm-hl">collaborate</span></h2>
+      <SectionHeader
+        pill="Work with me"
+        heading={<>Three ways to <span className="warm-hl">collaborate</span></>}
+      />
       <div className="services-grid">
         {SERVICES.map((svc) => (
           <div className="svc-card" key={svc.title}>

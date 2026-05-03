@@ -12,13 +12,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.hsi-intro {
-  font-size: 1.05rem;
-  color: var(--gray);
-  line-height: 1.85;
-  max-width: 680px;
-  margin: -28px 0 48px;
-}
 .hsi-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr;

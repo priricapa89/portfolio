@@ -1,5 +1,6 @@
 import "./AboutSection.css";
 import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { TagList } from "../../ui/TagList/TagList";
 
 const INDUSTRY_TAGS = [
   { label: "⚡ Oil & Gas · Energy", href: "https://www.repsol.com" },
@@ -7,6 +8,11 @@ const INDUSTRY_TAGS = [
   { label: "💡 Photonics · Deep Tech", href: "https://www.lumentum.com" },
   { label: "🚛 Automotive · Volvo Group", href: "https://www.volvogroup.com" },
   { label: "📈 Finance · JRC", href: "https://jrc.com.pe/en/home/" },
+  { label: "◈ AI · Enterprise Tech" },
+  { label: "📊 Capital Markets · IR" },
+  { label: "🏋️ Fitness · Apparel" },
+  { label: "🏗 Steel · Construction" },
+  { label: "🌎 LatAm Strategy" },
 ];
 
 const STATS = [
@@ -92,18 +98,12 @@ export function AboutSection() {
             </a>
           </p>
           <div className="ind-title">Industries I&apos;ve worked across</div>
-          <div className="ind-tags">
-            {INDUSTRY_TAGS.map(({ label, href }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" className="ind-tag">
-                {label}
-              </a>
-            ))}
-            <span className="ind-tag nolink">◈ AI · Enterprise Tech</span>
-            <span className="ind-tag nolink">📊 Capital Markets · IR</span>
-            <span className="ind-tag nolink">🏋️ Fitness · Apparel</span>
-            <span className="ind-tag nolink">🏗 Steel · Construction</span>
-            <span className="ind-tag nolink">🌎 LatAm Strategy</span>
-          </div>
+          <TagList
+            tags={INDUSTRY_TAGS}
+            className="ind-tags"
+            tagClassName="ind-tag"
+            noLinkClassName="nolink"
+          />
         </div>
         <div>
           <div className="prifit-card">

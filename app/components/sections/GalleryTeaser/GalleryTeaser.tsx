@@ -1,17 +1,16 @@
 import "./GalleryTeaser.css";
 import { Link } from "react-router";
-import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 import { galleryEvents } from "~/data/gallery";
 
 export function GalleryTeaser() {
   return (
     <section className="gallery" id="gallery">
-      <SectionPill>Gallery</SectionPill>
-      <h2>In the <em>room</em></h2>
-      <p className="gallery-intro">
-        A photo diary of the conversations, events, and people shaping the future of AI and
-        quantum — with context on who was there and what we talked about.
-      </p>
+      <SectionHeader
+        pill="Gallery"
+        heading={<>In the <em>room</em></>}
+        intro="A photo diary of the conversations, events, and people shaping the future of AI and quantum — with context on who was there and what we talked about."
+      />
 
       <div className="event-preview-grid">
         {galleryEvents.map((ev) => (

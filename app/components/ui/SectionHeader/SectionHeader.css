@@ -1,0 +1,7 @@
+.section-intro {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.85;
+  max-width: 620px;
+  margin: -28px 0 44px;
+}

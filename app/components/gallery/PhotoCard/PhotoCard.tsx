@@ -1,5 +1,6 @@
 import "./PhotoCard.css";
 import type { Photo, LightboxState } from "../types";
+import { TagList } from "../../ui/TagList/TagList";
 
 export function PhotoCard({ photo, onZoom }: { photo: Photo; onZoom: (state: LightboxState) => void }) {
   const { imgSrc, imgAlt = "", icon = "📷", label, cap, ctx, tags = [], featured, wide } = photo;
@@ -26,15 +27,7 @@ export function PhotoCard({ photo, onZoom }: { photo: Photo; onZoom: (state: Lig
         <div className="pcap">{cap}</div>
         <div className="pctx">{ctx}</div>
         {tags.length > 0 && (
-          <div className="ptags">
-            {tags.map((tag, i) =>
-              tag.href ? (
-                <a key={i} href={tag.href} target="_blank" rel="noreferrer" className="ptag">{tag.label}</a>
-              ) : (
-                <span key={i} className="ptag">{tag.label}</span>
-              )
-            )}
-          </div>
+          <TagList tags={tags} className="ptags" tagClassName="ptag" />
         )}
       </div>
     </div>

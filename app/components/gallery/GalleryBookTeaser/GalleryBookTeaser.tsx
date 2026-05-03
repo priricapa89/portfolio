@@ -1,10 +1,7 @@
 import "./GalleryBookTeaser.css";
-import { useState } from "react";
+import { EmailSubscribeForm } from "../../ui/EmailSubscribeForm/EmailSubscribeForm";
 
 export function GalleryBookTeaser() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
   return (
     <section className="book-sec">
       <div className="book-grid">
@@ -19,19 +16,11 @@ export function GalleryBookTeaser() {
             and what it means to be human in an era of machine cognition. More details soon.
           </p>
           <div className="book-notify-gal">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+            <EmailSubscribeForm
+              buttonLabel="Notify me"
+              confirmationMessage="✅ You're on the list!"
             />
-            <button onClick={() => { if (email) { setSubmitted(true); setEmail(""); } }}>
-              Notify me
-            </button>
           </div>
-          {submitted && (
-            <div className="book-sec-confirm">✅ You&apos;re on the list!</div>
-          )}
           <p className="book-sec-note">No spam. Just one email when it&apos;s ready.</p>
         </div>
         <div>

@@ -1,12 +1,14 @@
 import "./EventsSection.css";
-import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 import { events } from "~/data/events";
 
 export function EventsSection() {
   return (
     <section className="events" id="events">
-      <SectionPill>Events &amp; Community</SectionPill>
-      <h2>Where I&apos;ve been <em>in the room</em></h2>
+      <SectionHeader
+        pill="Events & Community"
+        heading={<>Where I&apos;ve been <em>in the room</em></>}
+      />
       <div className="events-list">
         {events.map((ev, i) => (
           <div className="event-row" key={i}>

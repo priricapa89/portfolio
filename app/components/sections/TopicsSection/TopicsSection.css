@@ -1,12 +1,6 @@
 .topics {
   background: var(--white);
 }
-.topics-intro {
-  margin: -28px 0 40px;
-  color: var(--gray);
-  font-size: 1rem;
-  max-width: 580px;
-}
 .topics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

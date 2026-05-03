@@ -1,13 +1,6 @@
 .gallery {
   background: var(--bg2);
 }
-.gallery-intro {
-  color: var(--gray);
-  font-size: 1rem;
-  max-width: 600px;
-  margin-top: -28px;
-  margin-bottom: 40px;
-}
 .gallery-mosaic {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

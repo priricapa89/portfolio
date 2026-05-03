@@ -1,10 +1,11 @@
 import "./Nav.css";
+import { LogoBrand } from "../../ui/LogoBrand/LogoBrand";
 
 export function Nav() {
   return (
     <nav>
       <a href="#" className="nav-logo">
-        <span className="pr">PR</span>icapa<span className="dot">.</span>ai
+        <LogoBrand />
       </a>
       <ul className="nav-links">
         <li><a href="#about">About</a></li>

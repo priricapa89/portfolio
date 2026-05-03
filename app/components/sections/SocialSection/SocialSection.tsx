@@ -1,5 +1,5 @@
 import "./SocialSection.css";
-import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 
 // SVG icons kept inline — they're unique per platform and not reused elsewhere
 function LinkedInIcon() {
@@ -61,8 +61,7 @@ const SOCIAL_CARDS = [
 export function SocialSection() {
   return (
     <section className="social-section" id="social">
-      <SectionPill>Connect</SectionPill>
-      <h2>Find me <em>everywhere</em></h2>
+      <SectionHeader pill="Connect" heading={<>Find me <em>everywhere</em></>} />
       <div className="social-grid">
         {SOCIAL_CARDS.map(({ href, cardClass, Icon, platform, handle }) => (
           <a

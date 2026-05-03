@@ -1,21 +1,15 @@
 import "./HumanistSISection.css";
-import { SectionPill } from "../../ui/SectionPill/SectionPill";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 import { EmailSubscribeForm } from "../../ui/EmailSubscribeForm/EmailSubscribeForm";
 
 export function HumanistSISection() {
   return (
     <section className="humanist-si" id="humanist">
-      <SectionPill>Announcements</SectionPill>
-      <h2>
-        Towards{" "}
-        <em>Humanist Superintelligence</em>
-      </h2>
-      <p className="hsi-intro">
-        What happens to humanity when machines surpass us cognitively — and how do we make sure
-        that transition serves human flourishing, not just efficiency? This is the thread I&apos;m
-        pulling on. A growing body of work at the intersection of AI capabilities, ethics, and
-        what I call humanist design.
-      </p>
+      <SectionHeader
+        pill="Announcements"
+        heading={<>Towards <em>Humanist Superintelligence</em></>}
+        intro="What happens to humanity when machines surpass us cognitively — and how do we make sure that transition serves human flourishing, not just efficiency? This is the thread I'm pulling on. A growing body of work at the intersection of AI capabilities, ethics, and what I call humanist design."
+      />
 
       <div className="hsi-grid">
         <div className="hsi-card hsi-featured">
