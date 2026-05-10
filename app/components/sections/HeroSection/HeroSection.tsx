@@ -1,51 +1,58 @@
 import { useState } from "react";
 import "./HeroSection.css";
+import { ContactModal } from "../../ui/ContactModal/ContactModal";
 
 export function HeroSection() {
   const [open, setOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <section className="hero" id="home">
-      <img
-        className="hero-bg-img"
-        src="/main-image.JPG"
-        alt="Pricilla Ricapa"
-      />
-      <div className={`hero-glass-card${open ? " is-open" : ""}`}>
-        <div
-          className="hero-card-header"
-          onClick={() => setOpen((o) => !o)}
-          role="button"
-          tabIndex={0}
-          aria-expanded={open}
-          onKeyDown={(e) => e.key === "Enter" || e.key === " " ? setOpen((o) => !o) : undefined}
-        >
-          <h1>
-            Making the <span className="hl">AI × Quantum</span> era legible for{" "}
-            <span className="hl2">everyone</span>
-          </h1>
-          <span className="hero-chevron" aria-hidden="true" />
-        </div>
-        <div className="hero-card-body">
-          <p>
-            I&apos;m an economist, MBA and technology strategist at the
-            intersection of{" "}
-            <strong>
-              AI infrastructure, quantum computing, and capital markets
-            </strong>
-            . I translate the most complex technology shifts of our time into
-            strategic clarity — for leaders, investors, and curious minds.
-          </p>
-          <div className="hero-btns">
-            <a href="#contact" className="btn-primary">
-              Work with me
-            </a>
-            <a href="#topics" className="btn-ghost">
-              Read my work →
-            </a>
+    <>
+      <section className="hero" id="home">
+        <img
+          className="hero-bg-img"
+          src="/main-image.JPG"
+          alt="Pricilla Ricapa"
+        />
+        <div className={`hero-glass-card${open ? " is-open" : ""}`}>
+          <div
+            className="hero-card-header"
+            onClick={() => setOpen((o) => !o)}
+            role="button"
+            tabIndex={0}
+            aria-expanded={open}
+            onKeyDown={(e) =>
+              e.key === "Enter" || e.key === " " ? setOpen((o) => !o) : undefined
+            }
+          >
+            <h1>
+              Making the <span className="hl">AI × Quantum</span> era legible for{" "}
+              <span className="hl2">everyone</span>
+            </h1>
+            <span className="hero-chevron" aria-hidden="true" />
+          </div>
+          <div className="hero-card-body">
+            <p>
+              I&apos;m an economist, MBA and technology strategist at the
+              intersection of{" "}
+              <strong>
+                AI infrastructure, quantum computing, and capital markets
+              </strong>
+              . I translate the most complex technology shifts of our time into
+              strategic clarity — for leaders, investors, and curious minds.
+            </p>
+            <div className="hero-btns">
+              <button className="btn-primary" onClick={() => setContactOpen(true)}>
+                Work with me
+              </button>
+              <a href="#topics" className="btn-ghost">
+                Read my work →
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      {contactOpen && <ContactModal onClose={() => setContactOpen(false)} />}
+    </>
   );
 }

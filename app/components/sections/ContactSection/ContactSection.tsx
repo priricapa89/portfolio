@@ -1,9 +1,11 @@
 import "./ContactSection.css";
-import { useState } from "react";
+import { useFetcher } from "react-router";
 import { SectionPill } from "../../ui/SectionPill/SectionPill";
 
 export function ContactSection() {
-  const [contactSent, setContactSent] = useState(false);
+  const fetcher = useFetcher();
+  const submitted = fetcher.data?.success === true;
+  const submitting = fetcher.state !== "idle";
 
   return (
     <section className="contact" id="contact">
@@ -21,24 +23,24 @@ export function ContactSection() {
             <a href="https://www.instagram.com/pri_ricapa/" target="_blank" rel="noreferrer" className="contact-link">Instagram — @pri_ricapa</a>
           </div>
         </div>
-        <div className="contact-form">
+        <fetcher.Form method="post" action="/api/contact" className="contact-form">
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="fn">First name</label>
-              <input type="text" id="fn" placeholder="Jane" />
+              <input type="text" id="fn" name="firstName" placeholder="Jane" required />
             </div>
             <div className="form-group">
               <label htmlFor="ln">Last name</label>
-              <input type="text" id="ln" placeholder="Smith" />
+              <input type="text" id="ln" name="lastName" placeholder="Smith" />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="em">Email</label>
-            <input type="email" id="em" placeholder="jane@company.com" />
+            <input type="email" id="em" name="email" placeholder="jane@company.com" required />
           </div>
           <div className="form-group">
             <label htmlFor="int">I&apos;m interested in</label>
-            <select id="int">
+            <select id="int" name="interest">
               <option value="">Select…</option>
               <option>Speaking / Panel</option>
               <option>Strategic Advisory</option>
@@ -49,25 +51,25 @@ export function ContactSection() {
           </div>
           <div className="form-group">
             <label htmlFor="msg">Message</label>
-            <textarea id="msg" placeholder="Tell me about your project or event…"></textarea>
+            <textarea id="msg" name="message" placeholder="Tell me about your project or event…" required />
           </div>
-          {contactSent && (
+          {fetcher.data?.error && (
+            <div className="contact-sent" style={{ borderColor: "rgba(232,67,147,0.3)", color: "var(--magenta)" }}>
+              {fetcher.data.error}
+            </div>
+          )}
+          {submitted ? (
             <div className="contact-sent">
               ✅ Message sent! I&apos;ll get back to you within 48 hours. You can also email{" "}
               <a href="mailto:pri.ricapa89@gmail.com">pri.ricapa89@gmail.com</a>{" "}
               directly.
             </div>
-          )}
-          {!contactSent && (
-            <button
-              type="button"
-              onClick={() => setContactSent(true)}
-              className="btn-primary"
-            >
-              Send message
+          ) : (
+            <button type="submit" className="btn-primary" disabled={submitting}>
+              {submitting ? "Sending…" : "Send message"}
             </button>
           )}
-        </div>
+        </fetcher.Form>
       </div>
     </section>
   );

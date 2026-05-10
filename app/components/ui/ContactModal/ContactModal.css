@@ -1,0 +1,162 @@
+.cmodal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 40, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.cmodal {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  max-width: 740px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: cmodal-in 0.22s ease;
+}
+@keyframes cmodal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.cmodal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.07);
+  color: var(--gray);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  z-index: 1;
+}
+.cmodal-close:hover {
+  background: rgba(0, 0, 0, 0.14);
+  color: var(--navy);
+}
+.cmodal-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+.cmodal-info {
+  padding: 44px 32px;
+  background: var(--bg);
+  border-radius: var(--radius) 0 0 var(--radius);
+  border-right: 1px solid rgba(123, 79, 212, 0.08);
+}
+.cmodal-info h2 {
+  font-size: 1.55rem;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  color: var(--navy);
+}
+.cmodal-info h2 em {
+  font-style: italic;
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cmodal-info p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.cmodal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cmodal-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--purple);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.15s;
+}
+.cmodal-links a::before {
+  content: "→";
+  color: var(--magenta);
+}
+.cmodal-links a:hover {
+  color: var(--magenta);
+}
+.cmodal-form {
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cmodal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cmodal-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.cmodal-error {
+  font-size: 0.82rem;
+  color: var(--magenta);
+  margin: 0;
+}
+.cmodal-sent {
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #f0ebff, #ffe8f5);
+  border-radius: 10px;
+  border: 1.5px solid rgba(123, 79, 212, 0.2);
+  font-size: 0.88rem;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .cmodal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .cmodal {
+    max-height: 92svh;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .cmodal-inner {
+    grid-template-columns: 1fr;
+  }
+  .cmodal-info {
+    padding: 32px 24px 24px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(123, 79, 212, 0.08);
+  }
+  .cmodal-form {
+    padding: 24px 24px 36px;
+  }
+  .cmodal-row {
+    grid-template-columns: 1fr;
+  }
+}
