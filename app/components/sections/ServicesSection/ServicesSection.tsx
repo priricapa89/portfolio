@@ -1,5 +1,6 @@
 import "./ServicesSection.css";
 import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
+import { useContactModal } from "../../ui/ContactModal/ContactModalContext";
 
 const SERVICES = [
   {
@@ -7,16 +8,14 @@ const SERVICES = [
     title: "Speaking & Panels",
     body: "I speak on AI infrastructure economics, quantum strategy, and the intelligence era for business leaders. Clear, substantive, built for decision-makers — not hype. Available for conferences, corporate events, and panels.",
     cta: "Book me →",
-    href: "#contact",
-    external: false,
+    modal: true,
   },
   {
     icon: "⚙️",
     title: "Strategic Advisory",
     body: "1:1 or team sessions to build real frameworks for understanding quantum timelines, AI infrastructure positioning, and capital allocation strategy. Particularly useful for investors and C-suite.",
     cta: "Let's talk →",
-    href: "#contact",
-    external: false,
+    modal: true,
   },
   {
     icon: "✍️",
@@ -24,11 +23,13 @@ const SERVICES = [
     body: "Written analysis, short-form video explainers, and workshops. I make frontier technology legible for investors, executives, and professionals — published weekly on LinkedIn.",
     cta: "Follow my work →",
     href: "https://www.linkedin.com/in/pricilla-ricapa/",
-    external: true,
+    modal: false,
   },
 ];
 
 export function ServicesSection() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="services" id="services">
       <SectionHeader
@@ -41,13 +42,11 @@ export function ServicesSection() {
             <div className="svc-icon-wrap">{svc.icon}</div>
             <h3>{svc.title}</h3>
             <p>{svc.body}</p>
-            <a
-              href={svc.href}
-              className="svc-link"
-              {...(svc.external ? { target: "_blank", rel: "noreferrer" } : {})}
-            >
-              {svc.cta}
-            </a>
+            {svc.modal ? (
+              <button className="svc-link" onClick={openContactModal}>{svc.cta}</button>
+            ) : (
+              <a href={svc.href} className="svc-link" target="_blank" rel="noreferrer">{svc.cta}</a>
+            )}
           </div>
         ))}
       </div>

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./HeroSection.css";
-import { ContactModal } from "../../ui/ContactModal/ContactModal";
+import { useContactModal } from "../../ui/ContactModal/ContactModalContext";
 
 export function HeroSection() {
   const [open, setOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
+  const { openContactModal } = useContactModal();
 
   return (
     <>
@@ -42,7 +42,7 @@ export function HeroSection() {
               strategic clarity — for leaders, investors, and curious minds.
             </p>
             <div className="hero-btns">
-              <button className="btn-primary" onClick={() => setContactOpen(true)}>
+              <button className="btn-primary" onClick={openContactModal}>
                 Work with me
               </button>
               <a href="#topics" className="btn-ghost">
@@ -52,7 +52,6 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-      {contactOpen && <ContactModal onClose={() => setContactOpen(false)} />}
     </>
   );
 }
