@@ -32,8 +32,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: "Email",
-    handle: "pri.ricapa89@gmail.com",
-    href: "mailto:pri.ricapa89@gmail.com",
+    handle: "pricilla@pricapa.com",
+    href: "pricilla@pricapa.com",
     cardClass: "soc-mail",
   },
 ];

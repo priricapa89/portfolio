@@ -18,7 +18,7 @@ export function ContactSection() {
             content — I&apos;d love to hear from you. I typically respond within 48 hours.
           </p>
           <div className="contact-links">
-            <a href="mailto:pri.ricapa89@gmail.com" className="contact-link">pri.ricapa89@gmail.com</a>
+            <a href="mailto:pricilla@pricapa.com" className="contact-link">pricilla@pricapa.com</a>
             <a href="https://www.linkedin.com/in/pricilla-ricapa/" target="_blank" rel="noreferrer" className="contact-link">LinkedIn — Pricilla Ricapa</a>
             <a href="https://www.instagram.com/pri_ricapa/" target="_blank" rel="noreferrer" className="contact-link">Instagram — @pri_ricapa</a>
           </div>
@@ -61,7 +61,7 @@ export function ContactSection() {
           {submitted ? (
             <div className="contact-sent">
               ✅ Message sent! I&apos;ll get back to you within 48 hours. You can also email{" "}
-              <a href="mailto:pri.ricapa89@gmail.com">pri.ricapa89@gmail.com</a>{" "}
+              <a href="mailto:pricilla@pricapa.com">pricilla@pricapa.com</a>{" "}
               directly.
             </div>
           ) : (

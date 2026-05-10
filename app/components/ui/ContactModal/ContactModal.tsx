@@ -45,7 +45,6 @@ export function ContactModal({ onClose }: ContactModalProps) {
               typically respond within 48 hours.
             </p>
             <div className="cmodal-links">
-              <a href="mailto:pri.ricapa89@gmail.com">pri.ricapa89@gmail.com</a>
               <a
                 href="https://www.linkedin.com/in/pricilla-ricapa/"
                 target="_blank"
