@@ -1,0 +1,260 @@
+.ccb-shape {
+  background: var(--pr-cream);
+}
+
+.ccb-shape-head {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+.ccb .ccb-shape-h {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+.ccb .ccb-shape-sub {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ccb-shape-disclaimer {
+  max-width: 700px;
+  margin: 0 auto 36px;
+}
+
+/* ── Form ── */
+.ccb-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--pr-cream-2);
+  border: 1px solid var(--pr-line-strong);
+  border-radius: 0;
+  padding: 40px;
+}
+.ccb-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.ccb-field {
+  margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ccb-form label,
+.ccb-fieldset legend {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--pr-ink);
+  line-height: 1.45;
+}
+.ccb .ccb-hint {
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--pr-ink-soft);
+  margin: -2px 0 4px;
+}
+
+.ccb-form input[type="text"],
+.ccb-form input[type="email"],
+.ccb-form textarea {
+  background: #fff;
+  border: 1px solid var(--pr-line-strong);
+  border-radius: 0;
+  color: var(--pr-ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  padding: 13px 15px;
+  width: 100%;
+}
+.ccb-form input:focus,
+.ccb-form textarea:focus {
+  border-color: var(--pr-rose-deep);
+  box-shadow: 0 0 0 3px rgba(156, 91, 78, 0.16);
+  outline: none;
+}
+.ccb-form textarea {
+  min-height: 0;
+  resize: vertical;
+}
+
+/* ── Choice chips (radio + checkbox) ── */
+.ccb-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 26px;
+}
+.ccb-fieldset legend {
+  padding: 0;
+  margin-bottom: 12px;
+}
+.ccb-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.ccb-choice {
+  position: relative;
+}
+.ccb-choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.ccb-choice label {
+  display: inline-block;
+  padding: 10px 17px;
+  border: 1px solid var(--pr-line-strong);
+  background: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+.ccb-choice label:hover {
+  border-color: var(--pr-ink);
+}
+.ccb-choice input:checked + label {
+  background: var(--pr-rose-deep);
+  border-color: var(--pr-rose-deep);
+  color: #fff;
+}
+.ccb-choice input:focus-visible + label {
+  outline: 2px solid var(--pr-rose-deep);
+  outline-offset: 3px;
+}
+
+.ccb-form-divider {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pr-ink-soft) !important;
+  margin: 34px 0 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--pr-line);
+}
+
+/* ── Opt in ── */
+.ccb-optin {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--pr-line-strong);
+  background: #fff;
+  margin-bottom: 26px;
+}
+.ccb-optin input {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--pr-rose-deep);
+  flex: none;
+}
+.ccb-form .ccb-optin label {
+  font-weight: 400;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--pr-ink-2);
+  cursor: pointer;
+}
+
+/* ── Honeypot ── */
+.ccb-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ccb .ccb-field-error,
+.ccb .ccb-form-error {
+  border: 1px solid var(--pr-rose);
+  background: rgba(198, 143, 113, 0.12);
+  color: var(--pr-rose-ink);
+  padding: 11px 15px;
+  font-size: 0.85rem;
+  margin: 12px 0 0;
+}
+.ccb .ccb-form-error {
+  margin: 0 0 20px;
+}
+.ccb-form-submit {
+  width: 100%;
+}
+.ccb-form-legal {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--pr-line);
+}
+.ccb .ccb-form-legal p {
+  font-size: 0.74rem;
+  line-height: 1.65;
+  margin: 0 0 8px;
+}
+.ccb .ccb-form-legal p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Success ── */
+.ccb-shape-success {
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--pr-cream-2);
+  border: 1px solid var(--pr-line-strong);
+  padding: 56px 40px;
+}
+.ccb .ccb-shape-success-h {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+.ccb .ccb-shape-success p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+.ccb .ccb-shape-success-note {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  padding-top: 18px;
+  border-top: 1px solid var(--pr-line);
+  margin-bottom: 26px;
+}
+
+@media (max-width: 640px) {
+  .ccb-form {
+    padding: 26px 20px;
+  }
+  .ccb-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ccb-choices {
+    gap: 8px;
+  }
+  .ccb-choice label {
+    padding: 11px 14px;
+    font-size: 0.8rem;
+  }
+  .ccb-shape-success {
+    padding: 36px 22px;
+  }
+}

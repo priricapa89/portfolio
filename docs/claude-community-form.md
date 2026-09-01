@@ -1,19 +1,24 @@
-# Claude Community Boston — signup form setup
+# Claude Community Boston — interest form setup
 
-The form on `/claude-community-boston` posts to `/api/community`, which runs on the
-server (Netlify function). That handler forwards the submission to a Google Apps
-Script web app, which appends a row to a Google Sheet.
+The form on `/claude-community-boston` posts to `/api/community`, which runs on
+the server (Netlify function). That handler forwards the submission to a Google
+Apps Script web app, which appends a row to a Google Sheet.
 
 The webhook URL and the shared token never reach the browser. They live in
 environment variables.
 
+**What this list is.** A community-interest and event-curation list, made up of
+information people voluntarily submitted through this page. It is not an event
+registration system, and it is not an Anthropic attendee database. Never import,
+copy, or merge Luma or official Claude Community attendee lists into this sheet.
+
 ## 1. Create the sheet
 
-Create a Google Sheet named something like `Claude Community Boston — Signups`.
+Create a Google Sheet named something like `Claude Community Boston — Interest`.
 Put these headers in row 1, in this order:
 
 ```
-Timestamp | Name | Email | LinkedIn | Building | Workflow | Wants to meet | Future events | Source
+Timestamp | Name | Email | Experience | Building | Interests | Future event ideas | Contribute / learn | Exploring | Wants to meet | Updates opt-in | Source
 ```
 
 ## 2. Add the Apps Script
@@ -37,13 +42,16 @@ function doPost(e) {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
     sheet.appendRow([
       body.submittedAt || new Date().toISOString(),
-      body.name || "",
+      body.fullName || "",
       body.email || "",
-      body.linkedin || "",
+      body.experience || "",
       body.building || "",
-      body.workflow || "",
+      body.interests || "",
+      body.futureEvent || "",
+      body.contribute || "",
+      body.exploring || "",
       body.meet || "",
-      body.future || "",
+      body.updates || "",
       body.source || "",
     ]);
 
@@ -89,9 +97,15 @@ then redeploy so the function picks them up.
 Submit the form once on the live site and confirm a row appears in the sheet.
 
 If the variables are missing, the form doesn't fail silently: it tells the person
-the signup isn't connected yet and gives them an email address instead. Nothing
-is lost, but nothing is recorded either, so set the variables before sharing the
-QR code.
+the form isn't connected yet and gives them an email address instead. Nothing is
+lost, but nothing is recorded either, so set the variables before sharing the QR
+code.
+
+## Using the opt-in column
+
+Only the rows with `Yes` in the **Updates opt-in** column have asked to hear from
+you. Everyone else shared their answers to help with curation only, and should
+not be added to a mailing list.
 
 ## Changing the Apps Script later
 

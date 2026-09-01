@@ -4,8 +4,8 @@ import "~/components/ccb/ccb.css";
 import { CCBNav } from "~/components/ccb/CCBNav/CCBNav";
 import { CCBHero } from "~/components/ccb/CCBHero/CCBHero";
 import { CCBIntro } from "~/components/ccb/CCBIntro/CCBIntro";
-import { CCBWorkshop } from "~/components/ccb/CCBWorkshop/CCBWorkshop";
-import { CCBJoin } from "~/components/ccb/CCBJoin/CCBJoin";
+import { CCBEvents } from "~/components/ccb/CCBEvents/CCBEvents";
+import { CCBShape } from "~/components/ccb/CCBShape/CCBShape";
 import { CCBVision } from "~/components/ccb/CCBVision/CCBVision";
 import { CCBConnect } from "~/components/ccb/CCBConnect/CCBConnect";
 import { CCBFooter } from "~/components/ccb/CCBFooter/CCBFooter";
@@ -13,7 +13,7 @@ import { CCBFooter } from "~/components/ccb/CCBFooter/CCBFooter";
 const PAGE_URL = "https://pricapa.com/claude-community-boston";
 const PAGE_TITLE = "Claude Community Boston | PRICAPA";
 const PAGE_DESCRIPTION =
-  "Claude Community Boston is a community for builders, founders, operators, creators, and curious minds exploring what's possible with Claude.";
+  "Claude Community Boston is a community for builders, founders, operators, creators, and curious minds exploring what's possible with Claude. Curated by Pricilla Ricapa, Claude Community Ambassador.";
 const PAGE_IMAGE = "https://pricapa.com/claude-community-boston-og.png";
 
 export function meta({}: Route.MetaArgs) {
@@ -33,7 +33,7 @@ export function meta({}: Route.MetaArgs) {
     {
       property: "og:image:alt",
       content:
-        "Claude Community Boston, a community initiative led by Pricilla Ricapa",
+        "Claude Community Boston, curated by Pricilla Ricapa, Claude Community Ambassador",
     },
 
     { name: "twitter:card", content: "summary_large_image" },
@@ -53,8 +53,8 @@ export default function ClaudeCommunityBoston() {
       <main id="ccb-main">
         <CCBHero />
         <CCBIntro />
-        <CCBWorkshop />
-        <CCBJoin />
+        <CCBEvents />
+        <CCBShape />
         <CCBVision />
         <CCBConnect />
       </main>

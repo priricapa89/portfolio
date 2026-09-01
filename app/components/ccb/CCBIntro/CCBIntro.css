@@ -10,7 +10,7 @@
 }
 
 .ccb .ccb-intro-body p {
-  font-size: 1.04rem;
+  font-size: 1.02rem;
   line-height: 1.78;
   margin-bottom: 20px;
 }
@@ -18,12 +18,12 @@
 .ccb-intro-attrib {
   margin-top: 36px;
   padding-left: 20px;
-  border-left: 2px solid var(--ccb-terracotta);
+  border-left: 2px solid var(--pr-rose);
 }
 .ccb .ccb-intro-attrib-name {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.1rem;
-  color: var(--ccb-charcoal);
+  color: var(--pr-ink);
   margin-bottom: 2px;
 }
 .ccb .ccb-intro-attrib-role {
@@ -31,12 +31,12 @@
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ccb-terracotta-ink);
+  color: var(--pr-rose-ink);
   margin-bottom: 12px;
 }
 .ccb .ccb-intro-attrib-note {
   font-size: 0.78rem;
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 0;
 }
 

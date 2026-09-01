@@ -1,12 +1,12 @@
 import "./CCBNav.css";
 import { Link } from "react-router";
-import { LogoBrand } from "../../ui/LogoBrand/LogoBrand";
+import { PricapaMark } from "../PricapaMark/PricapaMark";
 
 export function CCBNav() {
   return (
     <header className="ccb-nav">
-      <Link to="/" className="ccb-nav-logo">
-        <LogoBrand />
+      <Link to="/" className="ccb-nav-brand" aria-label="PRICAPA home">
+        <PricapaMark size={38} strapline="AI × Deep Tech × Community" />
       </Link>
       <nav aria-label="Claude Community Boston">
         <ul className="ccb-nav-links">
@@ -14,14 +14,14 @@ export function CCBNav() {
             <a href="#community">Community</a>
           </li>
           <li>
-            <a href="#workshop">Workshop</a>
+            <a href="#events">Events</a>
           </li>
           <li>
             <a href="#vision">Vision</a>
           </li>
           <li>
-            <a href="#join" className="ccb-nav-cta">
-              Join
+            <a href="#shape" className="ccb-nav-cta">
+              Shape events
             </a>
           </li>
         </ul>

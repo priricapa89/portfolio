@@ -1,6 +1,6 @@
 .ccb-connect {
-  background: var(--ccb-cream-2);
-  border-top: 1px solid var(--ccb-line);
+  background: var(--pr-cream-2);
+  border-top: 1px solid var(--pr-line);
 }
 .ccb-connect-inner {
   display: grid;
@@ -22,10 +22,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid var(--ccb-line-strong);
+  border-top: 1px solid var(--pr-line-strong);
 }
 .ccb-connect-links li {
-  border-bottom: 1px solid var(--ccb-line-strong);
+  border-bottom: 1px solid var(--pr-line-strong);
 }
 .ccb-connect-links a {
   display: flex;
@@ -34,7 +34,7 @@
   gap: 16px;
   padding: 22px 4px;
   text-decoration: none;
-  color: var(--ccb-charcoal);
+  color: var(--pr-ink);
   transition: padding-left 0.18s ease;
 }
 .ccb-connect-links a:hover {
@@ -45,22 +45,21 @@
   font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ccb-charcoal-soft);
+  color: var(--pr-ink-soft);
 }
 .ccb-connect-value {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.15rem;
-  color: var(--ccb-terracotta-ink);
+  color: var(--pr-rose-ink);
 }
 
 .ccb .ccb-connect-qr {
   margin: 48px auto 0;
   padding-top: 22px;
-  border-top: 1px solid var(--ccb-line);
+  border-top: 1px solid var(--pr-line);
   font-size: 0.8rem;
   line-height: 1.65;
-  color: var(--ccb-charcoal-soft);
-  max-width: var(--ccb-max);
+  max-width: var(--pr-max);
 }
 
 @media (max-width: 900px) {

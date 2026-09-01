@@ -1,0 +1,44 @@
+.pr-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.pr-mark-img {
+  display: block;
+  border-radius: 22%;
+  flex: none;
+}
+.pr-mark-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.pr-mark-name {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.22em;
+  color: var(--pr-ink);
+}
+.pr-mark-strap {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pr-ink-soft);
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .pr-mark {
+    gap: 9px;
+  }
+  .pr-mark-name {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+  }
+  .pr-mark-strap {
+    font-size: 0.54rem;
+  }
+}

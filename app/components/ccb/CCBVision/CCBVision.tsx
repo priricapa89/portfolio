@@ -12,8 +12,8 @@ export function CCBVision() {
           </h2>
           <p className="ccb-vision-sub">
             Claude Community Boston starts as a room and a page. What it becomes
-            depends on who shows up. These are the directions being considered,
-            not features that have been built.
+            depends on who shows up. These are directions being considered, not
+            features that have been built.
           </p>
         </div>
 

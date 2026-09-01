@@ -1,27 +1,43 @@
 import type { ActionFunctionArgs } from "react-router";
+import {
+  EXPERIENCE_LEVELS,
+  INTEREST_OPTIONS,
+  MEET_OPTIONS,
+} from "~/data/claude-community";
 
 /**
- * Claude Community Boston signup handler.
+ * Claude Community Boston interest form handler.
+ *
+ * This is a community-interest and event-curation list owned by Pricilla
+ * Ricapa. It is not an event registration system and it is not an Anthropic
+ * attendee database. Nothing from Luma or any official Claude Community
+ * attendee list is imported here.
  *
  * Runs server-side only (Netlify function). The Google Apps Script webhook URL
- * and shared token live in environment variables and are never sent to the
- * browser.
+ * and shared token live in environment variables and never reach the browser.
  */
 
-const MEET_OPTIONS = new Set([
-  "Founders",
-  "AI Builders",
-  "Operators",
-  "Investors",
-  "Researchers",
-  "Creators",
-  "Other",
-]);
+const EXPERIENCE_SET = new Set<string>(EXPERIENCE_LEVELS);
+const INTEREST_SET = new Set<string>(INTEREST_OPTIONS);
+const MEET_SET = new Set<string>(MEET_OPTIONS);
 
 const MAX_LEN = 2000;
 
 function clean(value: FormDataEntryValue | null, max = MAX_LEN) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+function pickAll(
+  formData: FormData,
+  field: string,
+  allowed: Set<string>,
+  cap = 40,
+) {
+  return formData
+    .getAll(field)
+    .map((value) => clean(value, 60))
+    .filter((value) => allowed.has(value))
+    .slice(0, cap);
 }
 
 function isEmail(value: string) {
@@ -43,30 +59,34 @@ export async function action({ request }: ActionFunctionArgs) {
     return { success: true };
   }
 
-  const name = clean(formData.get("name"), 120);
+  const fullName = clean(formData.get("fullName"), 120);
   const email = clean(formData.get("email"), 254);
-  const linkedin = clean(formData.get("linkedin"), 300);
   const building = clean(formData.get("building"));
-  const workflow = clean(formData.get("workflow"));
-  const future = clean(formData.get("future"));
-  const meet = formData
-    .getAll("meet")
-    .map((value) => clean(value, 40))
-    .filter((value) => MEET_OPTIONS.has(value));
+  const experience = clean(formData.get("experience"), 60);
+  const futureEvent = clean(formData.get("futureEvent"));
+  const contribute = clean(formData.get("contribute"));
+  const exploring = clean(formData.get("exploring"));
+  const interests = pickAll(formData, "interests", INTEREST_SET);
+  const meet = pickAll(formData, "meet", MEET_SET);
+  const updates = clean(formData.get("updates"), 10) === "yes";
 
-  if (!name || !email || !building) {
+  if (!fullName || !email || !building || !futureEvent) {
     return {
       success: false,
-      error: "Please add your name, email, and what you're building.",
+      error:
+        "Please add your name, email, what you're building, and what you'd like to see at a future event.",
     };
   }
   if (!isEmail(email)) {
     return { success: false, error: "That email address doesn't look right." };
   }
-  if (linkedin && !/^https?:\/\//i.test(linkedin)) {
+  if (!EXPERIENCE_SET.has(experience)) {
+    return { success: false, error: "Please pick an experience level." };
+  }
+  if (interests.length === 0) {
     return {
       success: false,
-      error: "Please include the full LinkedIn address, starting with https://",
+      error: "Please pick at least one thing you'd like to learn or explore.",
     };
   }
 
@@ -76,7 +96,7 @@ export async function action({ request }: ActionFunctionArgs) {
     return {
       success: false,
       error:
-        "The signup form isn't connected yet. Please email pricilla@pricapa.com and you'll be added.",
+        "This form isn't connected yet. Please email pricilla@pricapa.com and I'll add you.",
     };
   }
 
@@ -88,13 +108,16 @@ export async function action({ request }: ActionFunctionArgs) {
         token: process.env.COMMUNITY_SHEETS_TOKEN ?? "",
         submittedAt: new Date().toISOString(),
         source: "claude-community-boston",
-        name,
+        fullName,
         email,
-        linkedin,
+        experience,
         building,
-        workflow,
+        interests: interests.join(", "),
+        futureEvent,
+        contribute,
+        exploring,
         meet: meet.join(", "),
-        future,
+        updates: updates ? "Yes" : "No",
       }),
     });
 

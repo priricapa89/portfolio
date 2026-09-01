@@ -1,26 +1,30 @@
 /* ──────────────────────────────────────────────────────────────
-   Claude Community Boston — scoped design tokens and base styles.
-   Everything lives under .ccb so the site-wide purple/magenta
-   tokens in globals.css are overridden on this page only.
+   Claude Community Boston — PRICAPA page styles.
+
+   Palette is PRICAPA's own: rose gold, champagne, warm neutrals.
+   Deliberately distinct from Anthropic's brand colours.
+
+   Everything is scoped under .ccb so the site-wide tokens in
+   globals.css are overridden on this page only.
    ────────────────────────────────────────────────────────────── */
 
 .ccb {
-  --ccb-cream: #faf6f0;
-  --ccb-cream-2: #f3ebe0;
-  --ccb-cream-3: #ece0d1;
-  --ccb-terracotta: #c4633c;
-  --ccb-terracotta-deep: #a34e2c;
-  --ccb-terracotta-ink: #8a3f22;
-  --ccb-ochre: #e0a05a;
-  --ccb-charcoal: #1f1d1b;
-  --ccb-charcoal-2: #3a3532;
-  --ccb-charcoal-soft: #5b544f;
-  --ccb-line: rgba(31, 29, 27, 0.14);
-  --ccb-line-strong: rgba(31, 29, 27, 0.28);
-  --ccb-max: 1120px;
+  --pr-cream: #fbf7f4;
+  --pr-cream-2: #f4eae3;
+  --pr-cream-3: #efe2d9;
+  --pr-rose: #c68f71;
+  --pr-rose-soft: #e2c3af;
+  --pr-rose-deep: #9c5b4e;
+  --pr-rose-ink: #834336;
+  --pr-ink: #211e1c;
+  --pr-ink-2: #3b3532;
+  --pr-ink-soft: #635952;
+  --pr-line: rgba(33, 30, 28, 0.12);
+  --pr-line-strong: rgba(33, 30, 28, 0.24);
+  --pr-max: 1120px;
 
-  background: var(--ccb-cream);
-  color: var(--ccb-charcoal);
+  background: var(--pr-cream);
+  color: var(--pr-ink);
   font-family: "DM Sans", system-ui, sans-serif;
   min-height: 100vh;
 }
@@ -32,13 +36,13 @@
 .ccb h1,
 .ccb h2,
 .ccb h3 {
-  color: var(--ccb-charcoal);
+  color: var(--pr-ink);
   margin-bottom: 0;
   letter-spacing: -0.015em;
 }
 .ccb h2 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.8rem, 3.4vw, 2.75rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.7rem);
   font-weight: 500;
   line-height: 1.14;
 }
@@ -46,21 +50,21 @@
   font-style: italic;
   background: none;
   -webkit-text-fill-color: currentColor;
-  color: var(--ccb-terracotta-ink);
+  color: var(--pr-rose-ink);
 }
 .ccb p {
-  color: var(--ccb-charcoal-soft);
+  color: var(--pr-ink-soft);
 }
 .ccb a {
-  color: var(--ccb-terracotta-deep);
+  color: var(--pr-rose-deep);
 }
 .ccb :focus-visible {
-  outline: 2px solid var(--ccb-terracotta-deep);
+  outline: 2px solid var(--pr-rose-deep);
   outline-offset: 3px;
 }
 
 .ccb-wrap {
-  max-width: var(--ccb-max);
+  max-width: var(--pr-max);
   margin: 0 auto;
 }
 
@@ -81,7 +85,7 @@
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--ccb-charcoal);
+  background: var(--pr-ink);
   color: #fff;
   padding: 12px 20px;
   font-size: 0.8rem;
@@ -100,19 +104,8 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ccb-terracotta-ink);
+  color: var(--pr-rose-ink);
   margin: 0 0 20px;
-}
-.ccb-eyebrow--muted {
-  color: var(--ccb-charcoal-soft);
-}
-
-/* ── Rules ── */
-.ccb-rule {
-  height: 1px;
-  background: var(--ccb-line);
-  border: 0;
-  margin: 0;
 }
 
 /* ── Buttons ── */
@@ -142,21 +135,35 @@
   cursor: not-allowed;
 }
 .ccb .ccb-btn--solid {
-  background: var(--ccb-terracotta-deep);
+  background: var(--pr-rose-deep);
   color: #fff;
 }
 .ccb .ccb-btn--solid:hover:not(:disabled) {
-  background: var(--ccb-terracotta-ink);
+  background: var(--pr-rose-ink);
   transform: translateY(-1px);
 }
 .ccb .ccb-btn--ghost {
   background: transparent;
-  color: var(--ccb-charcoal);
-  border-color: var(--ccb-line-strong);
+  color: var(--pr-ink);
+  border-color: var(--pr-line-strong);
 }
 .ccb .ccb-btn--ghost:hover {
-  border-color: var(--ccb-charcoal);
-  background: rgba(31, 29, 27, 0.04);
+  border-color: var(--pr-ink);
+  background: rgba(33, 30, 28, 0.04);
+}
+
+/* ── Shared note / disclaimer block ── */
+.ccb-note {
+  border-left: 2px solid var(--pr-rose);
+  padding-left: 18px;
+}
+.ccb .ccb-note p {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.ccb .ccb-note p:last-child {
+  margin-bottom: 0;
 }
 
 /* ── Reduced motion ── */
@@ -164,8 +171,8 @@
   .ccb *,
   .ccb *::before,
   .ccb *::after {
-    animation-duration: 0.001ms;
-    transition-duration: 0.001ms;
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
 

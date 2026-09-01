@@ -1,6 +1,6 @@
 .ccb-footer {
-  background: var(--ccb-charcoal);
-  color: var(--ccb-cream);
+  background: var(--pr-ink);
+  color: var(--pr-cream);
   padding: 56px 40px 40px;
 }
 .ccb-footer-inner {
@@ -10,51 +10,58 @@
   align-items: flex-start;
   gap: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid rgba(250, 246, 240, 0.16);
+  border-bottom: 1px solid rgba(251, 247, 244, 0.16);
 }
 
 .ccb .ccb-footer-name {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.3rem;
-  color: var(--ccb-cream);
-  margin: 0 0 10px;
+  color: var(--pr-cream);
+  margin: 0 0 12px;
 }
 .ccb .ccb-footer-line {
   font-size: 0.86rem;
   line-height: 1.6;
-  color: rgba(250, 246, 240, 0.62);
+  color: rgba(251, 247, 244, 0.72);
   margin: 0;
+}
+.ccb .ccb-footer-line--muted {
+  color: rgba(251, 247, 244, 0.55);
+  font-size: 0.8rem;
+  margin-top: 4px;
 }
 
 .ccb-footer-side {
   text-align: right;
 }
-.ccb-footer-logo {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: rgba(250, 246, 240, 0.9);
+.ccb-footer-brand {
+  display: inline-block;
   text-decoration: none;
 }
-.ccb-footer-logo .pr {
-  color: var(--ccb-ochre);
-  font-style: italic;
+.ccb-footer-brand .pr-mark-name {
+  color: var(--pr-cream);
 }
-.ccb-footer-logo .dot {
-  color: var(--ccb-ochre);
+.ccb-footer-brand .pr-mark-strap {
+  color: var(--pr-rose-soft);
 }
 .ccb .ccb-footer-copy {
   font-size: 0.7rem;
-  color: rgba(250, 246, 240, 0.55);
-  margin: 10px 0 0;
+  color: rgba(251, 247, 244, 0.55);
+  margin: 14px 0 0;
 }
 
-.ccb .ccb-footer-disclaimer {
+.ccb-footer-disclaimer {
   margin: 26px auto 0;
-  font-size: 0.72rem;
+  max-width: var(--pr-max);
+}
+.ccb .ccb-footer-disclaimer p {
+  font-size: 0.74rem;
   line-height: 1.7;
-  color: rgba(250, 246, 240, 0.6);
-  max-width: var(--ccb-max);
+  color: rgba(251, 247, 244, 0.6);
+  margin: 0 0 8px;
+}
+.ccb .ccb-footer-disclaimer p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 700px) {

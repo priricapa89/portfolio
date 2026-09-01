@@ -1,6 +1,6 @@
 import "./CCBFooter.css";
 import { Link } from "react-router";
-import { LogoBrand } from "../../ui/LogoBrand/LogoBrand";
+import { PricapaMark } from "../PricapaMark/PricapaMark";
 
 export function CCBFooter() {
   return (
@@ -8,15 +8,16 @@ export function CCBFooter() {
       <div className="ccb-wrap ccb-footer-inner">
         <div className="ccb-footer-identity">
           <p className="ccb-footer-name">Claude Community Boston</p>
-          <p className="ccb-footer-line">
-            A community initiative led by Pricilla Ricapa.
+          <p className="ccb-footer-line">Curated by Pricilla Ricapa</p>
+          <p className="ccb-footer-line">Claude Community Ambassador</p>
+          <p className="ccb-footer-line ccb-footer-line--muted">
+            Independent volunteer role
           </p>
-          <p className="ccb-footer-line">Part of the PRICAPA ecosystem.</p>
         </div>
 
         <div className="ccb-footer-side">
-          <Link to="/" className="ccb-footer-logo">
-            <LogoBrand />
+          <Link to="/" className="ccb-footer-brand" aria-label="PRICAPA home">
+            <PricapaMark size={40} strapline="AI × Deep Tech × Community" />
           </Link>
           <p className="ccb-footer-copy">
             © {new Date().getFullYear()} Pricilla Ricapa. All rights reserved.
@@ -24,13 +25,17 @@ export function CCBFooter() {
         </div>
       </div>
 
-      <p className="ccb-wrap ccb-footer-disclaimer">
-        Claude Community Boston is an independent, volunteer-led community
-        initiative. This website is published and operated by PRICAPA. It is not
-        owned, operated, or endorsed by Anthropic, and nothing here is written on
-        Anthropic&apos;s behalf. Claude is a product of Anthropic; references to
-        it are descriptive only.
-      </p>
+      <div className="ccb-wrap ccb-footer-disclaimer">
+        <p>
+          Claude Community is an Anthropic community program. This site is
+          independently maintained by Pricilla Ricapa and is not an official
+          Anthropic website.
+        </p>
+        <p>
+          This page is not a registration or ticketing page. Event registration
+          takes place through the official Claude Community Luma calendar.
+        </p>
+      </div>
     </footer>
   );
 }
