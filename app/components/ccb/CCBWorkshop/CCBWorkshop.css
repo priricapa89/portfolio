@@ -1,0 +1,117 @@
+.ccb-workshop {
+  background: var(--ccb-charcoal);
+  color: var(--ccb-cream);
+}
+.ccb-workshop .ccb-eyebrow {
+  color: var(--ccb-ochre);
+}
+
+.ccb-workshop-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(250, 246, 240, 0.18);
+}
+
+.ccb .ccb-workshop-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--ccb-cream);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+.ccb .ccb-workshop-kicker {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.6);
+  margin: 0;
+}
+.ccb .ccb-workshop-desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(250, 246, 240, 0.82);
+  margin: 0;
+  max-width: 46ch;
+}
+
+.ccb .ccb-workshop-meta {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ccb-ochre);
+  margin: 28px 0 0;
+}
+
+.ccb-workshop-topics {
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(250, 246, 240, 0.16);
+  border: 1px solid rgba(250, 246, 240, 0.16);
+}
+.ccb-workshop-topics li {
+  background: var(--ccb-charcoal);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 132px;
+}
+.ccb-workshop-num {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--ccb-ochre);
+}
+.ccb-workshop-topic {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: var(--ccb-cream);
+}
+
+.ccb .ccb-workshop-foot {
+  margin: 40px 0 0;
+  font-size: 0.85rem;
+  color: rgba(250, 246, 240, 0.55);
+}
+
+@media (max-width: 900px) {
+  .ccb-workshop-head {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .ccb .ccb-workshop-desc {
+    max-width: none;
+  }
+  .ccb-workshop-topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .ccb-workshop-topics {
+    grid-template-columns: 1fr;
+  }
+  .ccb-workshop-topics li {
+    min-height: 0;
+    padding: 22px 20px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .ccb-workshop-topic {
+    font-size: 1.1rem;
+  }
+}

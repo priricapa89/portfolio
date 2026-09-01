@@ -1,0 +1,81 @@
+.ccb-connect {
+  background: var(--ccb-cream-2);
+  border-top: 1px solid var(--ccb-line);
+}
+.ccb-connect-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
+}
+.ccb .ccb-connect-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 38ch;
+}
+.ccb .ccb-connect-inner h2 {
+  margin-bottom: 16px;
+}
+
+.ccb-connect-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--ccb-line-strong);
+}
+.ccb-connect-links li {
+  border-bottom: 1px solid var(--ccb-line-strong);
+}
+.ccb-connect-links a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 4px;
+  text-decoration: none;
+  color: var(--ccb-charcoal);
+  transition: padding-left 0.18s ease;
+}
+.ccb-connect-links a:hover {
+  padding-left: 12px;
+}
+.ccb-connect-label {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ccb-charcoal-soft);
+}
+.ccb-connect-value {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--ccb-terracotta-ink);
+}
+
+.ccb .ccb-connect-qr {
+  margin: 48px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--ccb-line);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--ccb-charcoal-soft);
+  max-width: var(--ccb-max);
+}
+
+@media (max-width: 900px) {
+  .ccb-connect-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ccb .ccb-connect-sub {
+    max-width: none;
+  }
+}
+@media (max-width: 480px) {
+  .ccb-connect-links a {
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 4px;
+  }
+}

@@ -1,0 +1,117 @@
+.ccb section.ccb-hero {
+  background:
+    radial-gradient(
+      120% 90% at 50% 0%,
+      var(--ccb-cream-2) 0%,
+      var(--ccb-cream) 62%
+    );
+  border-bottom: 1px solid var(--ccb-line);
+  padding-top: 72px;
+}
+
+.ccb-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── The badge card: rectangular, square corners, always ── */
+.ccb-badge {
+  background: var(--ccb-cream);
+  border: 1px solid var(--ccb-line-strong);
+  border-radius: 0;
+  padding: 14px;
+  box-shadow: 0 24px 60px rgba(31, 29, 27, 0.07);
+}
+.ccb-badge-frame {
+  border: 1px solid var(--ccb-line);
+  border-radius: 0;
+  padding: 34px 32px 30px;
+}
+.ccb .ccb-badge-meta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ccb-charcoal-soft);
+  margin: 0 0 26px;
+}
+.ccb .ccb-badge-tagline {
+  margin: 26px 0 0;
+  text-align: center;
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ccb-terracotta-ink);
+}
+
+/* ── Right column ── */
+.ccb-hero-workshop {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ccb-charcoal);
+  margin: 0 0 20px;
+}
+.ccb .ccb-hero-lede {
+  font-size: 1.02rem;
+  line-height: 1.72;
+  max-width: 42ch;
+  margin: 0 0 34px;
+}
+.ccb-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+.ccb .ccb-hero-note {
+  font-size: 0.76rem;
+  line-height: 1.65;
+  color: var(--ccb-charcoal-soft);
+  max-width: 46ch;
+  padding-top: 20px;
+  border-top: 1px solid var(--ccb-line);
+}
+
+@media (max-width: 980px) {
+  .ccb-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .ccb .ccb-hero-lede,
+  .ccb .ccb-hero-note {
+    max-width: none;
+  }
+}
+@media (max-width: 600px) {
+  .ccb section.ccb-hero {
+    padding-top: 44px;
+  }
+  .ccb-badge {
+    padding: 9px;
+  }
+  .ccb-badge-frame {
+    padding: 24px 16px 22px;
+  }
+  .ccb .ccb-badge-meta {
+    font-size: 0.56rem;
+    letter-spacing: 0.16em;
+    gap: 8px;
+  }
+  .ccb .ccb-badge-tagline {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+  }
+  .ccb-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

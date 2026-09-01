@@ -1,0 +1,51 @@
+.ccb-intro-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.ccb-intro-lead h2 {
+  max-width: 14ch;
+}
+
+.ccb .ccb-intro-body p {
+  font-size: 1.04rem;
+  line-height: 1.78;
+  margin-bottom: 20px;
+}
+
+.ccb-intro-attrib {
+  margin-top: 36px;
+  padding-left: 20px;
+  border-left: 2px solid var(--ccb-terracotta);
+}
+.ccb .ccb-intro-attrib-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--ccb-charcoal);
+  margin-bottom: 2px;
+}
+.ccb .ccb-intro-attrib-role {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ccb-terracotta-ink);
+  margin-bottom: 12px;
+}
+.ccb .ccb-intro-attrib-note {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .ccb-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ccb-intro-lead h2 {
+    max-width: none;
+  }
+}

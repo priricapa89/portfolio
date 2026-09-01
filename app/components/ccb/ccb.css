@@ -1,0 +1,185 @@
+/* ──────────────────────────────────────────────────────────────
+   Claude Community Boston — scoped design tokens and base styles.
+   Everything lives under .ccb so the site-wide purple/magenta
+   tokens in globals.css are overridden on this page only.
+   ────────────────────────────────────────────────────────────── */
+
+.ccb {
+  --ccb-cream: #faf6f0;
+  --ccb-cream-2: #f3ebe0;
+  --ccb-cream-3: #ece0d1;
+  --ccb-terracotta: #c4633c;
+  --ccb-terracotta-deep: #a34e2c;
+  --ccb-terracotta-ink: #8a3f22;
+  --ccb-ochre: #e0a05a;
+  --ccb-charcoal: #1f1d1b;
+  --ccb-charcoal-2: #3a3532;
+  --ccb-charcoal-soft: #5b544f;
+  --ccb-line: rgba(31, 29, 27, 0.14);
+  --ccb-line-strong: rgba(31, 29, 27, 0.28);
+  --ccb-max: 1120px;
+
+  background: var(--ccb-cream);
+  color: var(--ccb-charcoal);
+  font-family: "DM Sans", system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Base overrides scoped to the page */
+.ccb section {
+  padding: 104px 40px;
+}
+.ccb h1,
+.ccb h2,
+.ccb h3 {
+  color: var(--ccb-charcoal);
+  margin-bottom: 0;
+  letter-spacing: -0.015em;
+}
+.ccb h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.14;
+}
+.ccb h2 em {
+  font-style: italic;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--ccb-terracotta-ink);
+}
+.ccb p {
+  color: var(--ccb-charcoal-soft);
+}
+.ccb a {
+  color: var(--ccb-terracotta-deep);
+}
+.ccb :focus-visible {
+  outline: 2px solid var(--ccb-terracotta-deep);
+  outline-offset: 3px;
+}
+
+.ccb-wrap {
+  max-width: var(--ccb-max);
+  margin: 0 auto;
+}
+
+.ccb-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ccb-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ccb-charcoal);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.ccb-skip-link:focus {
+  left: 12px;
+  top: 12px;
+  color: #fff;
+}
+
+/* ── Eyebrow / label type ── */
+.ccb-eyebrow {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ccb-terracotta-ink);
+  margin: 0 0 20px;
+}
+.ccb-eyebrow--muted {
+  color: var(--ccb-charcoal-soft);
+}
+
+/* ── Rules ── */
+.ccb-rule {
+  height: 1px;
+  background: var(--ccb-line);
+  border: 0;
+  margin: 0;
+}
+
+/* ── Buttons ── */
+.ccb .ccb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 16px 30px;
+  border-radius: 0;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+.ccb .ccb-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.ccb .ccb-btn--solid {
+  background: var(--ccb-terracotta-deep);
+  color: #fff;
+}
+.ccb .ccb-btn--solid:hover:not(:disabled) {
+  background: var(--ccb-terracotta-ink);
+  transform: translateY(-1px);
+}
+.ccb .ccb-btn--ghost {
+  background: transparent;
+  color: var(--ccb-charcoal);
+  border-color: var(--ccb-line-strong);
+}
+.ccb .ccb-btn--ghost:hover {
+  border-color: var(--ccb-charcoal);
+  background: rgba(31, 29, 27, 0.04);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ccb *,
+  .ccb *::before,
+  .ccb *::after {
+    animation-duration: 0.001ms;
+    transition-duration: 0.001ms;
+  }
+}
+
+@media (max-width: 960px) {
+  .ccb section {
+    padding: 72px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .ccb section {
+    padding: 56px 20px;
+  }
+  .ccb .ccb-btn {
+    width: 100%;
+    padding: 15px 22px;
+  }
+}
