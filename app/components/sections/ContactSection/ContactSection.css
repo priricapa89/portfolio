@@ -50,9 +50,9 @@
 }
 .contact-sent {
   padding: 16px 20px;
-  background: linear-gradient(135deg, #f0ebff, #ffe8f5);
+  background: linear-gradient(135deg, #f4eae3, #f6e7dd);
   border-radius: 10px;
-  border: 1.5px solid rgba(123, 79, 212, 0.2);
+  border: 1.5px solid rgba(156, 91, 78, 0.2);
   font-size: 0.9rem;
   color: var(--purple);
   font-weight: 500;

@@ -1,9 +1,9 @@
 .cloud-tip {
   margin: 36px 48px 0;
   padding: 16px 22px;
-  background: rgba(123, 79, 212, 0.05);
+  background: rgba(156, 91, 78, 0.05);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(123, 79, 212, 0.13);
+  border: 1px solid rgba(156, 91, 78, 0.13);
   display: flex;
   gap: 14px;
   align-items: flex-start;
@@ -27,7 +27,7 @@
   text-decoration: none;
 }
 .cloud-tip code {
-  background: rgba(123, 79, 212, 0.08);
+  background: rgba(156, 91, 78, 0.08);
   padding: 1px 6px;
   border-radius: 4px;
   font-size: 0.78rem;

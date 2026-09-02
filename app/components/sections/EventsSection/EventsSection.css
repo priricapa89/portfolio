@@ -2,21 +2,21 @@
   background: var(--white);
 }
 .events-list {
-  border-top: 1px solid rgba(123, 79, 212, 0.12);
+  border-top: 1px solid rgba(156, 91, 78, 0.12);
 }
 .event-row {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 40px;
   padding: 24px 0;
-  border-bottom: 1px solid rgba(123, 79, 212, 0.08);
+  border-bottom: 1px solid rgba(156, 91, 78, 0.08);
   align-items: center;
   transition:
     background 0.2s,
     padding 0.2s;
 }
 .event-row:hover {
-  background: rgba(123, 79, 212, 0.025);
+  background: rgba(156, 91, 78, 0.025);
   padding-left: 8px;
   padding-right: 8px;
   border-radius: var(--radius-sm);

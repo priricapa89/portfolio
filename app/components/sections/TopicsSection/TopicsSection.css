@@ -23,7 +23,7 @@
   box-shadow: var(--shadow-sm);
 }
 .topic-card:hover {
-  border-color: rgba(123, 79, 212, 0.25);
+  border-color: rgba(156, 91, 78, 0.25);
   box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
 }
@@ -87,7 +87,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: rgba(123, 79, 212, 0.08);
+  background: rgba(156, 91, 78, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +112,7 @@
   color: var(--purple);
   text-decoration: none;
   padding: 12px 28px;
-  border: 1.5px solid rgba(123, 79, 212, 0.25);
+  border: 1.5px solid rgba(156, 91, 78, 0.25);
   border-radius: 40px;
   transition: all 0.2s;
 }

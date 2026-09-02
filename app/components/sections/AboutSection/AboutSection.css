@@ -57,7 +57,7 @@
 .ind-tag:hover {
   border-color: var(--purple);
   color: var(--purple);
-  background: rgba(123, 79, 212, 0.05);
+  background: rgba(156, 91, 78, 0.05);
   transform: translateY(-1px);
 }
 .ind-tag.nolink {
@@ -74,7 +74,7 @@
   background: var(--bg);
   border-radius: var(--radius-sm);
   padding: 24px 20px;
-  border: 1px solid rgba(123, 79, 212, 0.09);
+  border: 1px solid rgba(156, 91, 78, 0.09);
   text-align: center;
 }
 .stat-n {
@@ -100,7 +100,7 @@
   background: linear-gradient(135deg, #f5f0ff, #ffeef6);
   border-radius: var(--radius);
   padding: 28px;
-  border: 1.5px solid rgba(232, 67, 147, 0.15);
+  border: 1.5px solid rgba(168, 98, 79, 0.15);
   margin-top: 40px;
   box-shadow: var(--shadow-sm);
 }

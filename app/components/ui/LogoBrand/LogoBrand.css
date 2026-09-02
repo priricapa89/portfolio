@@ -1,0 +1,23 @@
+.logo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-brand-img {
+  display: block;
+  border-radius: 22%;
+  flex: none;
+}
+.logo-brand-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .logo-brand {
+    gap: 8px;
+  }
+  .logo-brand-img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}

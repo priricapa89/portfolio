@@ -10,6 +10,8 @@ import { TopicsSection } from "~/components/sections/TopicsSection/TopicsSection
 import { HumanistSISection } from "~/components/sections/HumanistSISection/HumanistSISection";
 import { ServicesSection } from "~/components/sections/ServicesSection/ServicesSection";
 import { EventsSection } from "~/components/sections/EventsSection/EventsSection";
+import { CommunitySection } from "~/components/sections/CommunitySection/CommunitySection";
+import { CredentialsSection } from "~/components/sections/CredentialsSection/CredentialsSection";
 import { QuoteSection } from "~/components/sections/QuoteSection/QuoteSection";
 import { SocialSection } from "~/components/sections/SocialSection/SocialSection";
 import { ContactSection } from "~/components/sections/ContactSection/ContactSection";
@@ -32,12 +34,14 @@ export default function Home() {
       <HeroSection />
       <TickerBanner />
       <AboutSection />
+      <CommunitySection />
       <GalleryTeaser />
       <BookSection />
       <TopicsSection />
       <HumanistSISection />
       <ServicesSection />
       <EventsSection />
+      <CredentialsSection />
       <QuoteSection />
       <SocialSection />
       <ContactSection />

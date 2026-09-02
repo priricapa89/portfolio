@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router";
 import "./Nav.css";
 import { LogoBrand } from "../../ui/LogoBrand/LogoBrand";
 
@@ -55,7 +56,7 @@ const SOCIAL_LINKS = [
     label: "Email",
     handle: "pricilla@pricapa.com",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#7B4FD4" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#9c5b4e" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
         <polyline points="22,6 12,13 2,6" />
       </svg>
@@ -89,6 +90,8 @@ export function Nav() {
         <li><a href="#humanist">Humanist SI</a></li>
         <li><a href="#services">Work</a></li>
         <li><a href="#events">Events</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><Link to="/claude-community-boston" className="nav-community">Claude Community</Link></li>
         <li><a href="#book">Book</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>

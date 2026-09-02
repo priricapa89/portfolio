@@ -10,7 +10,7 @@
 .g-slot {
   background: var(--white);
   border-radius: var(--radius-sm);
-  border: 2px dashed rgba(123, 79, 212, 0.15);
+  border: 2px dashed rgba(156, 91, 78, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,9 +58,9 @@
 .gallery-note {
   margin-top: 20px;
   padding: 16px 20px;
-  background: rgba(123, 79, 212, 0.06);
+  background: rgba(156, 91, 78, 0.06);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(123, 79, 212, 0.12);
+  border: 1px solid rgba(156, 91, 78, 0.12);
   font-family: "DM Mono", monospace;
   font-size: 0.72rem;
   color: var(--gray);
@@ -91,7 +91,7 @@
 .event-preview-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(123, 79, 212, 0.2);
+  border-color: rgba(156, 91, 78, 0.2);
 }
 .ep-thumb {
   height: 420px;

@@ -10,7 +10,7 @@ export const EVENTS: GalleryFullEvent[] = [
       {
         id: "wef-wsj",
         badge: "📰 WSJ House",
-        badgeStyle: { color: "#E84393", borderColor: "rgba(232,67,147,0.3)", background: "rgba(232,67,147,0.07)" },
+        badgeStyle: { color: "#a8624f", borderColor: "rgba(232,67,147,0.3)", background: "rgba(232,67,147,0.07)" },
         sub: "Wall Street Journal · Promenade",
         photos: [
           {
@@ -35,7 +35,7 @@ export const EVENTS: GalleryFullEvent[] = [
       {
         id: "wef-mit",
         badge: "🎓 MIT House",
-        badgeStyle: { color: "#7B4FD4", borderColor: "rgba(123,79,212,0.3)", background: "rgba(123,79,212,0.07)" },
+        badgeStyle: { color: "#9c5b4e", borderColor: "rgba(156, 91, 78,0.3)", background: "rgba(156, 91, 78,0.07)" },
         sub: "Massachusetts Institute of Technology · Davos",
         photos: [
           {
@@ -55,7 +55,7 @@ export const EVENTS: GalleryFullEvent[] = [
       {
         id: "wef-aihouse",
         badge: "🤖 AI House",
-        badgeStyle: { color: "#6EC6FF", borderColor: "rgba(110,198,255,0.35)", background: "rgba(110,198,255,0.08)" },
+        badgeStyle: { color: "#dcae86", borderColor: "rgba(110,198,255,0.35)", background: "rgba(110,198,255,0.08)" },
         sub: "Global AI & Tech Leaders · Davos",
         photos: [
           { label: "AI House · Photo 1", cap: "✏️ Add caption", ctx: "Add context about who you met at AI House and what the energy was like." },
@@ -69,7 +69,7 @@ export const EVENTS: GalleryFullEvent[] = [
       {
         id: "wef-saudi",
         badge: "🌙 Saudi House",
-        badgeStyle: { color: "#FFB347", borderColor: "rgba(255,179,71,0.35)", background: "rgba(255,179,71,0.08)" },
+        badgeStyle: { color: "#dcae86", borderColor: "rgba(255,179,71,0.35)", background: "rgba(255,179,71,0.08)" },
         sub: "Kingdom of Saudi Arabia · Davos",
         photos: [
           { label: "Saudi House · Photo 1", cap: "✏️ Add caption", ctx: "Saudi Arabia announced a $600B AI commitment at Davos. Add context about the energy here and who you connected with." },
@@ -80,7 +80,7 @@ export const EVENTS: GalleryFullEvent[] = [
       {
         id: "wef-cnbc",
         badge: "📺 CNBC House",
-        badgeStyle: { color: "#FF6B4A", borderColor: "rgba(255,107,74,0.3)", background: "rgba(255,107,74,0.07)" },
+        badgeStyle: { color: "#c68f71", borderColor: "rgba(255,107,74,0.3)", background: "rgba(255,107,74,0.07)" },
         sub: "CNBC Media Center · Promenade",
         photos: [
           { label: "CNBC House · Photo 1", cap: "✏️ Add caption", ctx: "Add context about CNBC House — who you ran into, what was being filmed or recorded, the conversations happening around you." },
@@ -91,7 +91,7 @@ export const EVENTS: GalleryFullEvent[] = [
       {
         id: "wef-imperial",
         badge: "🎖 Imperial College AI Dinner",
-        badgeStyle: { color: "#8AB4C2", borderColor: "rgba(138,180,194,0.35)", background: "rgba(138,180,194,0.08)" },
+        badgeStyle: { color: "#c2ada0", borderColor: "rgba(138,180,194,0.35)", background: "rgba(138,180,194,0.08)" },
         photos: [
           { label: "AI Dinner · Photo 1", cap: "✏️ Add caption", ctx: "Add context about the Imperial College AI Dinner — who was invited, the conversation threads, what surprised you." },
           { label: "AI Dinner · Photo 2", cap: "✏️ Add caption", ctx: "Add context." },
@@ -162,10 +162,10 @@ export const EVENTS: GalleryFullEvent[] = [
 ];
 
 export const EVENT_NAV: EventNavItem[] = [
-  { id: "wef2025", label: "WEF Davos 2025", color: "#C9B8F0" },
-  { id: "tedxboston2025", label: "TEDxBoston 2025", color: "#E84393" },
-  { id: "dassault2025", label: "Dassault 2025", color: "#7B4FD4" },
-  { id: "harvardq2026", label: "Harvard Quantum 2026", color: "#6EC6FF" },
-  { id: "tedxmit2024", label: "TEDxMIT 2024", color: "#FF6B4A" },
-  { id: "mitai2023", label: "MIT AI Week 2023", color: "#A855F7" },
+  { id: "wef2025", label: "WEF Davos 2025", color: "#e2c3af" },
+  { id: "tedxboston2025", label: "TEDxBoston 2025", color: "#a8624f" },
+  { id: "dassault2025", label: "Dassault 2025", color: "#9c5b4e" },
+  { id: "harvardq2026", label: "Harvard Quantum 2026", color: "#dcae86" },
+  { id: "tedxmit2024", label: "TEDxMIT 2024", color: "#c68f71" },
+  { id: "mitai2023", label: "MIT AI Week 2023", color: "#c68f71" },
 ];

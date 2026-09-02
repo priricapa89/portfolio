@@ -2,9 +2,9 @@
   position: sticky;
   top: 68px;
   z-index: 100;
-  background: rgba(248, 247, 255, 0.96);
+  background: rgba(251, 247, 244, 0.96);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(123, 79, 212, 0.1);
+  border-bottom: 1px solid rgba(156, 91, 78, 0.1);
   overflow-x: auto;
 }
 .event-nav-inner {

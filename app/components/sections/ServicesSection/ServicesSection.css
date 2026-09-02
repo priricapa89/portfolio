@@ -10,7 +10,7 @@
   background: var(--white);
   border-radius: var(--radius);
   padding: 40px 32px;
-  border: 1px solid rgba(123, 79, 212, 0.08);
+  border: 1px solid rgba(156, 91, 78, 0.08);
   box-shadow: var(--shadow-sm);
   transition:
     box-shadow 0.25s,
