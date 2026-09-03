@@ -1,4 +1,5 @@
 import type { ActionFunctionArgs } from "react-router";
+import { Resend } from "resend";
 import {
   EXPERIENCE_LEVELS,
   INTEREST_OPTIONS,
@@ -13,9 +14,15 @@ import {
  * attendee database. Nothing from Luma or any official Claude Community
  * attendee list is imported here.
  *
- * Runs server-side only (Netlify function). The Google Apps Script webhook URL
- * and shared token live in environment variables and never reach the browser.
+ * Delivery is belt and braces, and a submission succeeds if either path works:
+ *   1. Google Sheet, via an Apps Script webhook (COMMUNITY_SHEETS_WEBHOOK_URL)
+ *   2. Email to Pricilla, via Resend (RESEND_API_KEY)
+ *
+ * Runs server-side only (Netlify function), so neither secret reaches the
+ * browser.
  */
+
+const NOTIFY_TO = "pri.ricapa89@gmail.com";
 
 const EXPERIENCE_SET = new Set<string>(EXPERIENCE_LEVELS);
 const INTEREST_SET = new Set<string>(INTEREST_OPTIONS);
@@ -42,6 +49,23 @@ function pickAll(
 
 function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value) && value.length <= 254;
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function row(label: string, value: string) {
+  if (!value) return "";
+  return `
+    <tr>
+      <td style="padding:10px 0;border-bottom:1px solid #f0e5dc;font-size:13px;font-weight:600;color:#9c5b4e;width:150px;vertical-align:top;">${label}</td>
+      <td style="padding:10px 0;border-bottom:1px solid #f0e5dc;font-size:14px;color:#211e1c;white-space:pre-wrap;">${escapeHtml(value)}</td>
+    </tr>`;
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -90,51 +114,96 @@ export async function action({ request }: ActionFunctionArgs) {
     };
   }
 
+  const submission = {
+    submittedAt: new Date().toISOString(),
+    source: "claude-community-boston",
+    fullName,
+    email,
+    experience,
+    building,
+    interests: interests.join(", "),
+    futureEvent,
+    contribute,
+    exploring,
+    meet: meet.join(", "),
+    updates: updates ? "Yes" : "No",
+  };
+
+  let sheetOk = false;
+  let emailOk = false;
+
+  // ── 1. Google Sheet, if configured ──
   const webhookUrl = process.env.COMMUNITY_SHEETS_WEBHOOK_URL;
-  if (!webhookUrl) {
-    console.error("COMMUNITY_SHEETS_WEBHOOK_URL is not set.");
-    return {
-      success: false,
-      error:
-        "This form isn't connected yet. Please email pricilla@pricapa.com and I'll add you.",
-    };
+  if (webhookUrl) {
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token: process.env.COMMUNITY_SHEETS_TOKEN ?? "",
+          ...submission,
+        }),
+      });
+      sheetOk = response.ok;
+      if (!response.ok) {
+        console.error("Sheets webhook responded", response.status);
+      }
+    } catch (error) {
+      console.error("Sheets webhook failed:", error);
+    }
   }
 
-  try {
-    const response = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        token: process.env.COMMUNITY_SHEETS_TOKEN ?? "",
-        submittedAt: new Date().toISOString(),
-        source: "claude-community-boston",
-        fullName,
-        email,
-        experience,
-        building,
-        interests: interests.join(", "),
-        futureEvent,
-        contribute,
-        exploring,
-        meet: meet.join(", "),
-        updates: updates ? "Yes" : "No",
-      }),
-    });
-
-    if (!response.ok) {
-      console.error("Sheets webhook responded", response.status);
-      return {
-        success: false,
-        error:
-          "Something went wrong saving your answers. Please try again, or email pricilla@pricapa.com.",
-      };
+  // ── 2. Email notification, if configured ──
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY);
+      const { error } = await resend.emails.send({
+        from: "Claude Community Boston <onboarding@resend.dev>",
+        to: NOTIFY_TO,
+        replyTo: email,
+        subject: `Community interest — ${fullName}${updates ? " (wants updates)" : ""}`,
+        html: `
+          <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;max-width:600px;margin:0 auto;color:#211e1c;">
+            <div style="background:linear-gradient(135deg,#8a4b3c,#c68f71);padding:26px 30px;border-radius:12px 12px 0 0;">
+              <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.78);">Claude Community Boston</p>
+              <h1 style="margin:8px 0 0;font-size:21px;color:#fff;font-weight:700;">New community interest submission</h1>
+            </div>
+            <div style="background:#fff;padding:28px 30px;border:1px solid #f0e5dc;border-top:none;border-radius:0 0 12px 12px;">
+              <table style="width:100%;border-collapse:collapse;">
+                ${row("Name", fullName)}
+                ${row("Email", email)}
+                ${row("Experience", experience)}
+                ${row("Building", building)}
+                ${row("Interested in", submission.interests)}
+                ${row("Future event ideas", futureEvent)}
+                ${row("Learn / contribute", contribute)}
+                ${row("Currently exploring", exploring)}
+                ${row("Wants to meet", submission.meet)}
+                ${row("Wants updates", submission.updates)}
+              </table>
+              <p style="margin:22px 0 0;font-size:12px;color:#8d817a;">
+                Reply directly to this email to reach ${escapeHtml(fullName)}.
+                ${sheetOk ? "This submission was also written to your Google Sheet." : "The Google Sheet is not connected, so this email is the only copy."}
+              </p>
+            </div>
+          </div>
+        `,
+      });
+      emailOk = !error;
+      if (error) console.error("Resend error:", error);
+    } catch (error) {
+      console.error("Resend failed:", error);
     }
-  } catch (error) {
-    console.error("Sheets webhook failed:", error);
+  }
+
+  if (!sheetOk && !emailOk) {
+    console.error(
+      "Community form has no working delivery path. Set COMMUNITY_SHEETS_WEBHOOK_URL or RESEND_API_KEY.",
+    );
     return {
       success: false,
       error:
-        "Something went wrong saving your answers. Please try again, or email pricilla@pricapa.com.",
+        "Something went wrong saving your answers. Please email pricilla@pricapa.com and I'll add you.",
     };
   }
 
