@@ -1,5 +1,5 @@
 import "./CCBShape.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFetcher } from "react-router";
 import {
   EXPERIENCE_LEVELS,
@@ -23,6 +23,16 @@ export function CCBShape() {
   const serverError = fetcher.data?.error;
   const [interestCount, setInterestCount] = useState(0);
   const [interestError, setInterestError] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!submitted) return;
+    setShowToast(true);
+    successRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const timer = setTimeout(() => setShowToast(false), 6000);
+    return () => clearTimeout(timer);
+  }, [submitted]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     const form = event.currentTarget;
@@ -36,11 +46,40 @@ export function CCBShape() {
     }
   }
 
+  const toast = (
+    <div
+      className={`ccb-toast${showToast ? " ccb-toast--show" : ""}`}
+      role="status"
+      aria-live="polite"
+    >
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="10" fill="currentColor" opacity="0.16" />
+        <path
+          d="M6 10.2l2.5 2.5L14 7.2"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span>Thanks — your response is in.</span>
+      <button
+        type="button"
+        className="ccb-toast-close"
+        aria-label="Dismiss"
+        onClick={() => setShowToast(false)}
+      >
+        ×
+      </button>
+    </div>
+  );
+
   if (submitted) {
     return (
       <section className="ccb-shape" id="shape" aria-labelledby="ccb-shape-h">
+        {toast}
         <div className="ccb-wrap">
-          <div className="ccb-shape-success" role="status" aria-live="polite">
+          <div className="ccb-shape-success" role="status" aria-live="polite" ref={successRef}>
             <h2 id="ccb-shape-h" className="ccb-shape-success-h">
               Thank you for sharing
             </h2>
