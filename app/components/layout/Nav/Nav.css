@@ -196,12 +196,14 @@ nav.topnav {
   border-radius: 2px;
   background: var(--navy);
   transition: transform 0.25s ease, opacity 0.2s ease;
+  will-change: transform, opacity;
 }
 .nav-burger.is-open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 .nav-burger.is-open span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 .nav-burger.is-open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
