@@ -66,34 +66,49 @@ const SOCIAL_LINKS = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     function onOutsideClick(e: MouseEvent) {
       if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setMobileOpen(false);
+      }
+    }
+    function onEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        setMobileOpen(false);
+      }
     }
     document.addEventListener("mousedown", onOutsideClick);
-    return () => document.removeEventListener("mousedown", onOutsideClick);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("mousedown", onOutsideClick);
+      document.removeEventListener("keydown", onEscape);
+    };
   }, []);
 
   return (
-    <nav>
+    <nav ref={navRef}>
       <a href="#" className="nav-logo">
         <LogoBrand />
       </a>
-      <ul className="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#topics">Topics</a></li>
+      <ul id="nav-links" className={`nav-links${mobileOpen ? " is-open" : ""}`}>
+        <li><a href="#about" onClick={() => setMobileOpen(false)}>About</a></li>
+        <li><a href="#gallery" onClick={() => setMobileOpen(false)}>Gallery</a></li>
+        <li><a href="#topics" onClick={() => setMobileOpen(false)}>Topics</a></li>
         {/* <li><a href="#humanist">Humanist SI</a></li> */}
-        <li><a href="#services">Work</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#services" onClick={() => setMobileOpen(false)}>Work</a></li>
+        <li><a href="#events" onClick={() => setMobileOpen(false)}>Events</a></li>
+        <li><a href="#credentials" onClick={() => setMobileOpen(false)}>Credentials</a></li>
         {/* <li><a href="#book">Book</a></li> */}
-        <li><a href="#contact">Contact</a></li>
-        <li><Link to="/claude-community-boston" className="nav-community">Claude Community</Link></li>
+        <li><a href="#contact" onClick={() => setMobileOpen(false)}>Contact</a></li>
+        <li><Link to="/claude-community-boston" className="nav-community" onClick={() => setMobileOpen(false)}>Claude Community</Link></li>
       </ul>
       <div className="nav-right">
         <div className="lang-flags" title="Fluent in English, Spanish & Portuguese">
@@ -131,6 +146,17 @@ export function Nav() {
             </div>
           )}
         </div>
+        <button
+          className={`nav-burger${mobileOpen ? " is-open" : ""}`}
+          onClick={() => setMobileOpen((o) => !o)}
+          aria-expanded={mobileOpen}
+          aria-label="Menu"
+          aria-controls="nav-links"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </nav>
   );
