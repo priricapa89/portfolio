@@ -87,13 +87,13 @@ export function Nav() {
         <li><a href="#about">About</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#topics">Topics</a></li>
-        <li><a href="#humanist">Humanist SI</a></li>
+        {/* <li><a href="#humanist">Humanist SI</a></li> */}
         <li><a href="#services">Work</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#credentials">Credentials</a></li>
-        <li><Link to="/claude-community-boston" className="nav-community">Claude Community</Link></li>
-        <li><a href="#book">Book</a></li>
+        {/* <li><a href="#book">Book</a></li> */}
         <li><a href="#contact">Contact</a></li>
+        <li><Link to="/claude-community-boston" className="nav-community">Claude Community</Link></li>
       </ul>
       <div className="nav-right">
         <div className="lang-flags" title="Fluent in English, Spanish & Portuguese">

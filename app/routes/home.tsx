@@ -5,9 +5,9 @@ import { HeroSection } from "~/components/sections/HeroSection/HeroSection";
 import { TickerBanner } from "~/components/sections/TickerBanner/TickerBanner";
 import { AboutSection } from "~/components/sections/AboutSection/AboutSection";
 import { GalleryTeaser } from "~/components/sections/GalleryTeaser/GalleryTeaser";
-import { BookSection } from "~/components/sections/BookSection/BookSection";
+// import { BookSection } from "~/components/sections/BookSection/BookSection";
 import { TopicsSection } from "~/components/sections/TopicsSection/TopicsSection";
-import { HumanistSISection } from "~/components/sections/HumanistSISection/HumanistSISection";
+// import { HumanistSISection } from "~/components/sections/HumanistSISection/HumanistSISection";
 import { ServicesSection } from "~/components/sections/ServicesSection/ServicesSection";
 import { EventsSection } from "~/components/sections/EventsSection/EventsSection";
 import { CommunitySection } from "~/components/sections/CommunitySection/CommunitySection";
@@ -36,9 +36,9 @@ export default function Home() {
       <AboutSection />
       <CommunitySection />
       <GalleryTeaser />
-      <BookSection />
+      {/* <BookSection /> */}
       <TopicsSection />
-      <HumanistSISection />
+      {/* <HumanistSISection /> */}
       <ServicesSection />
       <EventsSection />
       <CredentialsSection />
