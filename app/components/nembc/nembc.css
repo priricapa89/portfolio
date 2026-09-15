@@ -1,0 +1,238 @@
+/* ──────────────────────────────────────────────────────────────
+   NEMBC 2026 resource hub — /nembc
+
+   Reuses the PRICAPA tokens, buttons and eyebrow from ccb.css
+   (the page wrapper carries both classes: "ccb nembc"). Only the
+   layout that is specific to this page lives here.
+   ────────────────────────────────────────────────────────────── */
+
+.nembc-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 40px;
+  background: rgba(251, 247, 244, 0.93);
+  border-bottom: 1px solid var(--pr-line);
+}
+.nembc-nav-brand {
+  text-decoration: none;
+}
+.nembc-nav-link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pr-ink-soft);
+  text-decoration: none;
+}
+.nembc-nav-link:hover {
+  color: var(--pr-ink);
+}
+
+/* ── Hero ── */
+.ccb section.nembc-hero {
+  background: radial-gradient(
+    120% 90% at 15% 0%,
+    var(--pr-cream-2) 0%,
+    var(--pr-cream) 62%
+  );
+  border-bottom: 1px solid var(--pr-line);
+  padding-top: 72px;
+  padding-bottom: 64px;
+}
+.nembc-hero-h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin: 0 0 18px;
+  max-width: 24ch;
+}
+.nembc-hero-h1 .nembc-dot {
+  color: var(--pr-rose);
+}
+.ccb .nembc-hero-lede {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--pr-rose-ink);
+  margin: 0 0 18px;
+}
+.ccb .nembc-hero-body {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  max-width: 56ch;
+  margin: 0 0 26px;
+}
+.ccb .nembc-hero-meta {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pr-ink-soft);
+  margin: 0;
+}
+
+/* ── Resources ── */
+.ccb section.nembc-resources {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.nembc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.nembc-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--pr-cream);
+  border: 1px solid var(--pr-line-strong);
+  padding: 10px;
+}
+.nembc-card-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid var(--pr-line);
+  padding: 30px 26px 26px;
+}
+.ccb .nembc-card-kind {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pr-rose-ink);
+  margin: 0 0 16px;
+}
+.nembc-card-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+.ccb .nembc-card-body {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0 0 22px;
+  flex: 1;
+}
+.ccb .nembc-card-file {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--pr-ink-soft);
+  margin: 0 0 18px;
+  word-break: break-all;
+}
+.nembc-card .ccb-btn {
+  width: 100%;
+}
+
+/* ── Notes ── */
+.ccb section.nembc-notes {
+  padding-top: 0;
+  padding-bottom: 88px;
+}
+.nembc-notes-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--pr-line);
+}
+.nembc-notes h2 {
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
+.ccb .nembc-notes p,
+.ccb .nembc-notes li {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.nembc-notes ol {
+  padding-left: 20px;
+  margin: 0;
+}
+.nembc-notes li + li {
+  margin-top: 6px;
+}
+
+/* ── Footer ── */
+.nembc-footer {
+  background: var(--pr-ink);
+  color: var(--pr-cream);
+  padding: 48px 40px 36px;
+}
+.nembc-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(251, 247, 244, 0.16);
+}
+.ccb .nembc-footer-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--pr-cream);
+  margin: 0 0 10px;
+}
+.ccb .nembc-footer-line {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(251, 247, 244, 0.72);
+  margin: 0;
+}
+.nembc-footer-brand {
+  display: inline-block;
+  text-decoration: none;
+}
+.nembc-footer-brand .pr-mark-name {
+  color: var(--pr-cream);
+}
+.nembc-footer-brand .pr-mark-strap {
+  color: var(--pr-rose-soft);
+}
+.ccb .nembc-footer-disclaimer {
+  margin: 22px auto 0;
+  max-width: var(--pr-max);
+}
+.ccb .nembc-footer-disclaimer p {
+  font-size: 0.74rem;
+  line-height: 1.7;
+  color: rgba(251, 247, 244, 0.6);
+  margin: 0 0 8px;
+}
+
+@media (max-width: 960px) {
+  .nembc-grid {
+    grid-template-columns: 1fr;
+  }
+  .nembc-notes-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+@media (max-width: 600px) {
+  .nembc-nav {
+    padding: 12px 20px;
+  }
+  .nembc-nav-brand .pr-mark-strap {
+    display: none;
+  }
+  .ccb section.nembc-hero {
+    padding-top: 44px;
+  }
+  .nembc-card-inner {
+    padding: 24px 20px 20px;
+  }
+  .nembc-footer {
+    padding: 40px 20px 32px;
+  }
+}
