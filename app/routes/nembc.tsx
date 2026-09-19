@@ -10,6 +10,8 @@ const PAGE_TITLE = "NEMBC 2026 · The Architecture of AI-Native Work | PRICAPA";
 const PAGE_DESCRIPTION =
   "Build your AI Chief of Staff. The two Skills and the agent orchestration blueprint behind the NEMBC 2026 Power Breakfast talk, shared as templates by Pricilla Ricapa.";
 
+const PAGE_IMAGE = "https://pricapa.com/pricapa-og.jpg";
+
 const FILES = "/resources/nembc-2026";
 
 const RESOURCES = [
@@ -43,9 +45,38 @@ export function meta({}: Route.MetaArgs) {
     { property: "og:title", content: PAGE_TITLE },
     { property: "og:description", content: PAGE_DESCRIPTION },
     { property: "og:url", content: PAGE_URL },
-    { name: "twitter:card", content: "summary" },
+    { property: "og:image", content: PAGE_IMAGE },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: PAGE_TITLE },
     { name: "twitter:description", content: PAGE_DESCRIPTION },
+    { name: "twitter:image", content: PAGE_IMAGE },
+
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        headline: PAGE_TITLE,
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+        image: PAGE_IMAGE,
+        author: {
+          "@id": "https://pricapa.com/#pricilla",
+          "@type": "Person",
+          name: "Pricilla Ricapa",
+          url: "https://pricapa.com/",
+        },
+        about: "Building an AI Chief of Staff with Claude Skills and agent orchestration",
+        hasPart: RESOURCES.map((r) => ({
+          "@type": "DigitalDocument",
+          name: r.title,
+          description: r.body,
+          encodingFormat: "text/markdown",
+          url: `https://pricapa.com${FILES}/${r.file}`,
+        })),
+      },
+    },
   ];
 }
 

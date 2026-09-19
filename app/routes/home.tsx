@@ -47,6 +47,7 @@ export function meta({}: Route.MetaArgs) {
       "script:ld+json": {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://pricapa.com/#pricilla",
         name: "Pricilla Ricapa",
         url: PAGE_URL,
         image: "https://pricapa.com/main-image.JPG",

@@ -45,6 +45,7 @@ export function meta({}: Route.MetaArgs) {
       "script:ld+json": {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://pricapa.com/claude-community-boston/#organization",
         name: "Claude Community Boston",
         url: PAGE_URL,
         description: PAGE_DESCRIPTION,
@@ -55,6 +56,7 @@ export function meta({}: Route.MetaArgs) {
           name: "Boston",
         },
         founder: {
+          "@id": "https://pricapa.com/#pricilla",
           "@type": "Person",
           name: "Pricilla Ricapa",
           url: "https://pricapa.com/",
@@ -90,6 +92,7 @@ export function meta({}: Route.MetaArgs) {
           "A hands-on community workshop building with Claude, with challenge tracks spanning Delight/Everyday, Business, Technical Breakthrough, and Security. Includes a live Claude demonstration, collaborative building time, lightning demos, and networking. No prior Claude experience required.",
         image: PAGE_IMAGE,
         organizer: {
+          "@id": "https://pricapa.com/#pricilla",
           "@type": "Person",
           name: "Pricilla Ricapa",
           url: "https://pricapa.com/",
