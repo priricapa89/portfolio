@@ -40,6 +40,63 @@ export function meta({}: Route.MetaArgs) {
     { name: "twitter:title", content: PAGE_TITLE },
     { name: "twitter:description", content: PAGE_DESCRIPTION },
     { name: "twitter:image", content: PAGE_IMAGE },
+
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Claude Community Boston",
+        url: PAGE_URL,
+        description: PAGE_DESCRIPTION,
+        logo: "https://pricapa.com/pricapa-logo.png",
+        image: PAGE_IMAGE,
+        areaServed: {
+          "@type": "City",
+          name: "Boston",
+        },
+        founder: {
+          "@type": "Person",
+          name: "Pricilla Ricapa",
+          url: "https://pricapa.com/",
+          sameAs: [
+            "https://www.linkedin.com/in/pricilla-ricapa/",
+            "https://www.instagram.com/pri_ricapa/",
+            "https://x.com/ricapapricilla",
+          ],
+        },
+      },
+    },
+
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name: "Boston | Claude Build Day",
+        startDate: "2026-09-23T17:30:00-04:00",
+        endDate: "2026-09-23T20:30:00-04:00",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Harvard Innovation Labs",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Boston",
+            addressRegion: "MA",
+            addressCountry: "US",
+          },
+        },
+        description:
+          "A hands-on community workshop building with Claude, with challenge tracks spanning Delight/Everyday, Business, Technical Breakthrough, and Security. Includes a live Claude demonstration, collaborative building time, lightning demos, and networking. No prior Claude experience required.",
+        image: PAGE_IMAGE,
+        organizer: {
+          "@type": "Person",
+          name: "Pricilla Ricapa",
+          url: "https://pricapa.com/",
+        },
+        url: "https://luma.com/claude-Boston001",
+      },
+    },
   ];
 }
 

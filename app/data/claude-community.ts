@@ -43,6 +43,25 @@ export interface CommunityEvent {
  */
 export const communityEvents: CommunityEvent[] = [
   {
+    id: "claude-build-day-2026",
+    name: "Boston | Claude Build Day",
+    date: "September 23, 2026",
+    time: "5:30 to 8:30 PM",
+    location: "Harvard Innovation Labs, Boston, MA",
+    type: "Workshop",
+    description:
+      "A hands-on community workshop building with Claude, with challenge tracks spanning Delight/Everyday, Business, Technical Breakthrough, and Security. Includes a live Claude demonstration, collaborative building time, lightning demos, and networking. Attendees receive $50 in Anthropic API credits. No prior Claude experience required — bring a laptop and curiosity. Registration requires host approval; space is limited.",
+    topics: [
+      "Building with Claude",
+      "AI agents",
+      "Challenge tracks",
+      "Lightning demos",
+      "Networking",
+    ],
+    registrationUrl: "https://luma.com/claude-Boston001",
+    status: "upcoming",
+  },
+  {
     id: "build-with-claude-2026",
     name: "Build with Claude",
     date: "September 4, 2026",
@@ -59,7 +78,7 @@ export const communityEvents: CommunityEvent[] = [
       "Practical experimentation",
     ],
     registrationUrl: "",
-    status: "upcoming",
+    status: "past",
   },
 ];
 
@@ -134,5 +153,6 @@ export const visionAreas: VisionArea[] = [
 ];
 
 /** Reused from the main PRICAPA site — do not invent new profile URLs. */
-export const COMMUNITY_LINKEDIN = "https://www.linkedin.com/in/pricilla-ricapa/";
+export const COMMUNITY_LINKEDIN =
+  "https://www.linkedin.com/in/pricilla-ricapa/";
 export const COMMUNITY_EMAIL = "pricilla@pricapa.com";
