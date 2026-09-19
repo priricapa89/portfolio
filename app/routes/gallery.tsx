@@ -11,14 +11,31 @@ import { GalleryBookTeaser } from "~/components/gallery/GalleryBookTeaser/Galler
 import { GalleryFooter } from "~/components/gallery/GalleryFooter/GalleryFooter";
 import { Lightbox } from "~/components/gallery/Lightbox/Lightbox";
 
+const PAGE_URL = "https://pricapa.com/gallery";
+const PAGE_TITLE = "Gallery — PRicapa.com";
+const PAGE_DESCRIPTION =
+  "A photo diary of the conversations, people, and moments shaping the future of AI and quantum.";
+const PAGE_IMAGE = "https://pricapa.com/pricapa-og.jpg";
+
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Gallery — PRicapa.com" },
-    {
-      name: "description",
-      content:
-        "A photo diary of the conversations, people, and moments shaping the future of AI and quantum.",
-    },
+    { title: PAGE_TITLE },
+    { name: "description", content: PAGE_DESCRIPTION },
+    { tagName: "link", rel: "canonical", href: PAGE_URL },
+
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "PRICAPA" },
+    { property: "og:title", content: PAGE_TITLE },
+    { property: "og:description", content: PAGE_DESCRIPTION },
+    { property: "og:url", content: PAGE_URL },
+    { property: "og:image", content: PAGE_IMAGE },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: PAGE_TITLE },
+    { name: "twitter:description", content: PAGE_DESCRIPTION },
+    { name: "twitter:image", content: PAGE_IMAGE },
   ];
 }
 

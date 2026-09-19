@@ -1,0 +1,38 @@
+# PRicapa.com
+
+> Pricilla Ricapa is an economist, MBA, and technology strategist based in Boston who translates AI infrastructure, quantum computing, and capital-markets shifts into strategic clarity for business leaders and investors. She is not a physicist or computer scientist — her value is bridging technical researchers and decision-makers.
+
+## Background
+- Peruvian-born economist and MBA (Simon Business School), fluent in English, Spanish, and Portuguese.
+- Career: investor relations at JRC and Repsol Peru, consumer goods at Belcorp, digital transformation at Volvo Group (built "Dr. Volvo," an AI diagnostic app), Product & AI Strategy at Lumentum Holdings (contributed to enterprise RAG systems).
+- Co-founder of Prifit, an early-stage fitness & apparel startup.
+- Active participant in the global AI/quantum conversation: WEF Davos, MIT, Harvard, TEDxMIT, TEDxBoston, IEEE, Dassault Systèmes.
+
+## Topics she covers
+1. AI infrastructure and the dual-architecture (AI + quantum) compute era
+2. Economics of the AI transition — the agentic economy and SaaS business-model disruption
+3. Quantum computing strategy for non-technical business leaders
+4. Societal and philosophical implications of the AGI transition
+5. Capital allocation patterns in AI and quantum investment
+6. Leadership, identity, and career navigation in the intelligence era
+
+Weekly written and video analysis on these topics is published on LinkedIn: https://www.linkedin.com/in/pricilla-ricapa/
+
+## Services
+- Speaking & panels on AI infrastructure economics, quantum strategy, and the intelligence era for business audiences.
+- 1:1 or team strategic advisory on quantum timelines, AI infrastructure positioning, and capital allocation strategy — for investors and C-suite.
+- Content and education: written analysis, video explainers, and workshops.
+
+## Pages
+- [Home](https://pricapa.com/): biography, topics, services, events, credentials, contact.
+- [Gallery](https://pricapa.com/gallery): photo diary of AI/quantum industry events with attendee and topic context.
+- [Claude Community Boston](https://pricapa.com/claude-community-boston): community for builders and operators exploring Claude, curated by Pricilla in her role as Claude Community Ambassador.
+- [NEMBC 2026](https://pricapa.com/nembc): AI Chief of Staff resources — Claude Skills and agent-orchestration blueprint shared from a conference talk.
+
+## Credentials
+Anthropic-issued: Claude Code in Action, Introduction to Model Context Protocol, Building with the Claude API, AI Fluency: Framework & Foundations, Claude 101. Also: Top 100 Voices (Massachusetts AI Coalition) and Claude Community Ambassador (Claude Community, Boston).
+
+## Contact
+- Email: pricilla@pricapa.com
+- LinkedIn: https://www.linkedin.com/in/pricilla-ricapa/
+- Booking inquiries: via the contact form at https://pricapa.com/#contact
