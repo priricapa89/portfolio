@@ -36,6 +36,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
           name="google-site-verification"
           content="yoE_40oZzcBh2JK9YvgajdSoNwE2lvOqFX4PYMAVyIM"
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-L42XYYXSN9"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-L42XYYXSN9');`,
+          }}
+        />
         <Meta />
         <Links />
       </head>
