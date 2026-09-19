@@ -38,11 +38,11 @@ function EventCard({ event }: { event: CommunityEvent }) {
         >
           Register on Luma
         </a>
-      ) : (
+      ) : event.status === "upcoming" ? (
         <p className="ccb-event-soon">
           Registration opens on the official Claude Community Luma calendar.
         </p>
-      )}
+      ) : null}
     </article>
   );
 }
