@@ -5,7 +5,6 @@ import { EVENTS, EVENT_NAV } from "~/components/gallery/data";
 import { GalleryNav } from "~/components/gallery/GalleryNav/GalleryNav";
 import { GalleryHero } from "~/components/gallery/GalleryHero/GalleryHero";
 import { EventStickyNav } from "~/components/gallery/EventStickyNav/EventStickyNav";
-import { CloudinaryTip } from "~/components/gallery/CloudinaryTip/CloudinaryTip";
 import { EventSection } from "~/components/gallery/EventSection/EventSection";
 import { GalleryBookTeaser } from "~/components/gallery/GalleryBookTeaser/GalleryBookTeaser";
 import { GalleryFooter } from "~/components/gallery/GalleryFooter/GalleryFooter";
@@ -81,7 +80,6 @@ export default function Gallery() {
       <GalleryNav />
       <GalleryHero />
       <EventStickyNav items={EVENT_NAV} activeEvent={activeEvent} />
-      <CloudinaryTip />
       {EVENTS.map((event) => (
         <EventSection key={event.id} event={event} onZoom={openLightbox} />
       ))}
