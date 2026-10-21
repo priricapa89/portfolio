@@ -6,7 +6,7 @@ const TICKER_ITEMS = [
   "Harvard",
   "TEDxMIT & TEDxBoston",
   "IEEE",
-  "QuEra · IBM Quantum · Qblox",
+  "Harvard Quantum Symposium",
   "Dassault Systèmes",
 ];
 

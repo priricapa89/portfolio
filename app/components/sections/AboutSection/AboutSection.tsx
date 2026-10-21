@@ -7,7 +7,7 @@ const INDUSTRY_TAGS = [
   { label: "💄 Beauty · Consumer Goods", href: "https://www.belcorp.biz" },
   { label: "💡 Photonics · Deep Tech", href: "https://www.lumentum.com" },
   { label: "🚛 Automotive · Volvo Group", href: "https://www.volvogroup.com" },
-  { label: "📈 Finance · JRC", href: "https://jrc.com.pe/en/home/" },
+  { label: "📈 Strategy · JRC", href: "https://jrc.com.pe/en/home/" },
   { label: "◈ AI · Enterprise Tech" },
   { label: "📊 Capital Markets · IR" },
   { label: "🏋️ Fitness · Apparel" },
@@ -31,65 +31,60 @@ export function AboutSection() {
       <div className="about-grid">
         <div className="about-text">
           <h2>
-            Economist. Strategist. <em>Frontier tech translator.</em>
+            Economist. AI strategist. <em>I connect the physics to the price.</em>
           </h2>
           <p>
-            I&apos;m a Peruvian-born economist and MBA, based in Boston, operating at the
-            crossroads of AI infrastructure, quantum computing, and strategic communication. My
-            path has been intentionally diverse — and that&apos;s the point.
+            I&apos;m a Peruvian-born economist and MBA based in Boston. I work on the economics
+            of AI infrastructure: what it costs to move data and power compute, where the
+            bottlenecks are, and which technologies get past them. Today that takes me from
+            photonics inside the data center to clusters of GPUs in orbit.
           </p>
           <p>
-            I started my career in financial analysis and investor relations at{" "}
-            <strong>
-              <a href="https://jrc.com.pe/en/home/" target="_blank" rel="noreferrer">JRC</a>
-            </strong>{" "}
-            and{" "}
+            I learned capital before I learned technology. I started in banking and credit
+            rating, including Peru&apos;s central bank, then ran investor relations at{" "}
             <strong>
               <a href="https://www.repsol.com" target="_blank" rel="noreferrer">Repsol Peru</a>
-            </strong>
-            , managing 20+ institutional investor events annually and leading IR strategy across
-            Latin America. I also built experience in consumer goods and beauty at{" "}
+            </strong>{" "}
+            with S&amp;P, Moody&apos;s and Fitch, and managed treasury across 15 markets at{" "}
             <strong>
               <a href="https://www.belcorp.biz" target="_blank" rel="noreferrer">Belcorp</a>
             </strong>
-            , one of Latin America&apos;s largest beauty multinationals.
+            .
           </p>
           <p>
-            From there I joined{" "}
+            At{" "}
             <strong>
               <a href="https://www.volvogroup.com" target="_blank" rel="noreferrer">Volvo Group</a>
-            </strong>
-            , where I worked on digital transformation and built <strong>Dr. Volvo</strong> — an
-            AI-powered diagnostic app for vehicle health monitoring. That experience deepened my
-            conviction that the most powerful innovations happen when domain expertise meets
-            emerging technology.
+            </strong>{" "}
+            I was Chief of Staff and originated <strong>Dr. Volvo</strong>, the company&apos;s
+            first AI diagnostic product. At{" "}
+            <strong>
+              <a href="https://jrc.com.pe/en/home/" target="_blank" rel="noreferrer">JRC</a>
+            </strong>{" "}
+            I built the strategic and financial case for its expansion into Canada.
           </p>
           <p>
-            I then moved to Silicon Valley, joining{" "}
+            Then I joined{" "}
             <strong>
               <a href="https://www.lumentum.com" target="_blank" rel="noreferrer">
                 Lumentum Holdings
               </a>
             </strong>{" "}
-            as a Product &amp; AI Strategy analyst — where I contributed to{" "}
-            <strong>RAGS (Retrieval-Augmented Generation Systems)</strong> for enterprise AI,
-            working at the frontier of photonics and AI infrastructure, and earning the
-            company&apos;s Diversity, Inclusion &amp; Belonging scholarship.
+            in Silicon Valley, the company that makes the lasers and optical components inside
+            AI data centers. I led enterprise AI strategy there, including a retrieval-augmented
+            generation (RAG) system rolled out to more than 1,000 people. That is where I saw
+            that the limit on AI is increasingly physical: power, heat, and the speed of light
+            between chips.
+          </p>
+          <p>
+            I read the papers, build the models, and work directly with engineers and
+            researchers. My job is to connect the physics to the economics: what a bandwidth
+            limit costs, which bottleneck decides who wins, and where capital should go next.
+            I&apos;ve tested that work in rooms at WEF Davos, MIT, Harvard, TEDxBoston and IEEE.
           </p>
           <p>
             I&apos;ve also co-founded <strong>Prifit</strong>, an early-stage fitness &amp;
-            apparel startup building at the intersection of performance culture, community, and
-            smart design.
-          </p>
-          <p>
-            For the past two years I&apos;ve been an active participant in the global AI and
-            quantum conversation — attending events at{" "}
-            <strong>WEF Davos, MIT, Harvard, TEDxBoston, IEEE, Dassault Systèmes</strong> and
-            more. I&apos;ve been in the room with the CEOs, researchers, and founders actually
-            building this future. I&apos;m <strong>not a physicist or a computer scientist</strong>
-            . I&apos;m a strategic translator: someone with enough depth to follow the technical
-            conversations, and enough communication skill to make them legible for the people who
-            need to act on them.
+            apparel startup.
           </p>
           <p>
             First-generation Peruvian MBA. Fluent in English, Spanish, and Portuguese.{" "}
@@ -107,7 +102,7 @@ export function AboutSection() {
         </div>
         <div>
           <div className="prifit-card">
-            <h4>🏋️ Prifit — Co-Founder</h4>
+            <h4>🏋️ Prifit, Co-Founder</h4>
             <p>
               Early-stage fitness &amp; apparel startup building at the intersection of
               performance culture, community, and smart design. Currently in ideation and early
