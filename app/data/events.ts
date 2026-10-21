@@ -5,7 +5,6 @@ export interface Event {
 }
 
 export const events: Event[] = [
-  { year: "2026", name: "World Economic Forum — Davos 2026", detail: "Invited, unable to attend — continued WEF community engagement remotely" },
   { year: "2026", name: "Harvard Quantum Symposium — Quantum & AI Impact Series", detail: "Panel attendee: Qblox · QuEra · IBM Quantum" },
   { year: "2025", name: "World Economic Forum — Davos 2025", detail: "WSJ House · MIT House · AI House · Imperial College AI Dinner" },
   { year: "2025", name: "TEDxBoston — Planet Action (3 days)", detail: "Participant · MIT CSAIL · MIT Museum · New England Aquarium" },

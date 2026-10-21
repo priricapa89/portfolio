@@ -17,9 +17,9 @@ import { SocialSection } from "~/components/sections/SocialSection/SocialSection
 import { ContactSection } from "~/components/sections/ContactSection/ContactSection";
 
 const PAGE_URL = "https://pricapa.com/";
-const PAGE_TITLE = "PRicapa.com — AI & Quantum Strategist";
+const PAGE_TITLE = "Pricilla Ricapa | Economics of AI Infrastructure";
 const PAGE_DESCRIPTION =
-  "Pricilla Ricapa — Economist, strategist, and frontier tech translator at the intersection of AI, quantum computing, and capital markets.";
+  "Pricilla Ricapa is an economist and AI strategist working on the economics of AI infrastructure: data centers, photonics, and compute in orbit. Formerly at Lumentum and Volvo Group.";
 const PAGE_IMAGE = "https://pricapa.com/pricapa-og.jpg";
 
 export function meta({}: Route.MetaArgs) {
@@ -51,7 +51,7 @@ export function meta({}: Route.MetaArgs) {
         name: "Pricilla Ricapa",
         url: PAGE_URL,
         image: "https://pricapa.com/main-image.JPG",
-        jobTitle: "AI & Quantum Strategist",
+        jobTitle: "Economist and AI Infrastructure Strategist",
         description: PAGE_DESCRIPTION,
         email: "mailto:pricilla@pricapa.com",
         homeLocation: {
@@ -77,8 +77,10 @@ export function meta({}: Route.MetaArgs) {
         ],
         knowsAbout: [
           "Artificial Intelligence",
-          "Quantum Computing",
           "AI Infrastructure Economics",
+          "Photonics",
+          "Orbital Compute",
+          "Quantum Computing",
           "Capital Markets",
           "Strategic Communication",
         ],
