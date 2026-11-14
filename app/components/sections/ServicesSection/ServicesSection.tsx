@@ -11,6 +11,10 @@ interface Way {
   cta: Pair;
   /** External link. Without it the button opens the contact form. */
   href?: string;
+  /** One word shown in the photo area until a photo is added. */
+  word: Pair;
+  /** Photo for the top of the card, e.g. "/ways/speaking.jpg". */
+  image?: string;
 }
 
 const WAYS: Way[] = [
@@ -21,6 +25,7 @@ const WAYS: Way[] = [
       "Economía de la infraestructura de IA, estrategia cuántica y la era de la inteligencia. Charlas claras y con sustancia para conferencias, eventos corporativos y paneles.",
     ],
     cta: ["Book me", "Invítame"],
+    word: ["Communicate", "Comunicar"],
   },
   {
     title: ["Strategic Advisory", "Asesoría estratégica"],
@@ -29,6 +34,7 @@ const WAYS: Way[] = [
       "Sesiones 1:1 o en equipo para construir marcos sobre plazos cuánticos, posicionamiento en infraestructura de IA y asignación de capital.",
     ],
     cta: ["Let\u2019s talk", "Conversemos"],
+    word: ["Advise", "Asesorar"],
   },
   {
     title: ["Content & Education", "Contenido y formación"],
@@ -37,6 +43,7 @@ const WAYS: Way[] = [
       "Análisis escritos, videos cortos y talleres que hacen comprensible la tecnología de frontera para inversionistas, ejecutivos y profesionales.",
     ],
     cta: ["Follow my work", "Sigue mi trabajo"],
+    word: ["Educate", "Educar"],
     href: "https://www.linkedin.com/in/pricilla-ricapa/",
   },
 ];
@@ -64,7 +71,15 @@ export function ServicesSection() {
       <div className="services-grid">
         {WAYS.map((way, i) => (
           <div className="svc-card" key={way.title[0]}>
-            <div className="svc-icon-wrap" aria-hidden="true">0{i + 1}</div>
+            <div className="svc-media">
+              {way.image ? (
+                <img src={way.image} alt="" loading="lazy" />
+              ) : (
+                <span className="svc-word" aria-hidden="true">{t(...way.word)}</span>
+              )}
+              <span className="svc-num" aria-hidden="true">0{i + 1}</span>
+            </div>
+            <div className="svc-body">
             <h3>{t(...way.title)}</h3>
             <p>{t(...way.body)}</p>
             {way.href ? (
@@ -76,6 +91,7 @@ export function ServicesSection() {
                 {t(...way.cta)} →
               </button>
             )}
+            </div>
           </div>
         ))}
       </div>

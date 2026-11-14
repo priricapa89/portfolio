@@ -1,6 +1,6 @@
 import "./CredentialsSection.css";
 import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
-import { appointments, credentials } from "~/data/credentials";
+import { appointments, credentials, education } from "~/data/credentials";
 
 export function CredentialsSection() {
   return (
@@ -9,12 +9,27 @@ export function CredentialsSection() {
         pill="Credentials"
         heading={
           <>
-            Recent <span className="warm-hl">certifications</span> and
+            Education, <span className="warm-hl">certifications</span> and
             appointments
           </>
         }
       />
 
+      <h3 className="creds-sub">Education</h3>
+      <div className="edu-grid">
+        {education.map((e) => (
+          <div className="edu-card" key={e.school}>
+            <div className="edu-logo">
+              <img src={e.logo} alt={e.school} loading="lazy" />
+            </div>
+            <span className="cred-issuer">{e.school}</span>
+            <h3 className="cred-name">{e.program}</h3>
+            {e.detail && <span className="cred-meta">{e.detail}</span>}
+          </div>
+        ))}
+      </div>
+
+      <h3 className="creds-sub">Certifications</h3>
       <div className="creds-grid">
         {credentials.map((c) => (
           <a
@@ -32,6 +47,7 @@ export function CredentialsSection() {
         ))}
       </div>
 
+      <h3 className="creds-sub">Appointments</h3>
       <ul className="creds-appointments">
         {appointments.map((a) => (
           <li key={`${a.org}-${a.role}`}>

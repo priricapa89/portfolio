@@ -15,24 +15,21 @@ interface Pillar {
 const PILLARS: Pillar[] = [
   {
     title: ["Capital", "Capital"],
-    body: [
-      "Economics, finance, investor relations, and treasury.",
-      "Economía, finanzas, relación con inversionistas y tesorería.",
-    ],
+    body: ["Finance, strategy, investments and markets.", "Finanzas, estrategia, inversiones y mercados."],
+    image: "/pillars/capital.jpg",
   },
   {
-    title: ["Applied AI and leadership", "IA aplicada y liderazgo"],
-    body: [
-      "From business strategy to shipping Dr. Volvo at Volvo Group.",
-      "De la estrategia de negocio a lanzar Dr. Volvo en Volvo Group.",
-    ],
+    title: ["Intelligence", "Inteligencia"],
+    body: ["AI, agents and architecture.", "IA, agentes y arquitectura."],
+    image: "/pillars/intelligence.jpg",
   },
   {
-    title: ["Infrastructure and deep tech", "Infraestructura y deep tech"],
+    title: ["Infrastructure", "Infraestructura"],
     body: [
-      "Inside the optical industry at Lumentum. Now, compute in orbit.",
-      "Dentro de la industria óptica en Lumentum. Ahora, cómputo en órbita.",
+      "Deep tech, photonics and the future of intelligence.",
+      "Deep tech, fotónica y el futuro de la inteligencia.",
     ],
+    image: "/pillars/infrastructure.jpg",
   },
 ];
 

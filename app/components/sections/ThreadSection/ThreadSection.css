@@ -68,7 +68,8 @@
   transform: translateY(-4px);
 }
 .thread-media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
   padding: 18px 24px;
@@ -95,6 +96,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.thread-pillar:hover .thread-media img {
+  transform: scale(1.05);
 }
 .thread-pillar-body {
   padding: 26px 26px 30px;
@@ -102,7 +107,7 @@
 .thread-pillar h3 {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.3;
   color: var(--navy);
   margin-bottom: 10px;

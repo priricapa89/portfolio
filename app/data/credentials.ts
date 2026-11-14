@@ -66,3 +66,38 @@ export const appointments: Appointment[] = [
     detail: "Independent volunteer role",
   },
 ];
+
+export interface Education {
+  school: string;
+  program: string;
+  detail?: string;
+  /** Logo file in /public/logos, shown as supplied. */
+  logo: string;
+}
+
+export const education: Education[] = [
+  {
+    school: "Simon Business School, University of Rochester",
+    program: "STEM MBA",
+    detail: "Forté Fellow · 2024",
+    logo: "/logos/simon.png",
+  },
+  {
+    school: "CUOA Business School",
+    program: "Executive Program",
+    detail: "Strategy & Marketing",
+    logo: "/logos/cuoa.png",
+  },
+  {
+    school: "University of La Verne",
+    program: "Executive Program",
+    detail: "Finance & Investment",
+    logo: "/logos/laverne.png",
+  },
+  {
+    school: "Universidad de Lima",
+    program: "BSc Economics",
+    detail: "Econometrics & Investments",
+    logo: "/logos/ulima.png",
+  },
+];
