@@ -32,7 +32,6 @@ const EMPLOYERS: MarqueeItem[] = [
 const ROOMS: MarqueeItem[] = [
   { name: "World Economic Forum", src: "/logos/wef.png" },
   { name: "MIT", src: "/logos/mit.png", bg: "#f2f4f8" },
-  { name: "Harvard" },
   { name: "Massachusetts AI Coalition", src: "/logos/mass-ai-coalition.png" },
   { name: "Claude Community Boston" },
 ];

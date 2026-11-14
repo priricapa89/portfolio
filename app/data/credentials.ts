@@ -65,6 +65,12 @@ export const appointments: Appointment[] = [
     period: "Jun 2026 – Present",
     detail: "Independent volunteer role",
   },
+  {
+    role: "Council Member",
+    org: "Claude Community Program Council",
+    period: "Sep 2026 – Present",
+    detail: "Independent volunteer role",
+  },
 ];
 
 export interface Education {
