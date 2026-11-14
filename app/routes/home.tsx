@@ -7,7 +7,9 @@ import { GalleryTeaser } from "~/components/sections/GalleryTeaser/GalleryTeaser
 // import { BookSection } from "~/components/sections/BookSection/BookSection";
 import { TopicsSection } from "~/components/sections/TopicsSection/TopicsSection";
 // import { HumanistSISection } from "~/components/sections/HumanistSISection/HumanistSISection";
+import { ThreadSection } from "~/components/sections/ThreadSection/ThreadSection";
 import { ServicesSection } from "~/components/sections/ServicesSection/ServicesSection";
+import { PricingSection } from "~/components/sections/PricingSection/PricingSection";
 import { EventsSection } from "~/components/sections/EventsSection/EventsSection";
 import { CommunitySection } from "~/components/sections/CommunitySection/CommunitySection";
 import { CredentialsSection } from "~/components/sections/CredentialsSection/CredentialsSection";
@@ -94,14 +96,16 @@ export default function Home() {
       <Nav />
       <HeroSection />
       <TickerBanner />
-      <CommunitySection />
+      <ThreadSection />
       <GalleryTeaser />
       {/* <BookSection /> */}
       <TopicsSection />
       {/* <HumanistSISection /> */}
       <ServicesSection />
+      <PricingSection />
       <EventsSection />
       <CredentialsSection />
+      <CommunitySection />
       <QuoteSection />
       <SocialSection />
       <ContactSection />

@@ -1,0 +1,74 @@
+.thread {
+  background: var(--bg);
+}
+.thread-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+.thread-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  line-height: 1.1;
+  color: var(--navy);
+  max-width: 11em;
+}
+.thread-lead {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+.thread-copy p:not(.thread-lead) {
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.thread-more {
+  font-weight: 500;
+  color: var(--purple);
+  text-decoration: none;
+}
+.thread-more:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.thread-pillars {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.thread-pillar {
+  border-top: 1px solid var(--teal);
+  padding-top: 28px;
+}
+.thread-num {
+  font-size: 0.85rem;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+.thread-pillar h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.thread-pillar p {
+  color: var(--gray);
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .thread-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .thread-pillars {
+    grid-template-columns: 1fr;
+  }
+}

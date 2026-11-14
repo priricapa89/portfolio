@@ -12,6 +12,8 @@ interface MenuLink {
   href: string;
   /** Client-side route (rendered with <Link>). */
   route?: boolean;
+  /** Opens in a new tab. */
+  external?: boolean;
   /** Set to false to keep an entry in the file but hide it from the menu. */
   visible?: boolean;
 }
@@ -29,7 +31,8 @@ const MENU: MenuGroup[] = [
     en: "Work with me",
     es: "Trabaja conmigo",
     links: [
-      { en: "Services and pricing", es: "Servicios y precios", href: "/#services" },
+      { en: "Ways to work together", es: "Formas de colaborar", href: "/#services" },
+      { en: "Pricing", es: "Precios", href: "/#pricing" },
       { en: "Events and speaking", es: "Eventos y conferencias", href: "/#events" },
       { en: "NEMBC 2026 resources", es: "Recursos NEMBC 2026", href: "/nembc", route: true },
       { en: "Contact", es: "Contacto", href: "/#contact" },
@@ -39,7 +42,9 @@ const MENU: MenuGroup[] = [
     en: "Research",
     es: "Research",
     links: [
-      { en: "Topics", es: "Temas", href: "/#topics" },
+      { en: "Topics and conversations", es: "Temas y conversaciones", href: "/#topics" },
+      { en: "Substack", es: "Substack", href: "https://pricapa.substack.com", external: true },
+      { en: "LinkedIn", es: "LinkedIn", href: "https://www.linkedin.com/in/pricilla-ricapa/", external: true },
       { en: "In the room", es: "In the room", href: "/gallery", route: true },
     ],
   },
@@ -55,8 +60,8 @@ const MENU: MenuGroup[] = [
     en: "Other projects",
     es: "Otros proyectos",
     links: [
+      { en: "PriFit", es: "PriFit", href: "/prifit", external: true },
       { en: "Claude Community Boston", es: "Claude Community Boston", href: "/claude-community-boston", route: true },
-      { en: "PriFit", es: "PriFit", href: "/prifit", visible: false },
     ],
     note: {
       en: "Independent volunteer initiative",
@@ -96,7 +101,8 @@ export function Nav() {
         <LogoBrand />
       </a>
       <ul className="nav-links">
-        <li><a href="/#services">{t("Services and pricing", "Servicios y precios")}</a></li>
+        <li><a href="/#services">{t("Services", "Servicios")}</a></li>
+        <li><a href="/#pricing">{t("Pricing", "Precios")}</a></li>
         <li><a href="/#topics">{t("Topics", "Temas")}</a></li>
         <li><a href="/#events">{t("Events", "Eventos")}</a></li>
         <li><a href="/#credentials">{t("Credentials", "Credenciales")}</a></li>
@@ -137,7 +143,13 @@ export function Nav() {
                       {t(link.en, link.es)}
                     </Link>
                   ) : (
-                    <a key={link.href} href={link.href} onClick={close}>
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={close}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noreferrer" : undefined}
+                    >
                       {t(link.en, link.es)}
                     </a>
                   ),

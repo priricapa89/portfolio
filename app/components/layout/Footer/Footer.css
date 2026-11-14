@@ -72,3 +72,12 @@
     padding: 0 16px;
   }
 }
+.footer-mail {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--teal);
+  text-decoration: none;
+}
+.footer-mail:hover {
+  color: var(--card-pur);
+}

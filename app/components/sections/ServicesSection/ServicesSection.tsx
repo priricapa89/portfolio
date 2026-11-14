@@ -4,73 +4,39 @@ import { useLang } from "~/i18n/LanguageContext";
 
 type Pair = [en: string, es: string];
 
-interface Plan {
-  tag: Pair;
-  name: string;
-  price: Pair;
-  note: Pair;
+interface Way {
+  title: Pair;
+  body: Pair;
   cta: Pair;
-  items: Pair[];
-  featured?: boolean;
+  /** External link. Without it the button opens the contact form. */
+  href?: string;
 }
 
-// Prices live here. Change a number in one place.
-const PLANS: Plan[] = [
+const WAYS: Way[] = [
   {
-    tag: ["Start here", "Empieza aquí"],
-    name: "Discovery call",
-    price: ["Free", "Gratis"],
-    note: ["15 minutes", "15 minutos"],
-    cta: ["Book a call", "Agendar llamada"],
-    featured: true,
-    items: [
-      ["15-minute video call", "Videollamada de 15 minutos"],
-      ["Your situation and goals", "Tu situación y objetivos"],
-      ["A clear next step", "Un siguiente paso claro"],
-      ["No obligation", "Sin compromiso"],
+    title: ["Speaking & Panels", "Conferencias y paneles"],
+    body: [
+      "AI infrastructure economics, quantum strategy, and the intelligence era. Clear, substantive talks for conferences, corporate events, and panels.",
+      "Economía de la infraestructura de IA, estrategia cuántica y la era de la inteligencia. Charlas claras y con sustancia para conferencias, eventos corporativos y paneles.",
     ],
+    cta: ["Book me", "Invítame"],
   },
   {
-    tag: ["Advise", "Asesoría"],
-    name: "AI Strategy Session",
-    price: ["$299", "$299"],
-    note: ["One-time · 90 minutes", "Pago único · 90 minutos"],
-    cta: ["Book a session", "Reservar sesión"],
-    items: [
-      ["90-minute working session", "Sesión de trabajo de 90 minutos"],
-      ["Review of how your team works", "Revisión de cómo trabaja tu equipo"],
-      ["Top three AI opportunities, ranked", "Tres oportunidades de IA, priorizadas"],
-      ["Action plan with tool suggestions", "Plan de acción con herramientas"],
-      ["Written summary to share", "Resumen escrito para compartir"],
+    title: ["Strategic Advisory", "Asesoría estratégica"],
+    body: [
+      "1:1 or team sessions to build frameworks for quantum timelines, AI infrastructure positioning, and capital allocation strategy.",
+      "Sesiones 1:1 o en equipo para construir marcos sobre plazos cuánticos, posicionamiento en infraestructura de IA y asignación de capital.",
     ],
+    cta: ["Let\u2019s talk", "Conversemos"],
   },
   {
-    tag: ["Teach", "Formación"],
-    name: "Team AI Workshop",
-    price: ["From $1,500", "Desde $1,500"],
-    note: ["By team size and length", "Según equipo y duración"],
-    cta: ["Plan a workshop", "Planear un taller"],
-    items: [
-      ["Live session, two to three hours", "Sesión en vivo de dos a tres horas"],
-      ["Examples from your industry", "Ejemplos de tu industria"],
-      ["Practice with real tools", "Práctica con herramientas reales"],
-      ["Slides and recap notes", "Diapositivas y resumen"],
-      ["Next steps for your team", "Próximos pasos para tu equipo"],
+    title: ["Content & Education", "Contenido y formación"],
+    body: [
+      "Written analysis, short-form video explainers, and workshops that make frontier technology legible for investors, executives, and professionals.",
+      "Análisis escritos, videos cortos y talleres que hacen comprensible la tecnología de frontera para inversionistas, ejecutivos y profesionales.",
     ],
-  },
-  {
-    tag: ["Build", "Implementación"],
-    name: "AI Implementation",
-    price: ["From $5,000", "Desde $5,000"],
-    note: ["Scoped before work starts", "Alcance definido antes de empezar"],
-    cta: ["Request a proposal", "Pedir propuesta"],
-    items: [
-      ["Process review and opportunity map", "Revisión de procesos y mapa de oportunidades"],
-      ["Tools, prompts and procedures set up", "Herramientas, prompts y procesos listos"],
-      ["Team training", "Capacitación del equipo"],
-      ["Documentation and rollout support", "Documentación y apoyo en el despliegue"],
-      ["Optional monthly advisory", "Asesoría mensual opcional"],
-    ],
+    cta: ["Follow my work", "Sigue mi trabajo"],
+    href: "https://www.linkedin.com/in/pricilla-ricapa/",
   },
 ];
 
@@ -79,43 +45,40 @@ export function ServicesSection() {
   const { t } = useLang();
 
   return (
-    <section className="services" id="services">
-      <h2 className="pricing-title" id="pricing">
-        {t("Pricing", "Precios")}
+    <section className="practice" id="services">
+      <div className="eyebrow-num">
+        05 <span aria-hidden="true">/</span> {t("From perspective to practice", "De la perspectiva a la práctica")}
+      </div>
+      <h2 className="practice-title">
+        {t("Let\u2019s turn understanding into action.", "Convirtamos el entendimiento en acción.")}
       </h2>
-      <div className="pricing-panel">
-        {PLANS.map((plan) => (
-          <div className={`plan${plan.featured ? " plan-featured" : ""}`} key={plan.name}>
-            <div className="plan-tag">{t(...plan.tag)}</div>
-            <h3>{plan.name}</h3>
-            <div className="plan-price">{t(...plan.price)}</div>
-            <div className="plan-note">{t(...plan.note)}</div>
-            <button
-              type="button"
-              className={`plan-btn${plan.featured ? " plan-btn-dark" : ""}`}
-              onClick={openContactModal}
-            >
-              {t(...plan.cta)}
-            </button>
-            <ul>
-              {plan.items.map((item) => (
-                <li key={item[0]}>{t(...item)}</li>
-              ))}
-            </ul>
+      <p className="practice-lead">
+        {t(
+          "Three ways to collaborate, grounded in real experience and built for decision-makers.",
+          "Tres formas de colaborar, basadas en experiencia real y pensadas para quienes deciden.",
+        )}
+      </p>
+      <div className="practice-grid">
+        {WAYS.map((way, i) => (
+          <div className="practice-item" key={way.title[0]}>
+            <div className="practice-num">0{i + 1}</div>
+            <h3>{t(...way.title)}</h3>
+            <p>{t(...way.body)}</p>
+            {way.href ? (
+              <a className="practice-link" href={way.href} target="_blank" rel="noreferrer">
+                {t(...way.cta)} <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <button type="button" className="practice-link" onClick={openContactModal}>
+                {t(...way.cta)} <span aria-hidden="true">↗</span>
+              </button>
+            )}
           </div>
         ))}
       </div>
-      <div className="pricing-speaking">
-        <span>
-          {t(
-            "Speaking and panels: fees depend on scope.",
-            "Conferencias y paneles: la tarifa depende del alcance.",
-          )}
-        </span>
-        <button type="button" onClick={openContactModal}>
-          {t("Ask about speaking", "Consultar por conferencias")}
-        </button>
-      </div>
+      <a className="practice-to-pricing" href="/#pricing">
+        {t("See pricing", "Ver precios")} <span aria-hidden="true">↓</span>
+      </a>
     </section>
   );
 }
