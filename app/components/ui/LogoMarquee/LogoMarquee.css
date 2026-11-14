@@ -1,0 +1,97 @@
+.logo-marquee {
+  background: var(--bg2);
+  padding: 36px 0 40px;
+  border-top: 1px solid rgba(156, 91, 78, 0.1);
+  border-bottom: 1px solid rgba(156, 91, 78, 0.1);
+}
+.logo-marquee-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 18px;
+  padding: 0 48px;
+  margin-bottom: 22px;
+}
+.logo-marquee-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.logo-marquee-note {
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+.logo-marquee-window {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.logo-marquee-track {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 6px 10px;
+  animation: logo-marquee linear infinite;
+}
+.logo-marquee-window:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes logo-marquee {
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+.logo-tile {
+  flex: none;
+  height: 84px;
+  min-width: 170px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(156, 91, 78, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+.logo-tile img {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+}
+.logo-tile span {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  white-space: nowrap;
+}
+@media (max-width: 960px) {
+  .logo-marquee-head {
+    padding: 0 24px;
+  }
+  .logo-tile {
+    height: 70px;
+    min-width: 140px;
+    padding: 0 22px;
+  }
+  .logo-tile img {
+    height: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .logo-tile[aria-hidden="true"] {
+    display: none;
+  }
+}

@@ -14,7 +14,28 @@ import { CommunitySection } from "~/components/sections/CommunitySection/Communi
 import { CredentialsSection } from "~/components/sections/CredentialsSection/CredentialsSection";
 import { QuoteSection } from "~/components/sections/QuoteSection/QuoteSection";
 import { SocialSection } from "~/components/sections/SocialSection/SocialSection";
+import { LogoMarquee, type MarqueeItem } from "~/components/ui/LogoMarquee/LogoMarquee";
+import { useLang } from "~/i18n/LanguageContext";
 import { ContactSection } from "~/components/sections/ContactSection/ContactSection";
+
+// Companies I worked at. Add a line and drop the file in /public/logos.
+const EMPLOYERS: MarqueeItem[] = [
+  { name: "Lumentum", src: "/logos/lumentum.png" },
+  { name: "Volvo", src: "/logos/volvo.png" },
+  { name: "Belcorp", src: "/logos/belcorp.png" },
+  { name: "Repsol", src: "/logos/repsol.png" },
+  { name: "JRC", src: "/logos/jrc.png" },
+  { name: "BanBif", src: "/logos/banbif.png" },
+];
+
+// Not employers: events and communities I take part in.
+const ROOMS: MarqueeItem[] = [
+  { name: "World Economic Forum", src: "/logos/wef.png" },
+  { name: "MIT", src: "/logos/mit.png", bg: "#f2f4f8" },
+  { name: "Harvard" },
+  { name: "Massachusetts AI Coalition", src: "/logos/mass-ai-coalition.png" },
+  { name: "Claude Community Boston" },
+];
 
 const PAGE_URL = "https://pricapa.com/";
 const PAGE_TITLE = "Pricilla Ricapa | Economics of AI Infrastructure";
@@ -90,12 +111,15 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const { t } = useLang();
+
   return (
     <>
       <Nav />
       <HeroSection />
       <TickerBanner />
       <ThreadSection />
+      <LogoMarquee label={t("Where I've worked", "Dónde he trabajado")} items={EMPLOYERS} duration={32} />
       <ServicesSection />
       <PricingSection />
       <RoomSection />
@@ -107,6 +131,15 @@ export default function Home() {
       <QuoteSection />
       <SocialSection />
       <ContactSection />
+      <LogoMarquee
+        label={t("In the room with", "En la sala con")}
+        note={t(
+          "Events and communities I take part in as a participant or volunteer. Not employers or sponsors.",
+          "Eventos y comunidades donde participo o soy voluntaria. No son empleadores ni patrocinadores.",
+        )}
+        items={ROOMS}
+        duration={36}
+      />
       <Footer />
     </>
   );
