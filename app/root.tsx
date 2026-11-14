@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { ContactModalProvider } from "~/components/ui/ContactModal/ContactModalContext";
+import { LanguageProvider } from "~/i18n/LanguageContext";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/png", href: "/favicon.png" },
@@ -62,9 +63,11 @@ gtag('config', 'G-L42XYYXSN9');`,
 
 export default function App() {
   return (
-    <ContactModalProvider>
-      <Outlet />
-    </ContactModalProvider>
+    <LanguageProvider>
+      <ContactModalProvider>
+        <Outlet />
+      </ContactModalProvider>
+    </LanguageProvider>
   );
 }
 

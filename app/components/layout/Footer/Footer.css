@@ -1,58 +1,74 @@
-footer {
+.site-footer {
   background: var(--navy);
-  padding: 32px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: var(--bg2);
+  border-top: 1px solid var(--gray);
+  padding: 0 48px;
 }
-.footer-logo {
+.footer-cols {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 64px 0 48px;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 40px;
+  font-size: 0.95rem;
+}
+.footer-wordmark {
   font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--bg2);
 }
-.footer-logo .pr {
-  color: var(--card-pur);
-  font-style: italic;
+.footer-brand p {
+  margin-top: 12px;
+  max-width: 300px;
+  color: var(--teal);
 }
-.footer-logo .dot {
-  color: var(--magenta);
-}
-.footer-nav {
+.footer-col {
   display: flex;
-  gap: 28px;
-  list-style: none;
+  flex-direction: column;
 }
-.footer-nav a {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.45);
+.footer-col h2 {
+  font: 400 0.95rem "DM Sans", sans-serif;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+.footer-col a {
+  color: var(--bg2);
   text-decoration: none;
+  padding: 5px 0;
   transition: color 0.2s;
 }
-.footer-nav a:hover {
-  color: rgba(255, 255, 255, 0.9);
+.footer-col a:hover {
+  color: var(--card-pur);
 }
-.footer-copy {
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.3);
+.footer-note {
+  font-size: 0.8rem;
+  color: var(--teal);
+  margin-top: 4px;
+}
+.footer-bar {
+  max-width: 1240px;
+  margin: 0 auto;
+  border-top: 1px solid var(--navy2);
+  padding: 20px 0 36px;
+  font-size: 0.8rem;
+  color: var(--teal);
 }
 
 @media (max-width: 960px) {
-  footer {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 24px;
+  .site-footer {
+    padding: 0 24px;
+  }
+  .footer-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 }
 @media (max-width: 600px) {
-  footer {
-    padding: 20px 16px;
-  }
-  .footer-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+  .site-footer {
+    padding: 0 16px;
   }
 }

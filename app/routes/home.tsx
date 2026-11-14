@@ -3,7 +3,6 @@ import { Nav } from "~/components/layout/Nav/Nav";
 import { Footer } from "~/components/layout/Footer/Footer";
 import { HeroSection } from "~/components/sections/HeroSection/HeroSection";
 import { TickerBanner } from "~/components/sections/TickerBanner/TickerBanner";
-import { AboutSection } from "~/components/sections/AboutSection/AboutSection";
 import { GalleryTeaser } from "~/components/sections/GalleryTeaser/GalleryTeaser";
 // import { BookSection } from "~/components/sections/BookSection/BookSection";
 import { TopicsSection } from "~/components/sections/TopicsSection/TopicsSection";
@@ -95,7 +94,6 @@ export default function Home() {
       <Nav />
       <HeroSection />
       <TickerBanner />
-      <AboutSection />
       <CommunitySection />
       <GalleryTeaser />
       {/* <BookSection /> */}
