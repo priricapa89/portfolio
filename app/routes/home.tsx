@@ -134,8 +134,8 @@ export default function Home() {
       <LogoMarquee
         label={t("In the room with", "En la sala con")}
         note={t(
-          "Events and communities I take part in as a participant or volunteer. Not employers or sponsors.",
-          "Eventos y comunidades donde participo o soy voluntaria. No son empleadores ni patrocinadores.",
+          "Events and communities I take part in as a participant or volunteer.",
+          "Eventos y comunidades donde participo o soy voluntaria.",
         )}
         items={ROOMS}
         duration={36}
