@@ -1,55 +1,35 @@
-import { useState } from "react";
 import "./HeroSection.css";
-import { useContactModal } from "../../ui/ContactModal/ContactModalContext";
+import { useLang } from "~/i18n/LanguageContext";
 
 export function HeroSection() {
-  const [open, setOpen] = useState(false);
-  const { openContactModal } = useContactModal();
+  const { t } = useLang();
 
   return (
-    <>
-      <section className="hero" id="home">
-        <img
-          className="hero-bg-img"
-          src="/main-image.JPG"
-          alt="Pricilla Ricapa"
-        />
-        <div className={`hero-glass-card${open ? " is-open" : ""}`}>
-          <div
-            className="hero-card-header"
-            onClick={() => setOpen((o) => !o)}
-            role="button"
-            tabIndex={0}
-            aria-expanded={open}
-            onKeyDown={(e) =>
-              e.key === "Enter" || e.key === " " ? setOpen((o) => !o) : undefined
-            }
-          >
-            <h1>
-              The <span className="hl">economics</span> of AI infrastructure, from the
-              data center to <span className="hl2">orbit</span>
-            </h1>
-            <span className="hero-chevron" aria-hidden="true" />
-          </div>
-          <div className="hero-card-body">
-            <p>
-              I&apos;m an economist and AI strategist. I worked inside the optical
-              industry at <strong>Lumentum</strong>, shipped AI products at{" "}
-              <strong>Volvo Group</strong>, and started my career in finance and capital markets.
-              Now I work on what AI infrastructure costs, where it hits its limits,
-              and what gets built next, including <strong>compute in orbit</strong>.
-            </p>
-            <div className="hero-btns">
-              <button className="btn-primary" onClick={openContactModal}>
-                Get in touch
-              </button>
-              <a href="#topics" className="btn-ghost">
-                Read my analysis →
-              </a>
-            </div>
-          </div>
+    <section className="hero" id="home">
+      <img className="hero-bg-img" src="/main-image.JPG" alt="Pricilla Ricapa" />
+      <div className="hero-glass-card">
+        <h1>
+          {t("From AI strategy to real ", "De la estrategia de IA a la ")}
+          <span className="hl">{t("execution", "ejecución real")}</span>
+        </h1>
+        <p className="hero-sub">
+          {t("Make AI work for your business.", "Haz que la IA funcione para tu negocio.")}
+        </p>
+        <p className="hero-desc">
+          {t(
+            "I help companies navigate AI transformation through strategic advisory, executive workshops and agentic AI solutions, connecting business priorities with practical execution.",
+            "Ayudo a empresas a navegar su transformación con IA mediante asesoría estratégica, talleres ejecutivos y soluciones de IA agéntica, conectando las prioridades del negocio con la ejecución práctica.",
+          )}
+        </p>
+        <div className="hero-btns">
+          <a href="#services" className="btn-primary">
+            {t("Explore services", "Ver servicios")}
+          </a>
+          <a href="#pricing" className="btn-ghost">
+            {t("View pricing", "Ver precios")}
+          </a>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

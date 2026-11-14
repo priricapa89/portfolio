@@ -293,3 +293,54 @@
     justify-content: center;
   }
 }
+
+/* Commercial hero: shorter copy, more room for the photograph */
+.hero-glass-card {
+  width: min(420px, 38%);
+  padding: 36px 34px 34px;
+}
+.hero-glass-card h1 {
+  font-size: clamp(2.1rem, 3.1vw, 2.9rem);
+  margin-bottom: 14px;
+}
+.hero .hero-sub {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: var(--purple);
+  margin-bottom: 14px;
+}
+.hero .hero-desc {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin-bottom: 26px;
+}
+.hero-btns {
+  gap: 10px;
+}
+.hero-btns .btn-primary,
+.hero-btns .btn-ghost {
+  padding: 12px 22px;
+}
+@media (max-width: 960px) {
+  .hero-glass-card {
+    width: min(420px, 62%);
+  }
+}
+@media (max-width: 600px) {
+  .hero-glass-card {
+    width: 100%;
+    padding: 26px 22px 30px;
+  }
+  .hero-glass-card h1 {
+    font-size: 1.9rem;
+  }
+  .hero .hero-sub {
+    font-size: 1.05rem;
+  }
+  .hero .hero-desc {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+}

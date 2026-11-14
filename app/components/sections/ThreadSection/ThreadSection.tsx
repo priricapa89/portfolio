@@ -15,7 +15,7 @@ interface Pillar {
 const PILLARS: Pillar[] = [
   {
     title: ["Capital", "Capital"],
-    body: ["Finance, strategy, investments and markets.", "Finanzas, estrategia, inversiones y mercados."],
+    body: ["Finance, investments and markets.", "Finanzas, inversiones y mercados."],
     image: "/pillars/capital.jpg",
   },
   {
@@ -26,8 +26,7 @@ const PILLARS: Pillar[] = [
   {
     title: ["Infrastructure", "Infraestructura"],
     body: [
-      "Deep tech, photonics and the future of intelligence.",
-      "Deep tech, fotónica y el futuro de la inteligencia.",
+      "Deep tech, photonics and the future of intelligence, including the economics of AI infrastructure from data centers to orbit.", "Deep tech, fotónica y el futuro de la inteligencia, incluida la economía de la infraestructura de IA, de los data centers a la órbita.",
     ],
     image: "/pillars/infrastructure.jpg",
   },
