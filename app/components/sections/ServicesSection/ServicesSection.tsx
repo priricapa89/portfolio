@@ -26,6 +26,7 @@ const WAYS: Way[] = [
     ],
     cta: ["Book me", "Invítame"],
     word: ["Communicate", "Comunicar"],
+    image: "/ways/speaking.jpg",
   },
   {
     title: ["Strategic Advisory", "Asesoría estratégica"],
@@ -35,6 +36,7 @@ const WAYS: Way[] = [
     ],
     cta: ["Let\u2019s talk", "Conversemos"],
     word: ["Advise", "Asesorar"],
+    image: "/ways/advisory.jpg",
   },
   {
     title: ["Content & Education", "Contenido y formación"],
@@ -44,6 +46,7 @@ const WAYS: Way[] = [
     ],
     cta: ["Follow my work", "Sigue mi trabajo"],
     word: ["Educate", "Educar"],
+    image: "/ways/education.jpg",
     href: "https://www.linkedin.com/in/pricilla-ricapa/",
   },
 ];
