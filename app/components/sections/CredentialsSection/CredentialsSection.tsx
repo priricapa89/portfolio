@@ -10,7 +10,7 @@ export function CredentialsSection() {
         heading={
           <>
             Education, <span className="warm-hl">certifications</span> and
-            appointments
+            recognition
           </>
         }
       />
@@ -47,7 +47,7 @@ export function CredentialsSection() {
         ))}
       </div>
 
-      <h3 className="creds-sub">Appointments</h3>
+      <h3 className="creds-sub">Recognition &amp; roles</h3>
       <ul className="creds-appointments">
         {appointments.map((a) => (
           <li key={`${a.org}-${a.role}`}>

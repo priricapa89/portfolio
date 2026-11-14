@@ -41,7 +41,7 @@ const MENU: MenuGroup[] = [
     en: "Research",
     es: "Research",
     links: [
-      { en: "Conversations I live inside", es: "Las conversaciones que habito", href: "/#topics" },
+      { en: "Research & writing", es: "Investigación y escritura", href: "/#topics" },
       { en: "Substack", es: "Substack", href: "https://pricapa.substack.com", external: true },
       { en: "LinkedIn", es: "LinkedIn", href: "https://www.linkedin.com/in/pricilla-ricapa/", external: true },
       { en: "In the room", es: "En la sala", href: "/#events" },
@@ -104,7 +104,7 @@ export function Nav() {
         <li><a href="/#services">{t("Services", "Servicios")}</a></li>
         <li><a href="/#pricing">{t("Pricing", "Precios")}</a></li>
         <li><a href="/#events">{t("In the room", "En la sala")}</a></li>
-        <li><a href="/#topics">{t("Conversations", "Conversaciones")}</a></li>
+        <li><a href="/#topics">{t("Research", "Investigación")}</a></li>
         <li><a href="/#credentials">{t("Credentials", "Credenciales")}</a></li>
       </ul>
       <div className="nav-right">

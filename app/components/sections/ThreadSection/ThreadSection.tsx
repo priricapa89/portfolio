@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./ThreadSection.css";
+import "../RoomSection/RoomSection.css";
 import { SectionPill } from "../../ui/SectionPill/SectionPill";
 import { useLang } from "~/i18n/LanguageContext";
 
@@ -94,6 +95,7 @@ export function ThreadSection() {
           </div>
         ))}
       </div>
+      <p className="swipe-hint" aria-hidden="true">{t("Swipe for more →", "Desliza para ver más →")}</p>
     </section>
   );
 }

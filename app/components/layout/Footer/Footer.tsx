@@ -35,7 +35,7 @@ export function Footer() {
           <a href="https://www.linkedin.com/in/pricilla-ricapa/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href="/#topics">{t("Conversations", "Conversaciones")}</a>
+          <a href="/#topics">{t("Research & writing", "Investigación y escritura")}</a>
         </div>
         <div className="footer-col">
           <h2>{t("About", "Sobre mí")}</h2>

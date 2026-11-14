@@ -37,3 +37,42 @@
 .room-events {
   margin-top: 36px;
 }
+
+/* Phone: event cards become a swipeable row */
+.swipe-hint {
+  display: none;
+}
+@media (max-width: 700px) {
+  .room .event-preview-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    margin: 0 -16px;
+    padding: 4px 16px 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .room .event-preview-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .room .event-preview-card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
+  .swipe-hint {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple);
+    text-align: center;
+  }
+  .room-actions {
+    margin-top: 24px;
+  }
+}

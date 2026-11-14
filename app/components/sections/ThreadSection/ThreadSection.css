@@ -129,3 +129,40 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Phone: the three chapters become a swipeable row */
+@media (max-width: 700px) {
+  .thread-pillars {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    margin: 40px -16px 0;
+    padding: 4px 16px 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .thread-pillars::-webkit-scrollbar {
+    display: none;
+  }
+  .thread-pillar {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+  .thread-pillar:hover {
+    transform: none;
+  }
+  .thread-pillar-body {
+    padding: 18px 18px 22px;
+  }
+  .thread-pillar h3 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+  }
+  .thread-pillar p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+}

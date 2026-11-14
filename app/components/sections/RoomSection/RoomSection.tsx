@@ -48,6 +48,8 @@ export function RoomSection() {
         ))}
       </div>
 
+      <p className="swipe-hint" aria-hidden="true">{t("Swipe for more →", "Desliza para ver más →")}</p>
+
       <div className="room-actions">
         <button
           type="button"

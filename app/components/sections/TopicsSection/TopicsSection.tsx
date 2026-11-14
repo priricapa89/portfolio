@@ -12,12 +12,12 @@ export function TopicsSection() {
   return (
     <section className="topics" id="topics">
       <SectionHeader
-        pill={t("Research & conversations", "Research y conversaciones")}
+        pill={t("Research & writing", "Investigación y escritura")}
         heading={
           lang === "es" ? (
-            <>Las conversaciones <em>que habito</em></>
+            <>Lo que investigo <em>y escribo</em></>
           ) : (
-            <>The conversations <em>I live inside</em></>
+            <>What I research <em>and write about</em></>
           )
         }
       />
@@ -53,7 +53,7 @@ export function TopicsSection() {
           aria-controls="topics-grid"
           onClick={() => setOpen((o) => !o)}
         >
-          {open ? t("Show less", "Ver menos") : t("Expand the conversations", "Expandir las conversaciones")}
+          {open ? t("Show less", "Ver menos") : t("See all topics", "Ver todos los temas")}
           <span className={`topics-chevron${open ? " is-open" : ""}`} aria-hidden="true" />
         </button>
         <a href="https://www.linkedin.com/in/pricilla-ricapa/" target="_blank" rel="noreferrer">
