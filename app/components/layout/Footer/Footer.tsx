@@ -24,7 +24,7 @@ export function Footer() {
           <h2>{t("Work with me", "Trabaja conmigo")}</h2>
           <a href="/#services">{t("Services", "Servicios")}</a>
           <a href="/#pricing">{t("Pricing", "Precios")}</a>
-          <a href="/#events">{t("Speaking", "Conferencias")}</a>
+          <a href="/#services">{t("Speaking", "Conferencias")}</a>
           <a href="/#contact">{t("Contact", "Contacto")}</a>
         </div>
         <div className="footer-col">
@@ -41,7 +41,7 @@ export function Footer() {
           <h2>{t("About", "Sobre mí")}</h2>
           <Link to="/about">{t("About me", "Quién soy")}</Link>
           <a href="/#credentials">{t("Credentials", "Credenciales")}</a>
-          <Link to="/gallery">In the room</Link>
+          <a href="/#events">In the room</a>
         </div>
         <div className="footer-col">
           <h2>{t("Other projects", "Otros proyectos")}</h2>

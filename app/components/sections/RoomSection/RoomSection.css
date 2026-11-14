@@ -1,0 +1,39 @@
+.room {
+  position: relative;
+}
+.room-anchor {
+  position: absolute;
+  top: 0;
+}
+.room-actions {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.room-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.room-chevron,
+.topics-chevron {
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s;
+  display: inline-block;
+}
+.room-chevron.is-open,
+.topics-chevron.is-open {
+  transform: rotate(-135deg) translateY(-2px);
+}
+.room-events {
+  margin-top: 36px;
+}

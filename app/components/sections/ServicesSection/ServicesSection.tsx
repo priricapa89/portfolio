@@ -1,4 +1,5 @@
 import "./ServicesSection.css";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 import { useContactModal } from "../../ui/ContactModal/ContactModalContext";
 import { useLang } from "~/i18n/LanguageContext";
 
@@ -42,43 +43,47 @@ const WAYS: Way[] = [
 
 export function ServicesSection() {
   const { openContactModal } = useContactModal();
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
-    <section className="practice" id="services">
-      <div className="eyebrow-num">
-        05 <span aria-hidden="true">/</span> {t("From perspective to practice", "De la perspectiva a la práctica")}
-      </div>
-      <h2 className="practice-title">
-        {t("Let\u2019s turn understanding into action.", "Convirtamos el entendimiento en acción.")}
-      </h2>
-      <p className="practice-lead">
-        {t(
+    <section className="services" id="services">
+      <SectionHeader
+        pill={t("Work with me", "Trabaja conmigo")}
+        heading={
+          lang === "es" ? (
+            <>Convirtamos el entendimiento <span className="warm-hl">en acción</span></>
+          ) : (
+            <>Let’s turn understanding <span className="warm-hl">into action</span></>
+          )
+        }
+        intro={t(
           "Three ways to collaborate, grounded in real experience and built for decision-makers.",
           "Tres formas de colaborar, basadas en experiencia real y pensadas para quienes deciden.",
         )}
-      </p>
-      <div className="practice-grid">
+      />
+      <div className="services-grid">
         {WAYS.map((way, i) => (
-          <div className="practice-item" key={way.title[0]}>
-            <div className="practice-num">0{i + 1}</div>
+          <div className="svc-card" key={way.title[0]}>
+            <div className="svc-icon-wrap" aria-hidden="true">0{i + 1}</div>
             <h3>{t(...way.title)}</h3>
             <p>{t(...way.body)}</p>
             {way.href ? (
-              <a className="practice-link" href={way.href} target="_blank" rel="noreferrer">
-                {t(...way.cta)} <span aria-hidden="true">↗</span>
+              <a className="svc-link" href={way.href} target="_blank" rel="noreferrer">
+                {t(...way.cta)} →
               </a>
             ) : (
-              <button type="button" className="practice-link" onClick={openContactModal}>
-                {t(...way.cta)} <span aria-hidden="true">↗</span>
+              <button type="button" className="svc-link" onClick={openContactModal}>
+                {t(...way.cta)} →
               </button>
             )}
           </div>
         ))}
       </div>
-      <a className="practice-to-pricing" href="/#pricing">
-        {t("See pricing", "Ver precios")} <span aria-hidden="true">↓</span>
-      </a>
+      <div className="services-cta">
+        <a className="btn-primary" href="/#pricing">
+          {t("See pricing ↓", "Ver precios ↓")}
+        </a>
+      </div>
     </section>
   );
 }

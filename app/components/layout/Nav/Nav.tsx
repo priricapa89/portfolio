@@ -33,8 +33,7 @@ const MENU: MenuGroup[] = [
     links: [
       { en: "Ways to work together", es: "Formas de colaborar", href: "/#services" },
       { en: "Pricing", es: "Precios", href: "/#pricing" },
-      { en: "Events and speaking", es: "Eventos y conferencias", href: "/#events" },
-      { en: "NEMBC 2026 resources", es: "Recursos NEMBC 2026", href: "/nembc", route: true },
+            { en: "NEMBC 2026 resources", es: "Recursos NEMBC 2026", href: "/nembc", route: true },
       { en: "Contact", es: "Contacto", href: "/#contact" },
     ],
   },
@@ -42,10 +41,11 @@ const MENU: MenuGroup[] = [
     en: "Research",
     es: "Research",
     links: [
-      { en: "Topics and conversations", es: "Temas y conversaciones", href: "/#topics" },
+      { en: "Conversations I live inside", es: "Las conversaciones que habito", href: "/#topics" },
       { en: "Substack", es: "Substack", href: "https://pricapa.substack.com", external: true },
       { en: "LinkedIn", es: "LinkedIn", href: "https://www.linkedin.com/in/pricilla-ricapa/", external: true },
-      { en: "In the room", es: "In the room", href: "/gallery", route: true },
+      { en: "In the room", es: "En la sala", href: "/#events" },
+      { en: "Photo diary", es: "Diario de fotos", href: "/gallery", route: true },
     ],
   },
   {
@@ -103,8 +103,8 @@ export function Nav() {
       <ul className="nav-links">
         <li><a href="/#services">{t("Services", "Servicios")}</a></li>
         <li><a href="/#pricing">{t("Pricing", "Precios")}</a></li>
-        <li><a href="/#topics">{t("Topics", "Temas")}</a></li>
-        <li><a href="/#events">{t("Events", "Eventos")}</a></li>
+        <li><a href="/#events">{t("In the room", "En la sala")}</a></li>
+        <li><a href="/#topics">{t("Conversations", "Conversaciones")}</a></li>
         <li><a href="/#credentials">{t("Credentials", "Credenciales")}</a></li>
       </ul>
       <div className="nav-right">

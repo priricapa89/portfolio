@@ -1,4 +1,5 @@
 import "./PricingSection.css";
+import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
 import { useContactModal } from "../../ui/ContactModal/ContactModalContext";
 import { useLang } from "~/i18n/LanguageContext";
 
@@ -76,13 +77,24 @@ const PLANS: Plan[] = [
 
 export function PricingSection() {
   const { openContactModal } = useContactModal();
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <section className="pricing" id="pricing">
-      <h2 className="pricing-title">
-        {t("Pricing", "Precios")}
-      </h2>
+      <SectionHeader
+        pill={t("Pricing", "Precios")}
+        heading={
+          lang === "es" ? (
+            <>Lo que cuesta, <em>desde el inicio</em></>
+          ) : (
+            <>What it costs, <em>up front</em></>
+          )
+        }
+        intro={t(
+          "What is free, what is paid, and what you get. Every engagement starts with a free call.",
+          "Qué es gratis, qué se paga y qué recibes. Todo empieza con una llamada gratuita.",
+        )}
+      />
       <div className="pricing-panel">
         {PLANS.map((plan) => (
           <div className={`plan${plan.featured ? " plan-featured" : ""}`} key={plan.name}>
