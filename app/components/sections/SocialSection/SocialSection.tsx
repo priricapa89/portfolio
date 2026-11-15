@@ -1,5 +1,6 @@
 import "./SocialSection.css";
-import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
+import "../../ui/LogoMarquee/LogoMarquee.css";
+import { useLang } from "~/i18n/LanguageContext";
 
 // SVG icons kept inline — they're unique per platform and not reused elsewhere
 function LinkedInIcon() {
@@ -59,26 +60,43 @@ const SOCIAL_CARDS = [
 ];
 
 export function SocialSection() {
+  const { t } = useLang();
+  // Two copies per half so the loop stays seamless on wide screens.
+  const renderItems = (copy: number) =>
+    [0, 1].flatMap((half) =>
+      SOCIAL_CARDS.map(({ href, Icon, platform, handle }) => {
+        const hidden = copy > 0 || half > 0;
+        return (
+          <li key={`${platform}-${copy}-${half}`} aria-hidden={hidden || undefined}>
+            <a
+              href={href}
+              className="social-chip"
+              tabIndex={hidden ? -1 : undefined}
+              target={href.startsWith("mailto") ? undefined : "_blank"}
+              rel={href.startsWith("mailto") ? undefined : "noreferrer"}
+            >
+              <span className="social-chip-icon"><Icon /></span>
+              <span className="social-chip-text">
+                <span className="soc-platform">{platform}</span>
+                <span className="soc-handle">{handle}</span>
+              </span>
+            </a>
+          </li>
+        );
+      }),
+    );
+
   return (
-    <section className="social-section" id="social">
-      <SectionHeader pill="Connect" heading={<>Find me <em>everywhere</em></>} />
-      <div className="social-grid">
-        {SOCIAL_CARDS.map(({ href, cardClass, Icon, platform, handle }) => (
-          <a
-            key={platform}
-            href={href}
-            target={href.startsWith("mailto") ? undefined : "_blank"}
-            rel={href.startsWith("mailto") ? undefined : "noreferrer"}
-            className={`social-card ${cardClass}`}
-          >
-            <div className="social-icon"><Icon /></div>
-            <div className="social-text">
-              <span className="soc-platform">{platform}</span>
-              <span className="soc-handle">{handle}</span>
-            </div>
-          </a>
-        ))}
+    <div className="logo-marquee social-strip" id="social">
+      <div className="logo-marquee-head">
+        <span className="logo-marquee-label">{t("Find me", "Encuéntrame")}</span>
       </div>
-    </section>
+      <div className="logo-marquee-window">
+        <ul className="logo-marquee-track" style={{ animationDuration: "48s" }}>
+          {renderItems(0)}
+          {renderItems(1)}
+        </ul>
+      </div>
+    </div>
   );
 }

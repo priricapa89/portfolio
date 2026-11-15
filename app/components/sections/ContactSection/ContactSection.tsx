@@ -15,13 +15,8 @@ export function ContactSection() {
           <h2>Let&apos;s work <em>together</em></h2>
           <p>
             Whether you&apos;re booking a talk, exploring advisory work, or collaborating on
-            content — I&apos;d love to hear from you. I typically respond within 48 hours.
+            content, I&apos;d love to hear from you. I typically respond within 48 hours.
           </p>
-          <div className="contact-links">
-            <a href="mailto:pricilla@pricapa.com" className="contact-link">pricilla@pricapa.com</a>
-            <a href="https://www.linkedin.com/in/pricilla-ricapa/" target="_blank" rel="noreferrer" className="contact-link">LinkedIn — Pricilla Ricapa</a>
-            <a href="https://www.instagram.com/pri_ricapa/" target="_blank" rel="noreferrer" className="contact-link">Instagram — @pri_ricapa</a>
-          </div>
         </div>
         <fetcher.Form method="post" action="/api/contact" className="contact-form">
           <div className="form-row">

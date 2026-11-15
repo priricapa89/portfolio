@@ -79,3 +79,72 @@
     width: 100%;
   }
 }
+
+/* Compact rotating strip (replaces the large Find me everywhere section) */
+.social-strip {
+  background: var(--bg);
+  padding: 26px 0 30px;
+  border-bottom: none;
+}
+.social-strip .logo-marquee-head {
+  margin-bottom: 16px;
+}
+.social-strip .logo-marquee-track {
+  gap: 14px;
+}
+.social-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 60px;
+  padding: 0 22px 0 14px;
+  background: var(--white);
+  border-radius: 40px;
+  border: 1px solid rgba(156, 91, 78, 0.1);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.social-chip:hover {
+  border-color: rgba(156, 91, 78, 0.4);
+  box-shadow: var(--shadow-md);
+}
+.social-chip-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.social-chip-icon svg {
+  width: 17px;
+  height: 17px;
+}
+.social-chip-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.social-chip .soc-platform {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.social-chip .soc-handle {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+@media (prefers-reduced-motion: reduce) {
+  .social-strip li[aria-hidden="true"] {
+    display: none;
+  }
+}

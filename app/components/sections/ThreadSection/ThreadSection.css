@@ -166,3 +166,47 @@
     line-height: 1.6;
   }
 }
+
+/* Phone: portrait and intro text merge into one block, text card over the photo */
+@media (max-width: 700px) {
+  .thread-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .thread-photo {
+    order: -1;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 4 / 4.6;
+    box-shadow: var(--shadow-md);
+  }
+  .thread-photo:hover img {
+    transform: none;
+  }
+  .thread-copy {
+    position: relative;
+    z-index: 1;
+    margin: -110px 10px 0;
+    padding: 22px 20px 24px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12);
+  }
+  .thread h2 {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+  }
+  .thread-lead {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+  .thread-copy p:not(.thread-lead) {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+}

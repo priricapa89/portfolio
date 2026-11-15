@@ -128,7 +128,6 @@ export default function Home() {
       <CredentialsSection />
       <CommunitySection />
       <QuoteSection />
-      <SocialSection />
       <ContactSection />
       <LogoMarquee
         label={t("In the room with", "En la sala con")}
@@ -139,6 +138,7 @@ export default function Home() {
         items={ROOMS}
         duration={36}
       />
+      <SocialSection />
       <Footer />
     </>
   );
