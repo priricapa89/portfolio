@@ -284,3 +284,122 @@ button.svc-card:focus-visible,
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Make it obvious the cards open plans and prices */
+.svc-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: -20px 0 26px;
+  padding: 9px 18px;
+  border-radius: 40px;
+  background: var(--white);
+  border: 1px solid rgba(156, 91, 78, 0.22);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--purple);
+}
+.svc-hint-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--magenta);
+  box-shadow: 0 0 0 0 rgba(168, 98, 79, 0.5);
+  animation: svc-dot 1.8s ease-out infinite;
+}
+@keyframes svc-dot {
+  to {
+    box-shadow: 0 0 0 10px rgba(168, 98, 79, 0);
+  }
+}
+.svc-line {
+  margin-bottom: 20px;
+}
+.svc-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid rgba(156, 91, 78, 0.14);
+}
+.svc-from {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.svc-cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 40px;
+  background: var(--grad-soft);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(156, 91, 78, 0.32);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+button.svc-card:hover .svc-cta {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(156, 91, 78, 0.42);
+}
+.svc-cta.is-open {
+  background: transparent;
+  color: var(--purple);
+  box-shadow: none;
+  border: 1.5px solid rgba(156, 91, 78, 0.3);
+  padding: 10.5px 20.5px;
+}
+/* A soft light passes across the button until a card is opened */
+.svc-cta.is-hinting::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: svc-shine 3.2s ease-in-out infinite;
+}
+.svc-card:nth-of-type(2) .svc-cta.is-hinting::after {
+  animation-delay: 0.5s;
+}
+.svc-card:nth-of-type(3) .svc-cta.is-hinting::after {
+  animation-delay: 1s;
+}
+@keyframes svc-shine {
+  0%,
+  55% {
+    left: -60%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+@media (max-width: 600px) {
+  .svc-hint {
+    margin-top: -8px;
+    font-size: 0.76rem;
+  }
+  .svc-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .svc-hint-dot,
+  .svc-cta.is-hinting::after {
+    animation: none;
+  }
+}

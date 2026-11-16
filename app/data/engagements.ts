@@ -18,6 +18,8 @@ export interface Category {
   title: Pair;
   line: Pair;
   image: string;
+  /** Lowest price in the category, shown on the card. */
+  from: Pair;
   packages: Pkg[];
   /** Small print under the packages. */
   footnote?: Pair;
@@ -37,6 +39,7 @@ export const CATEGORIES: Category[] = [
       "Dirección clara sobre dónde encaja la IA en tu negocio y qué financiar primero.",
     ],
     image: "/ways/advisory.jpg",
+    from: ["From $350", "Desde $350"],
     packages: [
       {
         step: START,
@@ -98,6 +101,7 @@ export const CATEGORIES: Category[] = [
       "Líderes y equipos que entienden la IA lo suficiente para usarla y cuestionarla.",
     ],
     image: "/ways/education.jpg",
+    from: ["From $2,500", "Desde $2,500"],
     packages: [
       {
         step: START,
@@ -164,6 +168,7 @@ export const CATEGORIES: Category[] = [
       "De un flujo de trabajo mapeado a un piloto probado, con las personas siempre en el circuito.",
     ],
     image: "/ways/speaking.jpg",
+    from: ["From $4,500", "Desde $4,500"],
     packages: [
       {
         step: START,

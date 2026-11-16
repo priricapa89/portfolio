@@ -45,6 +45,10 @@ export function ServicesSection() {
           "Todo empieza por entender tus objetivos. Elige el área más cercana a lo que necesitas y verás tres formas de empezar.",
         )}
       />
+      <p className="svc-hint">
+        <span className="svc-hint-dot" aria-hidden="true" />
+        {t("Select a card to see its three plans and prices", "Elige una tarjeta para ver sus tres planes y precios")}
+      </p>
       <div className="services-grid">
         {CATEGORIES.map((cat, i) => (
           <button
@@ -66,11 +70,14 @@ export function ServicesSection() {
             <span className="svc-body">
               <span className="svc-title">{t(...cat.title)}</span>
               <span className="svc-line">{t(...cat.line)}</span>
-              <span className="svc-link">
-                {open === i
-                  ? t("Hide options", "Ocultar opciones")
-                  : t("Explore engagement options", "Ver opciones")}
-                <span className={`svc-chevron${open === i ? " is-open" : ""}`} aria-hidden="true" />
+              <span className="svc-foot">
+                <span className="svc-from">{t(...cat.from)}</span>
+                <span className={`svc-cta${open === null ? " is-hinting" : ""}${open === i ? " is-open" : ""}`}>
+                  {open === i
+                    ? t("Hide plans", "Ocultar planes")
+                    : t("See plans & prices", "Ver planes y precios")}
+                  <span className={`svc-chevron${open === i ? " is-open" : ""}`} aria-hidden="true" />
+                </span>
               </span>
             </span>
           </button>
