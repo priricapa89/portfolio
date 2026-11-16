@@ -1,59 +1,33 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 import "./ServicesSection.css";
 import { SectionHeader } from "../../ui/SectionHeader/SectionHeader";
-import { useContactModal } from "../../ui/ContactModal/ContactModalContext";
+import { EngagementPanel } from "../EngagementPanel/EngagementPanel";
+import { CATEGORIES } from "~/data/engagements";
 import { useLang } from "~/i18n/LanguageContext";
 
-type Pair = [en: string, es: string];
-
-interface Way {
-  title: Pair;
-  body: Pair;
-  cta: Pair;
-  /** External link. Without it the button opens the contact form. */
-  href?: string;
-  /** One word shown in the photo area until a photo is added. */
-  word: Pair;
-  /** Photo for the top of the card, e.g. "/ways/speaking.jpg". */
-  image?: string;
-}
-
-const WAYS: Way[] = [
-  {
-    title: ["Speaking & Panels", "Conferencias y paneles"],
-    body: [
-      "AI infrastructure economics, quantum strategy, and the intelligence era. Clear, substantive talks for conferences, corporate events, and panels.",
-      "Economía de la infraestructura de IA, estrategia cuántica y la era de la inteligencia. Charlas claras y con sustancia para conferencias, eventos corporativos y paneles.",
-    ],
-    cta: ["Book me", "Invítame"],
-    word: ["Communicate", "Comunicar"],
-    image: "/ways/speaking.jpg",
-  },
-  {
-    title: ["Strategic Advisory", "Asesoría estratégica"],
-    body: [
-      "1:1 or team sessions to build frameworks for quantum timelines, AI infrastructure positioning, and capital allocation strategy.",
-      "Sesiones 1:1 o en equipo para construir marcos sobre plazos cuánticos, posicionamiento en infraestructura de IA y asignación de capital.",
-    ],
-    cta: ["Let\u2019s talk", "Conversemos"],
-    word: ["Advise", "Asesorar"],
-    image: "/ways/advisory.jpg",
-  },
-  {
-    title: ["Content & Education", "Contenido y formación"],
-    body: [
-      "Written analysis, short-form video explainers, and workshops that make frontier technology legible for investors, executives, and professionals.",
-      "Análisis escritos, videos cortos y talleres que hacen comprensible la tecnología de frontera para inversionistas, ejecutivos y profesionales.",
-    ],
-    cta: ["Follow my work", "Sigue mi trabajo"],
-    word: ["Educate", "Educar"],
-    image: "/ways/education.jpg",
-    href: "https://www.linkedin.com/in/pricilla-ricapa/",
-  },
-];
-
 export function ServicesSection() {
-  const { openContactModal } = useContactModal();
   const { t, lang } = useLang();
+  const [open, setOpen] = useState<number | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Move focus into the panel when it opens; Escape closes it and returns focus to the card.
+  useEffect(() => {
+    if (open === null) return;
+    panelRef.current?.focus({ preventScroll: true });
+    panelRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        cardRefs.current[open]?.focus();
+        setOpen(null);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  const active = open === null ? null : CATEGORIES[open];
 
   return (
     <section className="services" id="services">
@@ -67,41 +41,69 @@ export function ServicesSection() {
           )
         }
         intro={t(
-          "Three ways to collaborate, grounded in real experience and built for decision-makers.",
-          "Tres formas de colaborar, basadas en experiencia real y pensadas para quienes deciden.",
+          "Every engagement starts with understanding your goals. Choose the area closest to what you need, and you will see three ways to begin.",
+          "Todo empieza por entender tus objetivos. Elige el área más cercana a lo que necesitas y verás tres formas de empezar.",
         )}
       />
       <div className="services-grid">
-        {WAYS.map((way, i) => (
-          <div className="svc-card" key={way.title[0]}>
-            <div className="svc-media">
-              {way.image ? (
-                <img src={way.image} alt="" loading="lazy" />
-              ) : (
-                <span className="svc-word" aria-hidden="true">{t(...way.word)}</span>
-              )}
+        {CATEGORIES.map((cat, i) => (
+          <button
+            type="button"
+            className={`svc-card${open === i ? " is-open" : ""}`}
+            key={cat.slug}
+            style={{ order: i * 2 }}
+            aria-expanded={open === i}
+            aria-controls="svc-panel"
+            ref={(el) => {
+              cardRefs.current[i] = el;
+            }}
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            <span className="svc-media">
+              <img src={cat.image} alt="" loading="lazy" />
               <span className="svc-num" aria-hidden="true">0{i + 1}</span>
-            </div>
-            <div className="svc-body">
-            <h3>{t(...way.title)}</h3>
-            <p>{t(...way.body)}</p>
-            {way.href ? (
-              <a className="svc-link" href={way.href} target="_blank" rel="noreferrer">
-                {t(...way.cta)} →
-              </a>
-            ) : (
-              <button type="button" className="svc-link" onClick={openContactModal}>
-                {t(...way.cta)} →
-              </button>
-            )}
-            </div>
-          </div>
+            </span>
+            <span className="svc-body">
+              <span className="svc-title">{t(...cat.title)}</span>
+              <span className="svc-line">{t(...cat.line)}</span>
+              <span className="svc-link">
+                {open === i
+                  ? t("Hide options", "Ocultar opciones")
+                  : t("Explore engagement options", "Ver opciones")}
+                <span className={`svc-chevron${open === i ? " is-open" : ""}`} aria-hidden="true" />
+              </span>
+            </span>
+          </button>
         ))}
-      </div>
-      <div className="services-cta">
-        <a className="btn-primary" href="/#pricing">
-          {t("See pricing ↓", "Ver precios ↓")}
-        </a>
+        {active && open !== null && (
+          <div
+            id="svc-panel"
+            className="svc-panel"
+            style={{ ["--m-order" as string]: open * 2 + 1 }}
+            role="region"
+            aria-label={t(...active.title)}
+            tabIndex={-1}
+            ref={panelRef}
+          >
+            <div className="svc-panel-head">
+              <h3>{t(...active.title)}</h3>
+              <button
+                type="button"
+                className="svc-close"
+                onClick={() => {
+                  cardRefs.current[open]?.focus();
+                  setOpen(null);
+                }}
+              >
+                {t("Close", "Cerrar")} ✕
+              </button>
+            </div>
+            <EngagementPanel category={active} />
+            <Link className="svc-more" to={`/engagements/${active.slug}`}>
+              {t("Open this as its own page →", "Abrir como página aparte →")}
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

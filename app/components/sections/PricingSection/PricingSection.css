@@ -176,3 +176,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Where to start: three choices */
+.pricing-start {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.pricing-start .plan-price {
+  font-size: 1.7rem;
+}
+.plan-all {
+  text-align: center;
+  margin-top: 28px;
+}
+.plan-all a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .pricing-start {
+    grid-template-columns: 1fr;
+  }
+}
