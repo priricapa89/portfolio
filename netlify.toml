@@ -2,9 +2,16 @@
   command = "npm run build"
   publish = "build/client"
 
-# pricapa.com/prifit opens the PriFit app, which is hosted on claude.ai.
+# pricapa.com/prifit serves the PriFit site (public/prifit/index.html).
+# The earlier PriFit app stays at https://claude.ai/artifact/V8pqmKR335mynB9RnCZcus and is linked from the site.
 [[redirects]]
   from = "/prifit"
-  to = "https://claude.ai/artifact/V8pqmKR335mynB9RnCZcus"
-  status = 302
+  to = "/prifit/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/prifit/"
+  to = "/prifit/index.html"
+  status = 200
   force = true

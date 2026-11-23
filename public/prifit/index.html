@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PriFit · Longevity is the mission</title>
+<meta name="description" content="PriFit: training, nutrition, mindfulness and recovery in one longevity app, coming soon. Join the waitlist.">
+<meta property="og:title" content="PriFit · Longevity is the mission">
+<meta property="og:description" content="Training, nutrition, mindfulness and recovery in one longevity app, coming soon.">
+<meta property="og:image" content="https://pricapa.com/prifit/img/hero-wide.jpg">
+<meta property="og:url" content="https://pricapa.com/prifit">
+<link rel="canonical" href="https://pricapa.com/prifit">
+<link rel="icon" href="/prifit/img/mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #3b2d4f; --ink2: #66597c; --muted: #8a7f9c;
+    --lav: #a98bd6; --lav-d: #7d5fb8; --lav-soft: #f1ebf9; --lav-line: #e3d8f2;
+    --peach: #f7dccb; --rose: #ecc6d2; --sage: #b9cab7; --sage-d: #6f8a6c;
+    --cream: #fcf8f5; --white: #fff;
+    --dark: #1c1724; --dark2: #282131; --dark3: #352c41; --dark-ink: #efe9f6; --dark-ink2: #a99fba;
+    --serif: "Cormorant Garamond", Georgia, serif; --sans: "Jost", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { padding-top: 72px; font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--plum); background: var(--cream); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  [data-lang="en"] .es, [data-lang="es"] .en { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  button, input { font: inherit; color: inherit; }
+  button { cursor: pointer; border: 0; background: none; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--lav-d); outline-offset: 3px; }
+  .wrap { width: min(1160px, 100% - 40px); margin: 0 auto; }
+  .caps { font-size: 0.74rem; letter-spacing: 0.32em; text-transform: uppercase; font-weight: 500; }
+  .disp { font-family: var(--serif); font-weight: 500; line-height: 1.05; }
+  .disp em { font-style: italic; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 26px; border-radius: 40px; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; transition: transform 0.2s, background 0.2s, box-shadow 0.2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.p { background: var(--lav-d); color: #fff; box-shadow: 0 10px 26px -12px rgba(125, 95, 184, 0.7); }
+  .btn.o { border: 1px solid var(--lav-d); color: var(--lav-d); background: rgba(255, 255, 255, 0.7); }
+  .btn.w { background: #fff; color: var(--plum); }
+  .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .rv.in { opacity: 1; transform: none; }
+  section { position: relative; scroll-margin-top: 72px; }
+  .sec { padding: 110px 0; }
+  .head { text-align: center; max-width: 720px; margin: 0 auto 54px; }
+  .head .caps { color: var(--lav-d); }
+  .head h2 { margin-top: 14px; font-size: clamp(2.4rem, 4.4vw, 3.6rem); }
+  .head p { margin-top: 16px; font-size: 1.08rem; color: var(--ink2); }
+
+  /* header */
+  .bar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(252, 248, 245, 0.86); backdrop-filter: blur(14px); border-bottom: 1px solid var(--lav-line); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px var(--lav-line); }
+  .logo b { font-weight: 500; letter-spacing: 0.42em; font-size: 1rem; }
+  .nav { display: flex; gap: 28px; font-size: 0.86rem; letter-spacing: 0.06em; }
+  .nav a { position: relative; padding: 6px 0; color: var(--ink2); }
+  .nav a:hover { color: var(--plum); }
+  .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--lav-d); transform: scaleX(0); transition: transform 0.25s; }
+  .nav a:hover::after { transform: scaleX(1); }
+  .right { display: flex; align-items: center; gap: 12px; }
+  .lang { display: inline-flex; border: 1px solid var(--lav-line); border-radius: 40px; padding: 2px; background: #fff; }
+  .lang button { padding: 5px 11px; border-radius: 40px; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink2); }
+  .lang button[aria-pressed="true"] { background: var(--plum); color: #fff; }
+  .bar .btn { padding: 11px 18px; font-size: 0.7rem; }
+  .burger { display: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--lav-line); background: #fff; place-items: center; }
+  .burger span { display: block; width: 16px; height: 1.5px; background: var(--plum); box-shadow: 0 -5px 0 var(--plum), 0 5px 0 var(--plum); }
+  .drawer { display: none; }
+
+  /* hero carousel */
+  .hero { position: relative; height: min(88vh, 820px); min-height: 560px; overflow: hidden; background: var(--dark); }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+  .slide.on { opacity: 1; pointer-events: auto; }
+  .slide .bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.06); transition: transform 7s ease-out; }
+  .slide.on .bg { transform: scale(1); }
+  .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(43, 31, 58, 0.72) 0%, rgba(43, 31, 58, 0.42) 38%, rgba(43, 31, 58, 0) 66%); }
+  .slide .txt { position: absolute; z-index: 2; left: max(20px, calc((100% - 1160px) / 2)); top: 50%; transform: translateY(-50%); max-width: 540px; color: #fff; }
+  .slide .caps { color: #f3e6ff; }
+  .slide h1, .slide h2 { margin-top: 16px; font-size: clamp(3rem, 6.4vw, 5.6rem); }
+  .slide h1 .big { display: block; font-family: var(--sans); font-weight: 300; font-size: 0.62em; letter-spacing: 0.32em; line-height: 1.1; }
+  .slide p { margin-top: 18px; font-size: 1.12rem; line-height: 1.55; color: #f7f0fb; max-width: 440px; }
+  .slide .btns { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .slide .btn.o { color: #fff; border-color: rgba(255, 255, 255, 0.8); background: rgba(255, 255, 255, 0.12); }
+  .s2 .bg { background: linear-gradient(120deg, #3a2b4d, #6c4f7e); }
+  .trio { position: absolute; right: max(20px, calc((100% - 1160px) / 2)); top: 50%; transform: translateY(-50%); display: flex; gap: 14px; z-index: 1; }
+  .trio img { width: 190px; height: 300px; object-fit: cover; border-radius: 120px 120px 18px 18px; box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.6); }
+  .trio img:nth-child(2) { transform: translateY(-34px); }
+  .s3 .bg { background: radial-gradient(70% 90% at 72% 50%, #f9e5d6 0%, #d9c3e8 55%, #8e74b6 100%); }
+  .s3 .prod { position: absolute; right: max(20px, calc((100% - 1160px) / 2)); top: 50%; transform: translateY(-50%); width: min(520px, 44vw); border-radius: 28px; overflow: hidden; z-index: 1; box-shadow: 0 30px 60px -24px rgba(40, 20, 60, 0.6); }
+  .s3::after { background: linear-gradient(90deg, rgba(59, 45, 79, 0.75) 0%, rgba(59, 45, 79, 0.35) 45%, rgba(59, 45, 79, 0) 60%); }
+  .dots { position: absolute; z-index: 5; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; }
+  .dots button { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.45); transition: width 0.3s, background 0.3s; }
+  .dots button[aria-current="true"] { width: 28px; border-radius: 6px; background: #fff; }
+  .arrow { position: absolute; z-index: 5; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; background: rgba(255, 255, 255, 0.18); color: #fff; border: 1px solid rgba(255, 255, 255, 0.5); font-size: 1.1rem; }
+  .arrow.l { left: 18px; } .arrow.r { right: 18px; }
+
+  /* pillars strip */
+  .pillars { background: #fff; border-bottom: 1px solid var(--lav-line); }
+  .pillars .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .pil { min-width: 0; display: flex; gap: 16px; align-items: center; padding: 30px 18px; border-right: 1px solid var(--lav-line); }
+  .pil:last-child { border-right: 0; }
+  .pil svg { width: 42px; height: 42px; flex: none; stroke: var(--lav-d); fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .pil b { display: block; letter-spacing: 0.2em; font-size: 0.78rem; font-weight: 500; text-transform: uppercase; }
+  .pil span { display: block; font-size: 0.92rem; color: var(--ink2); line-height: 1.4; margin-top: 3px; }
+
+  /* app intro */
+  .app { background: linear-gradient(180deg, var(--cream), var(--lav-soft)); overflow: hidden; }
+  .app .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+  .phones { position: relative; height: 620px; }
+  .phones::before { content: ""; position: absolute; left: 50%; top: 52%; width: 560px; height: 560px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle at 40% 35%, #fbe6da, #e6d3f3 60%, #d5c1ec); }
+  .phone { position: absolute; width: 238px; height: 488px; border-radius: 40px; background: #0f0c14; padding: 9px; box-shadow: 0 34px 70px -28px rgba(50, 30, 80, 0.55); }
+  .phone .scr { width: 100%; height: 100%; border-radius: 32px; overflow: hidden; position: relative; font-size: 11px; line-height: 1.35; }
+  .phone .notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 72px; height: 20px; border-radius: 12px; background: #0f0c14; z-index: 3; }
+  .ph1 { left: 50%; top: 40px; transform: translateX(-50%); z-index: 3; }
+  .ph2 { left: 2%; top: 110px; transform: rotate(-7deg); z-index: 2; }
+  .ph3 { right: 2%; top: 110px; transform: rotate(7deg); z-index: 2; }
+  .dk { background: var(--dark); color: var(--dark-ink); padding: 40px 14px 14px; height: 100%; }
+  .rings { display: flex; justify-content: space-between; gap: 6px; }
+  .ring { text-align: center; flex: 1; }
+  .ring svg { width: 52px; height: 52px; }
+  .ring small { display: block; margin-top: 3px; font-size: 8.5px; letter-spacing: 0.14em; color: var(--dark-ink2); }
+  .dk h4 { margin: 16px 0 8px; font-size: 15px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
+  .dk h4 i { font-style: normal; font-size: 7.5px; letter-spacing: 0.14em; padding: 4px 8px; border-radius: 10px; background: linear-gradient(90deg, #e6a7b9, #a98bd6); color: #fff; }
+  .row { display: flex; justify-content: space-between; align-items: center; background: var(--dark2); border-radius: 10px; padding: 9px 10px; margin-bottom: 6px; font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .row svg { width: 13px; height: 13px; stroke: var(--dark-ink2); fill: none; stroke-width: 1.4; margin-right: 7px; vertical-align: -3px; }
+  .row::after { content: "›"; font-size: 14px; color: var(--dark-ink2); }
+  .lt { background: linear-gradient(170deg, #fbe7db, #efe2f8 60%, #fff); height: 100%; padding: 40px 14px 14px; color: var(--plum); }
+  .lt .t { font-family: var(--serif); font-size: 20px; line-height: 1.05; }
+  .lt .s { color: var(--ink2); font-size: 9.5px; margin-top: 4px; }
+  .card { background: #fff; border-radius: 14px; padding: 10px; margin-top: 10px; box-shadow: 0 6px 14px -10px rgba(59, 45, 79, 0.4); }
+  .card b { font-weight: 500; font-size: 11px; }
+  .ex { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--lav-line); font-size: 10px; }
+  .ex:last-child { border: 0; }
+  .ex span { color: var(--muted); }
+  .breath { display: grid; place-items: center; margin: 26px auto 14px; width: 128px; height: 128px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #e9dcf7 60%, #d6c2ee 100%); animation: breathe 10s ease-in-out infinite; font-family: var(--serif); font-size: 17px; }
+  @keyframes breathe { 0%, 100% { transform: scale(0.86); } 40% { transform: scale(1.04); } }
+  .app-copy .caps { color: var(--lav-d); }
+  .app-copy h2 { margin-top: 14px; font-size: clamp(2.4rem, 4vw, 3.4rem); }
+  .app-copy p { margin-top: 18px; font-size: 1.08rem; color: var(--ink2); }
+  .app-copy ul { list-style: none; margin-top: 22px; display: grid; gap: 10px; }
+  .app-copy li { display: flex; gap: 12px; align-items: baseline; font-size: 1rem; }
+  .app-copy li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lav); flex: none; transform: translateY(-2px); }
+  .app-copy .btns { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .note { margin-top: 14px; font-size: 0.82rem; color: var(--muted); }
+
+  /* dashboard */
+  .dash { background: var(--dark); color: var(--dark-ink); }
+  .dash .head .caps { color: #c9b4ee; }
+  .dash .head p { color: var(--dark-ink2); }
+  .dgrid { display: grid; grid-template-columns: 300px 1fr; gap: 26px; }
+  .dtabs { display: grid; gap: 10px; align-content: start; }
+  .dtab { text-align: left; padding: 18px 20px; border-radius: 16px; background: var(--dark2); border: 1px solid transparent; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.16em; font-size: 0.8rem; text-transform: uppercase; color: var(--dark-ink); }
+  .dtab::after { content: "›"; font-size: 1.3rem; color: var(--dark-ink2); }
+  .dtab[aria-selected="true"] { border-color: #a98bd6; background: var(--dark3); }
+  .dpanel { background: var(--dark2); border-radius: 22px; padding: 30px; min-height: 360px; position: relative; }
+  .dpanel h3 { font-family: var(--serif); font-weight: 500; font-size: 2rem; }
+  .dpanel .sub { color: var(--dark-ink2); margin-top: 4px; }
+  .meter { margin-top: 22px; display: grid; gap: 16px; }
+  .meter div { display: grid; grid-template-columns: 120px 1fr 44px; gap: 14px; align-items: center; font-size: 0.86rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .meter i { height: 8px; border-radius: 6px; background: var(--dark3); overflow: hidden; display: block; }
+  .meter i b { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, #e6a7b9, #a98bd6); width: 0; transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .meter span { text-align: right; color: var(--dark-ink2); font-variant-numeric: tabular-nums; }
+  .big-ring { display: flex; gap: 36px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+  .big-ring svg { width: 200px; height: 200px; }
+  .big-ring p { max-width: 320px; color: var(--dark-ink2); }
+  .chart svg { width: 100%; height: 240px; margin-top: 16px; }
+  .sample { position: absolute; top: 20px; right: 22px; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark-ink2); border: 1px solid var(--dark3); padding: 4px 10px; border-radius: 20px; }
+
+  /* features */
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; }
+  .feat { text-align: center; padding: 0 10px; }
+  .feat svg { width: 54px; height: 54px; stroke: var(--lav-d); fill: none; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+  .feat b { display: block; margin-top: 16px; letter-spacing: 0.2em; font-size: 0.82rem; font-weight: 500; text-transform: uppercase; }
+  .feat p { margin-top: 8px; color: var(--ink2); font-size: 0.98rem; }
+
+  .gets { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .gcard { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: linear-gradient(180deg, #b49ad6 0%, #9879c0 100%); color: #fff; transition: transform 0.25s, box-shadow 0.25s; }
+  .gcard:hover { transform: translateY(-4px); box-shadow: 0 26px 46px -28px rgba(80, 50, 120, 0.7); }
+  .gcard img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%); mask-image: linear-gradient(180deg, #000 72%, transparent 100%); }
+  .gcard .gt { position: relative; margin-top: -34px; padding: 0 24px 26px; }
+  .gcard svg { width: 36px; height: 36px; stroke: #fff; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .gcard b { display: block; margin-top: 10px; letter-spacing: 0.2em; font-size: 0.86rem; font-weight: 500; text-transform: uppercase; }
+  .gcard p { margin-top: 8px; font-size: 1rem; line-height: 1.5; color: #fbf6ff; }
+  .gcard .go { display: inline-block; margin-top: 12px; font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; border-bottom: 1px solid rgba(255, 255, 255, 0.7); padding-bottom: 2px; }
+  .posters { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .poster { border-radius: 24px; overflow: hidden; background: #8e6fb6; color: #fff; container-type: inline-size; }
+  .pimg { position: relative; aspect-ratio: 1199 / 1312; }
+  .pimg > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .pt { position: absolute; left: 5.5%; top: 5%; width: 33%; }
+  .pt .brand { display: flex; align-items: center; gap: 2cqw; font-size: max(10px, 2.4cqw); letter-spacing: 0.4em; }
+  .pt .brand img { width: 6.6cqw; height: 6.6cqw; border-radius: 50%; }
+  .pt .lbl { margin-top: 7cqw; font-size: max(10px, 1.9cqw); letter-spacing: 0.26em; text-transform: uppercase; padding-bottom: 2.2cqw; border-bottom: 1px solid rgba(255, 255, 255, 0.7); display: inline-block; }
+  .pt h3 { margin-top: 6cqw; font-family: var(--serif); font-weight: 500; font-size: 6.2cqw; line-height: 1.02; }
+  .pt h3 em { font-style: italic; }
+  .pt p { margin-top: 5cqw; font-size: max(11px, 2.25cqw); line-height: 1.5; color: #fbf6ff; }
+  .picons { position: absolute; left: 5%; bottom: 6%; display: flex; }
+  .picons > span { display: flex; flex-direction: column; align-items: center; gap: 1.6cqw; padding: 0 3cqw; border-right: 1px solid rgba(255, 255, 255, 0.45); font-size: max(8px, 1.45cqw); letter-spacing: 0.16em; text-transform: uppercase; }
+  .picons > span:first-child { padding-left: 0; } .picons > span:last-child { border-right: 0; }
+  .picons svg { width: 4.6cqw; height: 4.6cqw; stroke: #fff; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .pm { display: none; }
+  @container (max-width: 520px) {
+    .pt { width: 48%; }
+    .pt .lbl { margin-top: 5cqw; }
+    .pt h3 { font-size: 8.4cqw; }
+    .pt p, .picons { display: none; }
+    .pm { display: block; padding: 18px 20px 22px; }
+    .pm p { font-size: 0.98rem; line-height: 1.5; color: #fbf6ff; }
+    .pm .row4 { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .pm svg { display: block; margin: 0 auto 6px; width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  }
+  .mhead { display: grid; grid-template-columns: 2fr 1.15fr 0.75fr; gap: 18px; margin-bottom: 22px; height: 440px; }
+  .mbig { display: grid; grid-template-columns: 1fr 0.9fr; border-radius: 24px; overflow: hidden; background: linear-gradient(150deg, #8f6fb8, #c2a6dc); color: #fff; }
+  .mbig .tx { padding: 34px 26px; display: flex; flex-direction: column; justify-content: center; }
+  .mbig h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(2.2rem, 3.2vw, 3rem); line-height: 1.02; }
+  .mbig ul { list-style: none; margin-top: 22px; display: grid; gap: 10px; font-size: 0.95rem; }
+  .mbig li { display: flex; gap: 10px; align-items: center; }
+  .mbig li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
+  .mhead img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
+  .mbig img { border-radius: 0; object-position: 40% top; }
+  .ficons { display: flex; flex-wrap: wrap; gap: 18px 30px; margin-top: 26px; }
+  .ficons span { display: flex; align-items: center; gap: 10px; font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .ficons svg { width: 26px; height: 26px; stroke: var(--lav-d); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* plans */
+  .plans-bg { background: linear-gradient(180deg, #fff, var(--lav-soft)); }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+  .plan { background: #fff; border: 1px solid var(--lav-line); border-radius: 26px; padding: 34px 28px 30px; display: flex; flex-direction: column; text-align: center; position: relative; }
+  .plan.best { border: 2px solid var(--lav-d); box-shadow: 0 30px 60px -34px rgba(125, 95, 184, 0.6); transform: translateY(-10px); }
+  .plan .tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--lav-d); color: #fff; padding: 5px 14px; border-radius: 20px; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+  .plan h3 { font-family: var(--serif); font-weight: 500; font-size: 2.1rem; }
+  .plan .save { margin-top: 4px; color: var(--lav-d); font-style: italic; font-family: var(--serif); font-size: 1.1rem; }
+  .plan .price { margin: 18px 0 4px; font-size: 1.05rem; letter-spacing: 0.04em; }
+  .plan .price small { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
+  .plan ul { list-style: none; text-align: left; margin: 20px 0 26px; display: grid; gap: 10px; font-size: 0.95rem; }
+  .plan li { display: flex; gap: 10px; }
+  .plan li::before { content: "✓"; color: var(--lav-d); }
+  .plan .btn { margin-top: auto; }
+  .plans-note { text-align: center; margin-top: 30px; color: var(--ink2); font-size: 0.95rem; }
+
+  /* meals and journal */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .meal { text-align: left; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid var(--lav-line); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
+  .meal:hover { transform: translateY(-4px); box-shadow: 0 24px 40px -28px rgba(59, 45, 79, 0.5); }
+  .meal img { width: 100%; aspect-ratio: 1.1; object-fit: cover; }
+  .meal .txt { padding: 16px 18px 20px; }
+  .meal small { color: var(--lav-d); letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.68rem; font-weight: 500; }
+  .meal b { display: block; margin-top: 6px; font-family: var(--serif); font-weight: 500; font-size: 1.45rem; line-height: 1.1; }
+  .meal span { display: block; margin-top: 8px; color: var(--muted); font-size: 0.86rem; }
+  .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .post { text-align: left; border-radius: 24px; padding: 30px 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; color: var(--plum); transition: transform 0.25s; position: relative; overflow: hidden; }
+  .post:hover { transform: translateY(-4px); }
+  .post small { letter-spacing: 0.2em; font-size: 0.68rem; text-transform: uppercase; font-weight: 500; }
+  .post b { display: block; margin-top: 10px; font-family: var(--serif); font-weight: 500; font-size: 1.9rem; line-height: 1.08; }
+  .post span { margin-top: 12px; color: var(--ink2); font-size: 0.95rem; }
+  .post em { font-style: normal; margin-top: 16px; font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lav-d); }
+
+  /* foundation */
+  .found { background: linear-gradient(120deg, #fbe7da, #efe2f8); }
+  .found .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .found img { border-radius: 30px; box-shadow: 0 30px 60px -30px rgba(59, 45, 79, 0.5); }
+  .soon { display: inline-block; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--lav-d); color: var(--lav-d); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .found h2 { margin-top: 16px; font-size: clamp(2.4rem, 4vw, 3.4rem); }
+  .found p { margin-top: 16px; color: var(--ink2); font-size: 1.06rem; }
+
+  /* story */
+  .story .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 70px; align-items: center; }
+  .collage { position: relative; height: 560px; }
+  .collage img { position: absolute; object-fit: cover; border-radius: 22px; box-shadow: 0 24px 50px -26px rgba(59, 45, 79, 0.55); }
+  .collage .a { width: 58%; height: 78%; left: 0; top: 0; border-radius: 180px 180px 22px 22px; }
+  .collage .b { width: 40%; height: 46%; right: 0; top: 8%; }
+  .collage .c { width: 40%; height: 40%; right: 6%; bottom: 0; }
+  .story .caps { color: var(--lav-d); }
+  .story h2 { margin-top: 14px; font-size: clamp(2.4rem, 4vw, 3.4rem); }
+  .story p { margin-top: 16px; color: var(--ink2); font-size: 1.06rem; }
+  .mantra { margin-top: 26px; padding-left: 18px; border-left: 2px solid var(--lav); font-family: var(--serif); font-size: 1.6rem; line-height: 1.3; }
+  .mantra em { color: var(--lav-d); }
+
+  /* waitlist */
+  .wl { background: url(/prifit/img/hero-wide.jpg) center / cover; color: #fff; }
+  .wl::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(43, 31, 58, 0.86), rgba(43, 31, 58, 0.55)); }
+  .wl .wrap { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .wl h2 { font-size: clamp(2.6rem, 4.6vw, 3.8rem); }
+  .wl p { margin-top: 14px; color: #f2e9fb; font-size: 1.08rem; }
+  .form { background: rgba(255, 255, 255, 0.95); color: var(--plum); border-radius: 26px; padding: 30px; }
+  .form label { display: block; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; margin: 14px 0 6px; color: var(--ink2); }
+  .form input[type="text"], .form input[type="email"] { width: 100%; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--lav-line); background: #fff; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips label { margin: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 30px; border: 1px solid var(--lav-line); text-transform: none; letter-spacing: 0; font-size: 0.9rem; color: var(--plum); cursor: pointer; }
+  .chips input { accent-color: var(--lav-d); }
+  .form .btn { width: 100%; margin-top: 20px; }
+  .form .err { color: #a33; font-size: 0.86rem; margin-top: 8px; min-height: 1.2em; }
+  .thanks { text-align: center; padding: 30px 10px; }
+  .thanks b { display: block; font-family: var(--serif); font-size: 2rem; font-weight: 500; }
+
+  footer { background: var(--dark); color: var(--dark-ink2); padding: 60px 0 40px; font-size: 0.92rem; }
+  footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  footer .logo b { color: var(--dark-ink); }
+  footer h4 { color: var(--dark-ink); font-weight: 500; letter-spacing: 0.18em; font-size: 0.74rem; text-transform: uppercase; margin-bottom: 14px; }
+  footer a { display: block; padding: 3px 0; }
+  footer a:hover { color: #fff; }
+  footer .legal { grid-column: 1 / -1; border-top: 1px solid var(--dark3); padding-top: 22px; font-size: 0.8rem; }
+
+  /* reader (recipes and articles) */
+  .reader { position: fixed; inset: 0; z-index: 80; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(28, 23, 36, 0.55); backdrop-filter: blur(6px); }
+  .reader.open { display: flex; }
+  .reader .box { background: var(--cream); width: min(680px, 100%); max-height: 88vh; overflow: auto; border-radius: 26px; padding: 40px; position: relative; }
+  .reader .x { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--lav-line); background: #fff; font-size: 1.2rem; }
+  .reader small { color: var(--lav-d); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; font-weight: 500; }
+  .reader h3 { margin-top: 10px; font-family: var(--serif); font-weight: 500; font-size: 2.4rem; line-height: 1.05; }
+  .reader h4 { margin: 24px 0 8px; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
+  .reader p, .reader li { color: var(--ink2); font-size: 1.02rem; }
+  .reader p { margin-top: 12px; }
+  .reader ul, .reader ol { padding-left: 20px; display: grid; gap: 6px; }
+  .reader .disc { margin-top: 22px; font-size: 0.82rem; color: var(--muted); }
+
+  @media (max-width: 980px) {
+    .nav, .bar .right .btn { display: none; }
+    .burger { display: grid; }
+    .drawer { position: fixed; inset: 72px 0 auto; z-index: 49; background: var(--cream); border-bottom: 1px solid var(--lav-line); padding: 10px 20px 24px; }
+    .drawer.open { display: grid; gap: 4px; }
+    .drawer a { padding: 12px 4px; border-bottom: 1px solid var(--lav-line); font-size: 1.05rem; }
+    .drawer .btn { margin-top: 14px; }
+    .pillars .wrap { grid-template-columns: 1fr 1fr; }
+    .pil { border-bottom: 1px solid var(--lav-line); }
+    .pil:nth-child(2) { border-right: 0; }
+    .app .wrap, .found .wrap, .story .wrap, .wl .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .phones { order: 2; }
+    .dgrid { grid-template-columns: 1fr; }
+    .dtabs { grid-template-columns: repeat(3, 1fr); }
+    .dtab { font-size: 0.66rem; letter-spacing: 0.1em; padding: 14px; }
+    .dtab::after { display: none; }
+    .gets { grid-template-columns: 1fr 1fr; }
+    .posters { grid-template-columns: 1fr; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .mhead { grid-template-columns: 1fr 1fr; height: auto; }
+    .mbig { grid-column: 1 / -1; min-height: 380px; }
+    .mhead > img { height: 300px; }
+    .plans { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+    .plan.best { transform: none; order: -1; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .posts { grid-template-columns: 1fr; }
+    .trio img { width: 120px; height: 200px; }
+    footer .wrap { grid-template-columns: 1fr 1fr; }
+    footer .wrap > div:first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .sec { padding: 80px 0; }
+    .hero { height: 86vh; min-height: 620px; }
+    .slide::after { background: linear-gradient(180deg, rgba(43, 31, 58, 0) 30%, rgba(43, 31, 58, 0.82) 72%); }
+    .s1 .bg { background-image: url(/prifit/img/hero-tall.jpg) !important; background-position: center 20%; }
+    .slide .txt { top: auto; bottom: 74px; transform: none; right: 20px; }
+    .slide h1, .slide h2 { font-size: 2.9rem; }
+    .slide p { font-size: 1rem; }
+    .trio { top: 90px; transform: none; left: 50%; right: auto; translate: -50% 0; gap: 8px; }
+    .trio img { width: 100px; height: 170px; }
+    .trio img:nth-child(2) { transform: translateY(-20px); }
+    .s3 .prod { top: 80px; transform: none; left: 20px; right: 20px; width: auto; }
+    .arrow { display: none; }
+    .bar .logo b { font-size: 0.9rem; letter-spacing: 0.32em; }
+    .pil { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 16px; }
+    .pil svg { width: 32px; height: 32px; }
+    .phones { height: 520px; }
+    .phones::before { width: 400px; height: 400px; }
+    .phone { width: 196px; height: 404px; border-radius: 34px; }
+    .phone .scr { font-size: 9.5px; border-radius: 27px; }
+    .ph2 { left: -14px; top: 100px; } .ph3 { right: -14px; top: 100px; }
+    .dpanel { padding: 24px 20px; }
+    .meter div { grid-template-columns: 90px 1fr 36px; font-size: 0.74rem; gap: 10px; }
+    .big-ring svg { width: 160px; height: 160px; }
+    .gets { grid-template-columns: 1fr; }
+    .mbig { grid-template-columns: 1fr 0.85fr; }
+    .mbig .tx { padding: 26px 18px; }
+    .collage { height: 420px; }
+    .reader .box { padding: 30px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rv { opacity: 1; transform: none; transition: none; }
+    .slide .bg, .breath { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="PriFit home"><img src="/prifit/img/mark.jpg" alt=""><b>PRIFIT</b></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#app"><span class="en">The app</span><span class="es">La app</span></a>
+      <a href="#plans"><span class="en">Plans</span><span class="es">Planes</span></a>
+      <a href="#meals"><span class="en">Meals</span><span class="es">Recetas</span></a>
+      <a href="#journal"><span class="en">Journal</span><span class="es">Blog</span></a>
+      <a href="#story"><span class="en">Our story</span><span class="es">Nuestra historia</span></a>
+    </nav>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="es" aria-pressed="false">ES</button></div>
+      <a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a href="#app"><span class="en">The app</span><span class="es">La app</span></a>
+  <a href="#plans"><span class="en">Plans</span><span class="es">Planes</span></a>
+  <a href="#meals"><span class="en">Meals</span><span class="es">Recetas</span></a>
+  <a href="#journal"><span class="en">Journal</span><span class="es">Blog</span></a>
+  <a href="#story"><span class="en">Our story</span><span class="es">Nuestra historia</span></a>
+  <a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a>
+</div>
+
+<section class="hero" id="top" aria-roledescription="carousel" aria-label="PriFit">
+  <div class="slide s1 on" aria-roledescription="slide">
+    <div class="bg" style="background-image:url(/prifit/img/hero-wide.jpg);background-position:70% center"></div>
+    <div class="txt">
+      <div class="caps"><span class="en">Performance · Consciousness · Longevity</span><span class="es">Rendimiento · Conciencia · Longevidad</span></div>
+      <h1 class="disp"><span class="big"><span class="en">LONGEVITY</span><span class="es">LONGEVIDAD</span></span><em><span class="en">is my mission.</span><span class="es">es mi misión.</span></em></h1>
+      <p><span class="en">Enlightenment is my path. Training, nutrition, mindfulness and recovery in one app, coming soon.</span><span class="es">La iluminación es mi camino. Entrenamiento, nutrición, mindfulness y recuperación en una sola app, muy pronto.</span></p>
+      <div class="btns"><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a><a class="btn o" href="#app"><span class="en">See the app</span><span class="es">Ver la app</span></a></div>
+    </div>
+  </div>
+  <div class="slide s2" aria-roledescription="slide">
+    <div class="bg"></div>
+    <div class="trio" aria-hidden="true"><img src="/prifit/img/apparel-1.jpg" alt=""><img src="/prifit/img/apparel-2.jpg" alt=""><img src="/prifit/img/apparel-3.jpg" alt=""></div>
+    <div class="txt">
+      <div class="caps"><span class="en">Where it began</span><span class="es">Donde empezó</span></div>
+      <h2 class="disp"><span class="en">Made in <em>Peru</em>, with care.</span><span class="es">Hecho en <em>Perú</em>, con cuidado.</span></h2>
+      <p><span class="en">PriFit started with skilled artisans in Peru and products made with intention. The products were always part of something bigger.</span><span class="es">PriFit empezó con artesanos en Perú y productos hechos con intención. Los productos siempre fueron parte de algo más grande.</span></p>
+      <div class="btns"><a class="btn w" href="#story"><span class="en">Our story</span><span class="es">Nuestra historia</span></a></div>
+    </div>
+  </div>
+  <div class="slide s3" aria-roledescription="slide">
+    <div class="bg"></div>
+    <img class="prod" src="/prifit/img/foundation.jpg" alt="PriFit Daily Foundation, vanilla">
+    <div class="txt">
+      <div class="caps"><span class="en">Coming soon</span><span class="es">Muy pronto</span></div>
+      <h2 class="disp">Daily <em>Foundation</em></h2>
+      <p><span class="en">Nutrition for a better you. Our first daily blend, in vanilla.</span><span class="es">Nutrición para una mejor versión de ti. Nuestra primera mezcla diaria, sabor vainilla.</span></p>
+      <div class="btns"><a class="btn w" href="#waitlist"><span class="en">Get notified</span><span class="es">Avísame</span></a></div>
+    </div>
+  </div>
+  <button class="arrow l" type="button" aria-label="Previous slide">‹</button>
+  <button class="arrow r" type="button" aria-label="Next slide">›</button>
+  <div class="dots" id="dots"></div>
+</section>
+
+<section class="pillars" aria-label="Four pillars">
+  <div class="wrap">
+    <div class="pil"><svg viewBox="0 0 48 48"><path d="M10 38C10 20 22 10 40 8c0 18-10 30-28 30z"/><path d="M10 38L28 20"/></svg><div><b><span class="en">Nutrition</span><span class="es">Nutrición</span></b><span><span class="en">Fuel your body. Nourish your cells.</span><span class="es">Alimenta tu cuerpo y tus células.</span></span></div></div>
+    <div class="pil"><svg viewBox="0 0 48 48"><path d="M6 24h36M10 17v14M14 14v20M34 14v20M38 17v14"/></svg><div><b><span class="en">Fitness</span><span class="es">Fitness</span></b><span><span class="en">Train with purpose. Build strength.</span><span class="es">Entrena con propósito. Gana fuerza.</span></span></div></div>
+    <div class="pil"><svg viewBox="0 0 48 48"><path d="M24 36c-6-4-8-10-8-16 4 2 7 5 8 9 1-4 4-7 8-9 0 6-2 12-8 16z"/><path d="M24 36c-8 0-14-3-17-8 5-1 10 0 14 3M24 36c8 0 14-3 17-8-5-1-10 0-14 3"/></svg><div><b>Mindfulness</b><span><span class="en">Calm your mind. Elevate your energy.</span><span class="es">Calma tu mente. Eleva tu energía.</span></span></div></div>
+    <div class="pil"><svg viewBox="0 0 48 48"><path d="M24 24c-4-6-8-8-12-8a8 8 0 000 16c4 0 8-2 12-8zm0 0c4 6 8 8 12 8a8 8 0 000-16c-4 0-8 2-12 8z"/></svg><div><b><span class="en">Longevity</span><span class="es">Longevidad</span></b><span><span class="en">Live longer. Live better.</span><span class="es">Vive más. Vive mejor.</span></span></div></div>
+  </div>
+</section>
+
+<section class="app sec" id="app">
+  <div class="wrap">
+    <div class="phones rv" aria-hidden="true">
+      <div class="phone ph2"><div class="notch"></div><div class="scr lt">
+        <div class="t"><span class="en">Strength</span><span class="es">Fuerza</span></div><div class="s"><span class="en">Full body · 40 min</span><span class="es">Cuerpo completo · 40 min</span></div>
+        <div class="card"><b><span class="en">Today's session</span><span class="es">Sesión de hoy</span></b>
+          <div class="ex"><span class="en">Squat</span><span class="es">Sentadilla</span><span>3 × 10</span></div>
+          <div class="ex">Hip thrust<span>3 × 12</span></div>
+          <div class="ex"><span class="en">Row</span><span class="es">Remo</span><span>3 × 10</span></div>
+          <div class="ex"><span class="en">Plank</span><span class="es">Plancha</span><span>3 × 40s</span></div>
+        </div>
+        <div class="card"><b><span class="en">Quinoa breakfast bowl</span><span class="es">Bowl de quinua</span></b><div class="s"><span class="en">Breakfast · 15 min</span><span class="es">Desayuno · 15 min</span></div></div>
+      </div></div>
+      <div class="phone ph1"><div class="notch"></div><div class="scr dk">
+        <div class="rings">
+          <div class="ring"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="21" fill="none" stroke="#352c41" stroke-width="5"/><circle cx="26" cy="26" r="21" fill="none" stroke="#b9a2ea" stroke-width="5" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="26" transform="rotate(-90 26 26)"/><text x="26" y="30" text-anchor="middle" fill="#efe9f6" font-size="11">80%</text></svg><small><span class="en">SLEEP</span><span class="es">SUEÑO</span></small></div>
+          <div class="ring"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="21" fill="none" stroke="#352c41" stroke-width="5"/><circle cx="26" cy="26" r="21" fill="none" stroke="#9fc4a0" stroke-width="5" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="40" transform="rotate(-90 26 26)"/><text x="26" y="30" text-anchor="middle" fill="#efe9f6" font-size="11">70%</text></svg><small><span class="en">RECOVERY</span><span class="es">RECUPERACIÓN</span></small></div>
+          <div class="ring"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="21" fill="none" stroke="#352c41" stroke-width="5"/><circle cx="26" cy="26" r="21" fill="none" stroke="#e6a7b9" stroke-width="5" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="20" transform="rotate(-90 26 26)"/><text x="26" y="30" text-anchor="middle" fill="#efe9f6" font-size="11">85%</text></svg><small><span class="en">BALANCE</span><span class="es">BALANCE</span></small></div>
+        </div>
+        <h4><span class="en">My dashboard</span><span class="es">Mi panel</span><i><span class="en">CUSTOMIZE</span><span class="es">EDITAR</span></i></h4>
+        <div class="row"><span><svg viewBox="0 0 16 16"><path d="M1 9h3l2-5 3 9 2-6h4"/></svg><span class="en">Heart rate variability</span><span class="es">Variabilidad cardiaca</span></span></div>
+        <div class="row"><span><svg viewBox="0 0 16 16"><path d="M8 14S2 10 2 6a3 3 0 016-1 3 3 0 016 1c0 4-6 8-6 8z"/></svg><span class="en">Resting heart rate</span><span class="es">Pulso en reposo</span></span></div>
+        <div class="row"><span><svg viewBox="0 0 16 16"><path d="M4 14l2-6 3 2 2-7"/></svg><span class="en">Steps</span><span class="es">Pasos</span></span></div>
+        <div class="row"><span><svg viewBox="0 0 16 16"><path d="M2 8h12M4 5v6M12 5v6"/></svg><span class="en">Strength time</span><span class="es">Tiempo de fuerza</span></span></div>
+        <div class="row"><span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5"/><path d="M8 5v3l2 2"/></svg><span class="en">Mindful minutes</span><span class="es">Minutos de calma</span></span></div>
+        <div class="row"><span><svg viewBox="0 0 16 16"><path d="M10 3a5 5 0 105 7A4 4 0 0110 3z"/></svg><span class="en">Sleep</span><span class="es">Sueño</span></span></div>
+      </div></div>
+      <div class="phone ph3"><div class="notch"></div><div class="scr lt" style="text-align:center">
+        <div class="t"><span class="en">Breathe</span><span class="es">Respira</span></div><div class="s"><span class="en">Five quiet minutes</span><span class="es">Cinco minutos de calma</span></div>
+        <div class="breath"><span class="en">inhale</span><span class="es">inhala</span></div>
+        <div class="s"><span class="en">In for 4 · out for 6</span><span class="es">Inhala 4 · exhala 6</span></div>
+        <div class="card" style="text-align:left"><b><span class="en">Evening wind-down</span><span class="es">Para cerrar el día</span></b><div class="s"><span class="en">Lights low, screens away</span><span class="es">Luz baja, pantallas fuera</span></div></div>
+      </div></div>
+    </div>
+    <div class="app-copy rv">
+      <div class="caps"><span class="en">Your new longevity app</span><span class="es">Tu nueva app de longevidad</span></div>
+      <h2 class="disp"><span class="en">Move, nourish, rest and <em>think clearer</em>.</span><span class="es">Muévete, nútrete, descansa y <em>piensa con claridad</em>.</span></h2>
+      <p><span class="en">Wellness is more than fitness. It is how we move, what we nourish ourselves with, how we think and how intentionally we choose to live. The PriFit app brings all of it into one place.</span><span class="es">El bienestar es más que fitness. Es cómo nos movemos, con qué nos nutrimos, cómo pensamos y con cuánta intención elegimos vivir. La app de PriFit lo reúne todo en un solo lugar.</span></p>
+      <ul>
+        <li><span class="en">Training plans for strength and mobility</span><span class="es">Planes de entrenamiento de fuerza y movilidad</span></li>
+        <li><span class="en">Meals and recipes for every day</span><span class="es">Comidas y recetas para cada día</span></li>
+        <li><span class="en">Breathing and mindfulness sessions</span><span class="es">Sesiones de respiración y mindfulness</span></li>
+        <li><span class="en">A dashboard for sleep, recovery and balance</span><span class="es">Un panel para sueño, recuperación y balance</span></li>
+      </ul>
+      <div class="btns"><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a><a class="btn o" href="https://claude.ai/artifact/V8pqmKR335mynB9RnCZcus" target="_blank" rel="noopener"><span class="en">Try the app preview</span><span class="es">Prueba la versión preliminar</span> ↗</a></div>
+      <p class="note"><span class="en">Screens show sample data. The app is in development.</span><span class="es">Las pantallas muestran datos de ejemplo. La app está en desarrollo.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="dash sec" id="dashboard">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="caps"><span class="en">Inside the app</span><span class="es">Dentro de la app</span></div>
+      <h2 class="disp"><span class="en">Your longevity <em>dashboard</em></span><span class="es">Tu panel de <em>longevidad</em></span></h2>
+      <p><span class="en">See how your body and mind are doing today, and how your habits add up over time.</span><span class="es">Mira cómo están hoy tu cuerpo y tu mente, y cómo tus hábitos se suman con el tiempo.</span></p>
+    </div>
+    <div class="dgrid rv">
+      <div class="dtabs" role="tablist" aria-label="Dashboard views">
+        <button class="dtab" role="tab" aria-selected="true" aria-controls="dp" data-v="0"><span class="en">Body &amp; mind</span><span class="es">Cuerpo y mente</span></button>
+        <button class="dtab" role="tab" aria-selected="false" aria-controls="dp" data-v="1"><span class="en">Performance</span><span class="es">Rendimiento</span></button>
+        <button class="dtab" role="tab" aria-selected="false" aria-controls="dp" data-v="2"><span class="en">Longevity markers</span><span class="es">Marcadores</span></button>
+      </div>
+      <div class="dpanel" id="dp" role="tabpanel">
+        <span class="sample"><span class="en">Sample data</span><span class="es">Datos de ejemplo</span></span>
+        <div data-view="0">
+          <h3><span class="en">Body &amp; mind</span><span class="es">Cuerpo y mente</span></h3>
+          <p class="sub"><span class="en">A daily check-in, in under a minute.</span><span class="es">Un registro diario en menos de un minuto.</span></p>
+          <div class="meter">
+            <div><b style="font-weight:400"><span class="en">Energy</span><span class="es">Energía</span></b><i><b data-w="78"></b></i><span>78</span></div>
+            <div><b style="font-weight:400"><span class="en">Focus</span><span class="es">Enfoque</span></b><i><b data-w="64"></b></i><span>64</span></div>
+            <div><b style="font-weight:400"><span class="en">Sleep</span><span class="es">Sueño</span></b><i><b data-w="82"></b></i><span>82</span></div>
+            <div><b style="font-weight:400"><span class="en">Mood</span><span class="es">Ánimo</span></b><i><b data-w="71"></b></i><span>71</span></div>
+          </div>
+        </div>
+        <div data-view="1" hidden>
+          <h3><span class="en">Performance</span><span class="es">Rendimiento</span></h3>
+          <div class="big-ring">
+            <svg viewBox="0 0 200 200"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#e6a7b9"/><stop offset="1" stop-color="#a98bd6"/></linearGradient></defs><circle cx="100" cy="100" r="82" fill="none" stroke="#352c41" stroke-width="14"/><circle class="ringv" cx="100" cy="100" r="82" fill="none" stroke="url(#g1)" stroke-width="14" stroke-linecap="round" stroke-dasharray="515" stroke-dashoffset="515" transform="rotate(-90 100 100)"/><text x="100" y="108" text-anchor="middle" fill="#efe9f6" font-size="40" font-family="Jost">85%</text><text x="100" y="134" text-anchor="middle" fill="#a99fba" font-size="11" letter-spacing="2" font-family="Jost">BALANCE</text></svg>
+            <p><span class="en">Balance brings training, recovery, nutrition and mindful minutes into one view, so you can see when to push and when to rest.</span><span class="es">El balance reúne entrenamiento, recuperación, nutrición y minutos de calma en una vista, para que sepas cuándo exigirte y cuándo descansar.</span></p>
+          </div>
+        </div>
+        <div data-view="2" hidden>
+          <h3><span class="en">Longevity markers</span><span class="es">Marcadores de longevidad</span></h3>
+          <p class="sub"><span class="en">Weekly trends against your own optimal range.</span><span class="es">Tendencias semanales frente a tu propio rango óptimo.</span></p>
+          <div class="chart"><svg viewBox="0 0 600 240" preserveAspectRatio="none"><rect x="0" y="70" width="600" height="80" fill="rgba(169,139,214,0.14)"/><text x="10" y="64" fill="#a99fba" font-size="12" letter-spacing="2" font-family="Jost">OPTIMAL RANGE</text><polyline class="line" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linejoin="round" points="0,170 60,150 120,160 180,120 240,130 300,100 360,110 420,92 480,104 540,86 600,96"/><g fill="#efe9f6"><circle cx="180" cy="120" r="4"/><circle cx="300" cy="100" r="4"/><circle cx="420" cy="92" r="4"/><circle cx="540" cy="86" r="4"/></g></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="caps"><span class="en">What you get</span><span class="es">Qué incluye</span></div>
+      <h2 class="disp"><span class="en">Everything for a <em>longer, better</em> life</span><span class="es">Todo para una vida <em>más larga y mejor</em></span></h2>
+    </div>
+    <div class="posters">
+      <div class="poster rv">
+        <div class="pimg"><img src="/prifit/img/poster-train.jpg" alt="Squat with a barbell in the gym">
+          <div class="pt"><div class="brand"><img src="/prifit/img/mark.jpg" alt="">PRIFIT</div><div class="lbl"><span class="en">Train your way</span><span class="es">Entrena a tu manera</span></div><h3><span class="en"><em>Build strength, energy &amp; resilience</em></span><span class="es"><em>Construye fuerza, energía y resiliencia</em></span></h3><p><span class="en">Guided training programs for the gym or at home, built around strength, performance and longevity.</span><span class="es">Programas de entrenamiento guiados para el gimnasio o la casa, centrados en fuerza, rendimiento y longevidad.</span></p></div>
+          <div class="picons"><span><svg viewBox="0 0 36 36"><path d="M3 18h30M7 13v10M10 11v14M26 11v14M29 13v10"/></svg><span class="en">Strength</span><span class="es">Fuerza</span></span><span><svg viewBox="0 0 36 36"><circle cx="22" cy="6" r="3"/><path d="M8 33l6-9 5 3 3-9-6-3-6 5M22 18l6 6h5M14 24l-6 1"/></svg><span class="en">Endurance</span><span class="es">Resistencia</span></span><span><svg viewBox="0 0 36 36"><ellipse cx="18" cy="9" rx="6" ry="3.5"/><ellipse cx="18" cy="18" rx="9" ry="4"/><ellipse cx="18" cy="28" rx="12" ry="4.5"/></svg><span class="en">Mobility</span><span class="es">Movilidad</span></span><span><svg viewBox="0 0 36 36"><path d="M18 31S5 23 5 13a7 7 0 0113-3 7 7 0 0113 3c0 10-13 18-13 18z"/><path d="M8 18h6l2-4 3 8 2-4h7"/></svg><span class="en">Recovery</span><span class="es">Recuperación</span></span></div>
+        </div>
+        <div class="pm"><p><span class="en">Guided training programs for the gym or at home, built around strength, performance and longevity.</span><span class="es">Programas de entrenamiento guiados para el gimnasio o la casa, centrados en fuerza, rendimiento y longevidad.</span></p><div class="row4"><div><svg viewBox="0 0 36 36"><path d="M3 18h30M7 13v10M10 11v14M26 11v14M29 13v10"/></svg><span class="en">Strength</span><span class="es">Fuerza</span></div><div><svg viewBox="0 0 36 36"><circle cx="22" cy="6" r="3"/><path d="M8 33l6-9 5 3 3-9-6-3-6 5M22 18l6 6h5M14 24l-6 1"/></svg><span class="en">Endurance</span><span class="es">Resistencia</span></div><div><svg viewBox="0 0 36 36"><ellipse cx="18" cy="9" rx="6" ry="3.5"/><ellipse cx="18" cy="18" rx="9" ry="4"/><ellipse cx="18" cy="28" rx="12" ry="4.5"/></svg><span class="en">Mobility</span><span class="es">Movilidad</span></div><div><svg viewBox="0 0 36 36"><path d="M18 31S5 23 5 13a7 7 0 0113-3 7 7 0 0113 3c0 10-13 18-13 18z"/><path d="M8 18h6l2-4 3 8 2-4h7"/></svg><span class="en">Recovery</span><span class="es">Recuperación</span></div></div></div>
+      </div>
+      <div class="poster rv">
+        <div class="pimg"><img src="/prifit/img/poster-mind.jpg" alt="Meditating on a mountain at sunset">
+          <div class="pt"><div class="brand"><img src="/prifit/img/mark.jpg" alt="">PRIFIT</div><div class="lbl">Mindfulness</div><h3><span class="en">A calmer mind, <em>higher potential</em></span><span class="es">Una mente en calma, <em>más potencial</em></span></h3><p><span class="en">Breathwork, stillness and daily rituals to reduce stress, improve focus and stay aligned with your purpose.</span><span class="es">Respiración, quietud y rituales diarios para bajar el estrés, mejorar el enfoque y mantenerte alineada con tu propósito.</span></p></div>
+          <div class="picons"><span><svg viewBox="0 0 36 36"><path d="M18 30c-5-3-7-8-7-13 3 2 6 4 7 8 1-4 4-6 7-8 0 5-2 10-7 13z"/><path d="M18 30c-6 0-11-2-13-6 4-1 8 0 11 2M18 30c6 0 11-2 13-6-4-1-8 0-11 2"/></svg><span class="en">Breathwork</span><span class="es">Respiración</span></span><span><svg viewBox="0 0 36 36"><path d="M24 6a12 12 0 1 0 8 19A10 10 0 0 1 24 6z"/></svg><span class="en">Better sleep</span><span class="es">Mejor sueño</span></span><span><svg viewBox="0 0 36 36"><ellipse cx="18" cy="9" rx="6" ry="3.5"/><ellipse cx="18" cy="18" rx="9" ry="4"/><ellipse cx="18" cy="28" rx="12" ry="4.5"/></svg><span class="en">Stress relief</span><span class="es">Menos estrés</span></span><span><svg viewBox="0 0 36 36"><path d="M6 26h24M10 26a8 8 0 0116 0M18 10v4M8 15l3 3M28 15l-3 3M3 20h4M29 20h4"/></svg><span class="en">Clarity</span><span class="es">Claridad</span></span></div>
+        </div>
+        <div class="pm"><p><span class="en">Breathwork, stillness and daily rituals to reduce stress, improve focus and stay aligned with your purpose.</span><span class="es">Respiración, quietud y rituales diarios para bajar el estrés, mejorar el enfoque y mantenerte alineada con tu propósito.</span></p><div class="row4"><div><svg viewBox="0 0 36 36"><path d="M18 30c-5-3-7-8-7-13 3 2 6 4 7 8 1-4 4-6 7-8 0 5-2 10-7 13z"/><path d="M18 30c-6 0-11-2-13-6 4-1 8 0 11 2M18 30c6 0 11-2 13-6-4-1-8 0-11 2"/></svg><span class="en">Breathwork</span><span class="es">Respiración</span></div><div><svg viewBox="0 0 36 36"><path d="M24 6a12 12 0 1 0 8 19A10 10 0 0 1 24 6z"/></svg><span class="en">Better sleep</span><span class="es">Mejor sueño</span></div><div><svg viewBox="0 0 36 36"><ellipse cx="18" cy="9" rx="6" ry="3.5"/><ellipse cx="18" cy="18" rx="9" ry="4"/><ellipse cx="18" cy="28" rx="12" ry="4.5"/></svg><span class="en">Stress relief</span><span class="es">Menos estrés</span></div><div><svg viewBox="0 0 36 36"><path d="M6 26h24M10 26a8 8 0 0116 0M18 10v4M8 15l3 3M28 15l-3 3M3 20h4M29 20h4"/></svg><span class="en">Clarity</span><span class="es">Claridad</span></div></div></div>
+      </div>
+    </div>
+    <div class="gets">
+      <a class="gcard rv" href="https://claude.ai/artifact/V8pqmKR335mynB9RnCZcus" target="_blank" rel="noopener"><img src="/prifit/img/get-access.jpg" alt=""><div class="gt"><svg viewBox="0 0 36 36"><rect x="6" y="8" width="24" height="22" rx="3"/><path d="M6 14h24M12 4v6M24 4v6M11 20h5M11 25h9"/></svg><b><span class="en">Full access</span><span class="es">Acceso completo</span></b><p><span class="en">Every training plan, meal guide and mindfulness session in one subscription.</span><span class="es">Todos los planes de entrenamiento, guías de comida y sesiones de mindfulness en una suscripción.</span></p><span class="go"><span class="en">Open the app preview</span><span class="es">Abrir la versión preliminar</span> ↗</span></div></a>
+      <div class="gcard rv"><img src="/prifit/img/get-food.jpg" alt=""><div class="gt"><svg viewBox="0 0 36 36"><path d="M6 18h24a12 12 0 01-24 0zM14 12c0-3 3-3 3-6M20 12c0-3 3-3 3-6"/></svg><b><span class="en">Nutrition guides</span><span class="es">Guías de nutrición</span></b><p><span class="en">Simple meals and recipes that fuel training and everyday energy.</span><span class="es">Comidas y recetas sencillas que dan energía para entrenar y para el día.</span></p></div></div>
+      <div class="gcard rv"><img src="/prifit/img/get-progress.jpg" alt=""><div class="gt"><svg viewBox="0 0 36 36"><path d="M6 30V22M13 30V17M20 30V12M27 30V7"/></svg><b><span class="en">Progress you can see</span><span class="es">Progreso visible</span></b><p><span class="en">A dashboard for sleep, recovery and balance, week after week.</span><span class="es">Un panel de sueño, recuperación y balance, semana a semana.</span></p></div></div>
+      <div class="gcard rv"><img src="/prifit/img/get-community.jpg" alt=""><div class="gt"><svg viewBox="0 0 36 36"><circle cx="13" cy="12" r="5"/><circle cx="25" cy="13" r="4"/><path d="M4 30c0-6 4-9 9-9s9 3 9 9M21 30c0-4 2-7 6-7s6 3 6 7"/></svg><b><span class="en">Community</span><span class="es">Comunidad</span></b><p><span class="en">A global community of people on the same path, sharing progress, questions and wins.</span><span class="es">Una comunidad global de personas en el mismo camino, que comparten avances, preguntas y logros.</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="plans-bg sec" id="plans">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="caps"><span class="en">Plans</span><span class="es">Planes</span></div>
+      <h2 class="disp"><span class="en">Choose your <em>path</em></span><span class="es">Elige tu <em>camino</em></span></h2>
+      <p><span class="en">Prices will be announced at launch. People on the waitlist hear first.</span><span class="es">Los precios se anunciarán en el lanzamiento. Quienes estén en la lista se enteran primero.</span></p>
+    </div>
+    <div class="plans">
+      <div class="plan rv"><h3><span class="en">Six months</span><span class="es">Semestral</span></h3><div class="save"><span class="en">A season of change</span><span class="es">Una temporada de cambio</span></div><div class="price"><span class="en">Price at launch</span><span class="es">Precio en el lanzamiento</span><small><span class="en">Billed every six months</span><span class="es">Pago cada seis meses</span></small></div><ul><li><span class="en">Full app access</span><span class="es">Acceso completo a la app</span></li><li><span class="en">Training, meals and mindfulness</span><span class="es">Entrenamiento, recetas y mindfulness</span></li><li><span class="en">Longevity dashboard</span><span class="es">Panel de longevidad</span></li></ul><a class="btn o" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a></div>
+      <div class="plan best rv"><span class="tag"><span class="en">Best value</span><span class="es">Mejor precio</span></span><h3><span class="en">Yearly</span><span class="es">Anual</span></h3><div class="save"><span class="en">For the long game</span><span class="es">Para el largo plazo</span></div><div class="price"><span class="en">Price at launch</span><span class="es">Precio en el lanzamiento</span><small><span class="en">Billed once a year</span><span class="es">Un pago al año</span></small></div><ul><li><span class="en">Full app access</span><span class="es">Acceso completo a la app</span></li><li><span class="en">Training, meals and mindfulness</span><span class="es">Entrenamiento, recetas y mindfulness</span></li><li><span class="en">Longevity dashboard</span><span class="es">Panel de longevidad</span></li><li><span class="en">First access to new programs</span><span class="es">Acceso primero a nuevos programas</span></li></ul><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a></div>
+      <div class="plan rv"><h3><span class="en">Monthly</span><span class="es">Mensual</span></h3><div class="save"><span class="en">Start at your pace</span><span class="es">Empieza a tu ritmo</span></div><div class="price"><span class="en">Price at launch</span><span class="es">Precio en el lanzamiento</span><small><span class="en">Billed monthly, cancel anytime</span><span class="es">Pago mensual, cancela cuando quieras</span></small></div><ul><li><span class="en">Full app access</span><span class="es">Acceso completo a la app</span></li><li><span class="en">Training, meals and mindfulness</span><span class="es">Entrenamiento, recetas y mindfulness</span></li><li><span class="en">Longevity dashboard</span><span class="es">Panel de longevidad</span></li></ul><a class="btn o" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="meals">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="caps"><span class="en">Meals</span><span class="es">Recetas</span></div>
+      <h2 class="disp"><span class="en">Nourish your <em>cells</em></span><span class="es">Nutre tus <em>células</em></span></h2>
+      <p><span class="en">A few recipes from the app. Select one to open it.</span><span class="es">Algunas recetas de la app. Elige una para abrirla.</span></p>
+    </div>
+    <div class="mhead rv">
+      <div class="mbig"><div class="tx"><h3><span class="en">Fuel your potential</span><span class="es">Nutre tu potencial</span></h3><ul><li><span class="en">Performance</span><span class="es">Rendimiento</span></li><li><span class="en">Consciousness</span><span class="es">Conciencia</span></li><li><span class="en">Longevity</span><span class="es">Longevidad</span></li><li><span class="en">Human potential</span><span class="es">Potencial humano</span></li></ul></div><img src="/prifit/img/meal-hero.jpg" alt=""></div>
+      <img src="/prifit/img/meal-cook.jpg" alt="">
+      <img src="/prifit/img/meal-juice.jpg" alt="">
+    </div>
+    <div class="cards" id="mealCards"></div>
+  </div>
+</section>
+
+<section class="sec" id="journal" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="caps"><span class="en">Journal</span><span class="es">Blog</span></div>
+      <h2 class="disp"><span class="en">Tips for the <em>long run</em></span><span class="es">Consejos para el <em>largo plazo</em></span></h2>
+    </div>
+    <div class="posts" id="postCards"></div>
+  </div>
+</section>
+
+<section class="found sec" id="foundation">
+  <div class="wrap">
+    <img class="rv" src="/prifit/img/foundation.jpg" alt="PriFit Daily Foundation vanilla pouch, lavender shaker and a glass of shake">
+    <div class="rv">
+      <span class="soon"><span class="en">Coming soon</span><span class="es">Muy pronto</span></span>
+      <h2 class="disp">Daily <em>Foundation</em></h2>
+      <p><span class="en">A daily blend of high-quality nutrition to fuel your performance, vitality and long-term well-being. Vanilla, designed to sit alongside the app's training and meal plans.</span><span class="es">Una mezcla diaria de nutrición de alta calidad para impulsar tu rendimiento, tu vitalidad y tu bienestar a largo plazo. Sabor vainilla, pensada para acompañar los planes de entrenamiento y comidas de la app.</span></p>
+      <div class="ficons"><span><svg viewBox="0 0 26 26"><path d="M2 13h22M5 9v8M8 7v12M18 7v12M21 9v8"/></svg><span class="en">Performance</span><span class="es">Rendimiento</span></span><span><svg viewBox="0 0 26 26"><path d="M13 21c-4-2-5-6-5-9 2 1 4 3 5 6 1-3 3-5 5-6 0 3-1 7-5 9z"/></svg><span class="en">Consciousness</span><span class="es">Conciencia</span></span><span><svg viewBox="0 0 26 26"><path d="M13 13c-2-3-4-4-6-4a4 4 0 000 8c2 0 4-1 6-4zm0 0c2 3 4 4 6 4a4 4 0 000-8c-2 0-4 1-6 4z"/></svg><span class="en">Longevity</span><span class="es">Longevidad</span></span><span><svg viewBox="0 0 26 26"><path d="M13 2l2.5 8.5L24 13l-8.5 2.5L13 24l-2.5-8.5L2 13l8.5-2.5z"/></svg><span class="en">Human potential</span><span class="es">Potencial humano</span></span></div>
+      <p><span class="en">Ingredients and launch date will be shared with the waitlist first.</span><span class="es">Los ingredientes y la fecha de lanzamiento se compartirán primero con la lista de espera.</span></p>
+      <div style="margin-top:26px"><a class="btn p" href="#waitlist"><span class="en">Get notified</span><span class="es">Avísame</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="story sec" id="story">
+  <div class="wrap">
+    <div class="collage rv" aria-hidden="true"><img class="a" src="/prifit/img/story-sit.jpg" alt=""><img class="b" src="/prifit/img/apparel-1.jpg" alt=""><img class="c" src="/prifit/img/logo-card.jpg" alt=""></div>
+    <div class="rv">
+      <div class="caps"><span class="en">Our story</span><span class="es">Nuestra historia</span></div>
+      <h2 class="disp"><span class="en">Your potential has <em>no limits</em>.</span><span class="es">Tu potencial no tiene <em>límites</em>.</span></h2>
+      <p><span class="en">PriFit was born from a desire to explore the connection between body, mind and purpose, bringing together fitness, nutrition, mindfulness, wellness and longevity to inspire a life of greater vitality, balance and possibility.</span><span class="es">PriFit nació del deseo de explorar la conexión entre cuerpo, mente y propósito, uniendo fitness, nutrición, mindfulness, bienestar y longevidad para inspirar una vida con más vitalidad, equilibrio y posibilidades.</span></p>
+      <p><span class="en">Our journey began in Peru, working with skilled artisans to create products with intention, craftsmanship and care. Living longer is only part of the journey. The goal is to live better: to feel stronger, think clearer and discover what lies beyond our perceived limits.</span><span class="es">Nuestro camino empezó en Perú, con artesanos que crearon productos con intención, oficio y cuidado. Vivir más es solo parte del camino. La meta es vivir mejor: sentirnos más fuertes, pensar con más claridad y descubrir lo que hay más allá de nuestros límites.</span></p>
+      <div class="mantra"><span class="en">Longevity is the mission.<br><em>Enlightenment is the path.</em><br>Your potential is limitless.</span><span class="es">La longevidad es la misión.<br><em>La iluminación es el camino.</em><br>Tu potencial no tiene límites.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wl sec" id="waitlist">
+  <div class="wrap">
+    <div class="rv">
+      <div class="caps" style="color:#f3e6ff"><span class="en">Be first</span><span class="es">Sé de los primeros</span></div>
+      <h2 class="disp" style="margin-top:14px"><span class="en">Join the <em>waitlist</em></span><span class="es">Únete a la <em>lista de espera</em></span></h2>
+      <p><span class="en">Hear first when the app launches, when plans and prices are announced and when Daily Foundation is ready.</span><span class="es">Entérate primero del lanzamiento de la app, de los planes y precios, y de cuándo estará lista Daily Foundation.</span></p>
+    </div>
+    <form class="form rv" id="wlForm" novalidate>
+      <div id="wlFields">
+        <label for="wlName"><span class="en">First name</span><span class="es">Nombre</span></label>
+        <input type="text" id="wlName" autocomplete="given-name">
+        <label for="wlEmail"><span class="en">Email</span><span class="es">Correo</span></label>
+        <input type="email" id="wlEmail" autocomplete="email" required>
+        <label><span class="en">I'm most interested in</span><span class="es">Me interesa más</span></label>
+        <div class="chips">
+          <label><input type="checkbox" value="training"><span class="en">Training</span><span class="es">Entrenamiento</span></label>
+          <label><input type="checkbox" value="nutrition"><span class="en">Nutrition</span><span class="es">Nutrición</span></label>
+          <label><input type="checkbox" value="mindfulness">Mindfulness</label>
+          <label><input type="checkbox" value="daily-foundation">Daily Foundation</label>
+        </div>
+        <div class="err" id="wlErr" aria-live="polite"></div>
+        <button class="btn p" type="submit"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></button>
+      </div>
+      <div class="thanks" id="wlThanks" hidden><b><span class="en">You're on the list.</span><span class="es">Ya estás en la lista.</span></b><p><span class="en">We'll write when PriFit is ready.</span><span class="es">Te escribiremos cuando PriFit esté listo.</span></p></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top"><img src="/prifit/img/mark.jpg" alt=""><b>PRIFIT</b></a>
+      <p style="margin-top:14px;max-width:320px"><span class="en">Unleashing human potential through performance, consciousness, wellness and longevity.</span><span class="es">Potenciando el ser humano a través del rendimiento, la conciencia, el bienestar y la longevidad.</span></p>
+    </div>
+    <div>
+      <h4><span class="en">Explore</span><span class="es">Explora</span></h4>
+      <a href="#app"><span class="en">The app</span><span class="es">La app</span></a><a href="#plans"><span class="en">Plans</span><span class="es">Planes</span></a><a href="#meals"><span class="en">Meals</span><span class="es">Recetas</span></a><a href="#journal"><span class="en">Journal</span><span class="es">Blog</span></a><a href="#story"><span class="en">Our story</span><span class="es">Nuestra historia</span></a>
+    </div>
+    <div>
+      <h4><span class="en">More</span><span class="es">Más</span></h4>
+      <a href="https://claude.ai/artifact/V8pqmKR335mynB9RnCZcus" target="_blank" rel="noopener"><span class="en">App preview</span><span class="es">Versión preliminar</span> ↗</a>
+      <a href="#waitlist"><span class="en">Waitlist</span><span class="es">Lista de espera</span></a>
+      <a href="https://pricapa.com" target="_blank" rel="noopener">PRICAPA ↗</a>
+    </div>
+    <div class="legal">© 2026 PriFit · Lima, Peru. <span class="en">PriFit content is general wellness information, not medical advice. Talk to a health professional before changing your training or diet.</span><span class="es">El contenido de PriFit es información general de bienestar, no consejo médico. Consulta a un profesional de la salud antes de cambiar tu entrenamiento o tu alimentación.</span></div>
+  </div>
+</footer>
+
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rdTitle">
+  <div class="box"><button class="x" type="button" aria-label="Close">×</button><div id="rdBody"></div></div>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = document.documentElement, lang = "en";
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+  // language
+  function setLang(l) {
+    lang = l; root.setAttribute("data-lang", l); root.lang = l;
+    [].forEach.call(document.querySelectorAll(".lang button"), function (b) { b.setAttribute("aria-pressed", b.dataset.l === l ? "true" : "false"); });
+    store("prifit-lang", l); renderCards();
+    if (openItem) openReader(openItem);
+  }
+  [].forEach.call(document.querySelectorAll(".lang button"), function (b) { b.addEventListener("click", function () { setLang(b.dataset.l); }); });
+
+  // mobile menu
+  var burger = document.querySelector(".burger"), drawer = document.getElementById("drawer");
+  burger.addEventListener("click", function () { var o = !drawer.classList.contains("open"); drawer.classList.toggle("open", o); burger.setAttribute("aria-expanded", o); });
+  [].forEach.call(drawer.querySelectorAll("a"), function (a) { a.addEventListener("click", function () { drawer.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }); });
+
+  // hero carousel
+  var slides = document.querySelectorAll(".slide"), dots = document.getElementById("dots"), cur = 0, timer;
+  [].forEach.call(slides, function (s, i) { var d = document.createElement("button"); d.type = "button"; d.setAttribute("aria-label", "Slide " + (i + 1)); d.addEventListener("click", function () { go(i, true); }); dots.appendChild(d); });
+  function go(i, user) {
+    cur = (i + slides.length) % slides.length;
+    [].forEach.call(slides, function (s, k) { s.classList.toggle("on", k === cur); s.setAttribute("aria-hidden", k === cur ? "false" : "true"); });
+    [].forEach.call(dots.children, function (d, k) { d.setAttribute("aria-current", k === cur ? "true" : "false"); });
+    if (user) restart();
+  }
+  function restart() { clearInterval(timer); if (!reduce) timer = setInterval(function () { go(cur + 1); }, 6500); }
+  document.querySelector(".arrow.l").addEventListener("click", function () { go(cur - 1, true); });
+  document.querySelector(".arrow.r").addEventListener("click", function () { go(cur + 1, true); });
+  var hero = document.querySelector(".hero"), tx = null;
+  hero.addEventListener("touchstart", function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener("touchend", function (e) { if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), true); tx = null; });
+  go(0); restart();
+
+  // reveal on scroll
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    [].forEach.call(document.querySelectorAll(".rv"), function (el) { io.observe(el); });
+  } else [].forEach.call(document.querySelectorAll(".rv"), function (el) { el.classList.add("in"); });
+
+  // dashboard tabs
+  var tabs = document.querySelectorAll(".dtab"), views = document.querySelectorAll("[data-view]");
+  function showView(v) {
+    [].forEach.call(tabs, function (t) { t.setAttribute("aria-selected", t.dataset.v === String(v) ? "true" : "false"); });
+    [].forEach.call(views, function (el) { el.hidden = el.dataset.view !== String(v); });
+    var vw = views[v];
+    [].forEach.call(vw.querySelectorAll("[data-w]"), function (b) { b.style.width = "0"; requestAnimationFrame(function () { requestAnimationFrame(function () { b.style.width = b.dataset.w + "%"; }); }); });
+    var ring = vw.querySelector(".ringv"); if (ring) { ring.style.transition = "none"; ring.style.strokeDashoffset = 515; requestAnimationFrame(function () { requestAnimationFrame(function () { ring.style.transition = "stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1)"; ring.style.strokeDashoffset = 515 * 0.15; }); }); }
+  }
+  [].forEach.call(tabs, function (t) { t.addEventListener("click", function () { showView(+t.dataset.v); }); });
+  if ("IntersectionObserver" in window) { var dio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { showView(0); dio.disconnect(); } }, { threshold: 0.3 }); dio.observe(document.getElementById("dp")); } else showView(0);
+
+  // recipes and journal
+  var MEALS = [
+    { k: "bowl", bg: "#f3e8fb", min: 15, en: { tag: "Breakfast", t: "Quinoa breakfast bowl", ing: ["½ cup cooked quinoa", "½ cup milk or plant milk", "1 pinch of cinnamon", "½ banana, sliced", "A handful of blueberries and raspberries", "1 tsp chia seeds", "A few walnuts"], st: ["Warm the quinoa with the milk and cinnamon for 3 to 4 minutes.", "Pour into a bowl and top with banana, berries, chia and walnuts."] },
+      es: { tag: "Desayuno", t: "Bowl de quinua", ing: ["½ taza de quinua cocida", "½ taza de leche o bebida vegetal", "1 pizca de canela", "½ plátano en rodajas", "Un puñado de arándanos y frambuesas", "1 cdta de chía", "Algunas nueces"], st: ["Calienta la quinua con la leche y la canela por 3 a 4 minutos.", "Sirve en un bowl y agrega plátano, frutos rojos, chía y nueces."] } },
+    { k: "pot", bg: "#e9f0e7", min: 35, en: { tag: "Lunch", t: "Lentil and vegetable stew", ing: ["1 cup lentils, rinsed", "1 cup cooked chickpeas", "1 onion and 2 garlic cloves, chopped", "1 carrot, diced", "2 tomatoes, chopped", "1 tsp ground cumin", "2 handfuls of spinach", "1 tbsp olive oil, salt and pepper"], st: ["Soften the onion, garlic and carrot in the olive oil.", "Add the tomatoes, cumin, lentils, chickpeas and 3 cups of water. Simmer for 25 minutes.", "Stir in the spinach, season and top with fresh herbs."] },
+      es: { tag: "Almuerzo", t: "Guiso de lentejas y verduras", ing: ["1 taza de lentejas lavadas", "1 taza de garbanzos cocidos", "1 cebolla y 2 dientes de ajo picados", "1 zanahoria en cubos", "2 tomates picados", "1 cdta de comino", "2 puñados de espinaca", "1 cda de aceite de oliva, sal y pimienta"], st: ["Sofríe la cebolla, el ajo y la zanahoria en el aceite.", "Agrega tomate, comino, lentejas, garbanzos y 3 tazas de agua. Cocina 25 minutos a fuego bajo.", "Añade la espinaca, sazona y termina con hierbas frescas."] } },
+    { k: "plate", bg: "#fbe9e2", min: 30, en: { tag: "Dinner", t: "Salmon, sweet potato and greens", ing: ["1 salmon fillet", "1 sweet potato, in wedges", "½ cup cooked quinoa", "A handful of shredded red cabbage", "½ avocado", "1 tbsp olive oil", "1 tsp sesame seeds", "½ lemon", "Salt, pepper and paprika"], st: ["Roast the sweet potato with oil and paprika at 200°C (400°F) for 15 minutes.", "Add the salmon to the tray and roast 12 more minutes.", "Serve over quinoa with cabbage and avocado. Finish with sesame and lemon."] },
+      es: { tag: "Cena", t: "Salmón con camote y verduras", ing: ["1 filete de salmón", "1 camote en gajos", "½ taza de quinua cocida", "Un puñado de col morada en tiras", "½ palta", "1 cda de aceite de oliva", "1 cdta de ajonjolí", "½ limón", "Sal, pimienta y páprika"], st: ["Hornea el camote con aceite y páprika a 200 °C por 15 minutos.", "Agrega el salmón a la bandeja y hornea 12 minutos más.", "Sirve sobre quinua con col y palta. Termina con ajonjolí y limón."] } },
+    { k: "jar", bg: "#efe7f7", min: 5, en: { tag: "Snack", t: "Cacao overnight oats", ing: ["½ cup rolled oats", "½ cup milk or plant milk", "2 tbsp plain yogurt", "1 tsp cacao powder", "1 tbsp chia seeds", "A few raspberries and cacao nibs"], st: ["Mix everything except the toppings in a jar.", "Leave in the fridge overnight.", "Top with raspberries and cacao nibs in the morning."] },
+      es: { tag: "Snack", t: "Avena nocturna de cacao", ing: ["½ taza de avena", "½ taza de leche o bebida vegetal", "2 cdas de yogur natural", "1 cdta de cacao en polvo", "1 cda de chía", "Unas frambuesas y nibs de cacao"], st: ["Mezcla todo menos los toppings en un frasco.", "Déjalo en el refrigerador toda la noche.", "En la mañana agrega frambuesas y nibs de cacao."] } }
+  ];
+  var POSTS = [
+    { bg: "linear-gradient(150deg,#efe2f8,#fbe7db)", en: { tag: "Sleep", t: "Sleep is part of training", ex: "Recovery happens when you rest. Four habits that make it easier.", body: ["Training gives your body a reason to change. Sleep is when much of that change happens, so it deserves the same attention as your workouts.", "Keep a steady wake-up time, even on weekends. Your body likes a rhythm.", "Lower the lights and put screens away in the last hour before bed.", "Have coffee earlier in the day.", "Keep your room cool, dark and quiet."] },
+      es: { tag: "Sueño", t: "Dormir también es entrenar", ex: "La recuperación ocurre cuando descansas. Cuatro hábitos que ayudan.", body: ["El entrenamiento le da a tu cuerpo una razón para cambiar. Al dormir ocurre gran parte de ese cambio, así que merece la misma atención que tus rutinas.", "Mantén una hora fija para despertar, también los fines de semana. A tu cuerpo le gusta el ritmo.", "Baja las luces y deja las pantallas en la última hora antes de dormir.", "Toma café más temprano en el día.", "Mantén tu habitación fresca, oscura y silenciosa."] } },
+    { bg: "linear-gradient(150deg,#e6efe4,#f6efe9)", en: { tag: "Strength", t: "Strength is a longevity habit", ex: "Why lifting matters at every age, and how to start.", body: ["Muscle helps you move, balance and stay independent as the years go by. Building and keeping it is one of the most useful habits you can have.", "Health guidelines, including the World Health Organization's, suggest muscle-strengthening activity on two or more days a week for adults.", "Start with the basics: squats, hinges, pushes, pulls and carries.", "Learn good form first, then add weight slowly.", "Rest between hard sessions. Progress comes from training and recovery together."] },
+      es: { tag: "Fuerza", t: "La fuerza es un hábito de longevidad", ex: "Por qué entrenar fuerza importa a cualquier edad, y cómo empezar.", body: ["El músculo te ayuda a moverte, mantener el equilibrio y ser independiente con los años. Construirlo y mantenerlo es uno de los hábitos más útiles.", "Las guías de salud, entre ellas las de la Organización Mundial de la Salud, sugieren actividades de fortalecimiento muscular dos o más días por semana para adultos.", "Empieza por lo básico: sentadillas, bisagra de cadera, empujes, jalones y cargas.", "Aprende la técnica primero y luego sube el peso de a poco.", "Descansa entre sesiones intensas. El progreso viene del entrenamiento y la recuperación juntos."] } },
+    { bg: "linear-gradient(150deg,#fbe3e7,#ece2f8)", en: { tag: "Mindfulness", t: "Five quiet minutes", ex: "A simple breathing practice for any part of your day.", body: ["You don't need an hour to reset. Five minutes is enough to start.", "Sit comfortably and let your shoulders drop.", "Breathe in through your nose for a count of four.", "Breathe out slowly for a count of six.", "Repeat for five minutes. When your mind wanders, come back to the count."] },
+      es: { tag: "Mindfulness", t: "Cinco minutos de calma", ex: "Una práctica de respiración simple para cualquier momento del día.", body: ["No necesitas una hora para reiniciarte. Cinco minutos bastan para empezar.", "Siéntate cómodo y relaja los hombros.", "Inhala por la nariz contando hasta cuatro.", "Exhala despacio contando hasta seis.", "Repite por cinco minutos. Si tu mente se distrae, vuelve a la cuenta."] } }
+  ];
+  var DISC = { en: "General wellness information, not medical advice.", es: "Información general de bienestar, no consejo médico." };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function renderCards() {
+    document.getElementById("mealCards").innerHTML = MEALS.map(function (m, i) { var c = m[lang]; return '<button class="meal rv in" type="button" data-m="' + i + '"><img src="/prifit/img/meal-' + (i + 1) + '.jpg" alt=""><div class="txt"><small>' + esc(c.tag) + '</small><b>' + esc(c.t) + '</b><span>' + m.min + ' min</span></div></button>'; }).join("");
+    document.getElementById("postCards").innerHTML = POSTS.map(function (p, i) { var c = p[lang]; return '<button class="post rv in" type="button" data-p="' + i + '" style="background:' + p.bg + '"><small>' + esc(c.tag) + '</small><b>' + esc(c.t) + '</b><span>' + esc(c.ex) + '</span><em>' + (lang === "en" ? "Read" : "Leer") + ' →</em></button>'; }).join("");
+  }
+  var reader = document.getElementById("reader"), rdBody = document.getElementById("rdBody"), openItem = null, lastFocus = null;
+  function openReader(item) {
+    openItem = item; var html;
+    if (item.type === "m") { var c = MEALS[item.i][lang];
+      html = "<small>" + esc(c.tag) + " · " + MEALS[item.i].min + " min</small><h3 id='rdTitle'>" + esc(c.t) + "</h3><h4>" + (lang === "en" ? "Ingredients" : "Ingredientes") + "</h4><ul>" + c.ing.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul><h4>" + (lang === "en" ? "Steps" : "Preparación") + "</h4><ol>" + c.st.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ol>";
+    } else { var p = POSTS[item.i][lang];
+      html = "<small>" + esc(p.tag) + "</small><h3 id='rdTitle'>" + esc(p.t) + "</h3><p>" + esc(p.body[0]) + "</p><ul style='margin-top:14px'>" + p.body.slice(1).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>";
+    }
+    rdBody.innerHTML = html + "<p class='disc'>" + DISC[lang] + "</p>";
+    if (!reader.classList.contains("open")) { lastFocus = document.activeElement; reader.classList.add("open"); document.body.style.overflow = "hidden"; reader.querySelector(".x").focus(); }
+  }
+  function closeReader() { reader.classList.remove("open"); document.body.style.overflow = ""; openItem = null; if (lastFocus) lastFocus.focus(); }
+  document.addEventListener("click", function (e) {
+    var m = e.target.closest("[data-m]"), p = e.target.closest("[data-p]");
+    if (m) openReader({ type: "m", i: +m.dataset.m }); else if (p) openReader({ type: "p", i: +p.dataset.p });
+  });
+  reader.querySelector(".x").addEventListener("click", closeReader);
+  reader.addEventListener("click", function (e) { if (e.target === reader) closeReader(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && reader.classList.contains("open")) closeReader(); });
+
+  // waitlist: sent to the site's contact endpoint, which emails the sign-up
+  document.getElementById("wlForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = document.getElementById("wlEmail").value.trim(), err = document.getElementById("wlErr");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = lang === "en" ? "Please enter a valid email." : "Escribe un correo válido."; document.getElementById("wlEmail").focus(); return; }
+    err.textContent = "";
+    var btn = this.querySelector("button[type=submit]"), name = document.getElementById("wlName").value.trim();
+    var picks = [].map.call(this.querySelectorAll(".chips input:checked"), function (c) { return c.value; });
+    var fd = new FormData();
+    fd.append("firstName", name || "PriFit visitor");
+    fd.append("lastName", "");
+    fd.append("email", email);
+    fd.append("interest", "PriFit waitlist");
+    fd.append("message", "PriFit waitlist sign-up.\nInterested in: " + (picks.length ? picks.join(", ") : "not specified") + "\nLanguage: " + lang.toUpperCase());
+    btn.disabled = true; btn.style.opacity = "0.6";
+    fetch("/api/contact", { method: "POST", body: fd })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.success) throw new Error("send");
+        document.getElementById("wlFields").hidden = true; document.getElementById("wlThanks").hidden = false;
+      })
+      .catch(function () {
+        err.textContent = lang === "en" ? "Something went wrong. Please try again in a moment." : "Algo salió mal. Inténtalo de nuevo en un momento.";
+        btn.disabled = false; btn.style.opacity = "";
+      });
+  });
+
+  var saved = store("prifit-lang");
+  setLang(saved === "es" || saved === "en" ? saved : ((navigator.language || "").slice(0, 2) === "es" ? "es" : "en"));
+})();
+</script>
+</body>
+</html>
