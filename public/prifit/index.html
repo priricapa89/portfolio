@@ -7,7 +7,7 @@
 <meta name="description" content="PriFit: training, nutrition, mindfulness and recovery in one longevity app, coming soon. Join the waitlist.">
 <meta property="og:title" content="PriFit · Longevity is the mission">
 <meta property="og:description" content="Training, nutrition, mindfulness and recovery in one longevity app, coming soon.">
-<meta property="og:image" content="https://pricapa.com/prifit/img/hero-wide.jpg">
+<meta property="og:image" content="https://pricapa.com/prifit/img/smoothie-1.jpg">
 <meta property="og:url" content="https://pricapa.com/prifit">
 <link rel="canonical" href="https://pricapa.com/prifit">
 <link rel="icon" href="/prifit/img/mark.jpg">
@@ -84,10 +84,9 @@
   .slide p { margin-top: 18px; font-size: 1.12rem; line-height: 1.55; color: #f7f0fb; max-width: 440px; }
   .slide .btns { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
   .slide .btn.o { color: #fff; border-color: rgba(255, 255, 255, 0.8); background: rgba(255, 255, 255, 0.12); }
-  .s2 .bg { background: linear-gradient(120deg, #3a2b4d, #6c4f7e); }
-  .trio { position: absolute; right: max(20px, calc((100% - 1160px) / 2)); top: 50%; transform: translateY(-50%); display: flex; gap: 14px; z-index: 1; }
-  .trio img { width: 190px; height: 300px; object-fit: cover; border-radius: 120px 120px 18px 18px; box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.6); }
-  .trio img:nth-child(2) { transform: translateY(-34px); }
+  .slide .bg { background: linear-gradient(120deg, #34264a 0%, #5f4482 46%, #a283cf 100%); }
+  .slide .ph { position: absolute; top: 0; bottom: 0; right: 0; width: 62%; background-size: cover; background-repeat: no-repeat; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 26%); mask-image: linear-gradient(90deg, transparent 0%, #000 26%); transform: scale(1.05); transition: transform 7s ease-out; }
+  .slide.on .ph { transform: none; }
   .s3 .bg { background: radial-gradient(70% 90% at 72% 50%, #f9e5d6 0%, #d9c3e8 55%, #8e74b6 100%); }
   .s3 .prod { position: absolute; right: max(20px, calc((100% - 1160px) / 2)); top: 50%; transform: translateY(-50%); width: min(520px, 44vw); border-radius: 28px; overflow: hidden; z-index: 1; box-shadow: 0 30px 60px -24px rgba(40, 20, 60, 0.6); }
   .s3::after { background: linear-gradient(90deg, rgba(59, 45, 79, 0.75) 0%, rgba(59, 45, 79, 0.35) 45%, rgba(59, 45, 79, 0) 60%); }
@@ -219,7 +218,7 @@
   .mbig li { display: flex; gap: 10px; align-items: center; }
   .mbig li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
   .mhead img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
-  .mbig img { border-radius: 0; object-position: 40% top; }
+  .mbig img { border-radius: 0; object-position: 62% 15%; }
   .ficons { display: flex; flex-wrap: wrap; gap: 18px 30px; margin-top: 26px; }
   .ficons span { display: flex; align-items: center; gap: 10px; font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; }
   .ficons svg { width: 26px; height: 26px; stroke: var(--lav-d); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
@@ -279,7 +278,7 @@
   .mantra em { color: var(--lav-d); }
 
   /* waitlist */
-  .wl { background: url(/prifit/img/hero-wide.jpg) center / cover; color: #fff; }
+  .wl { background: url(/prifit/img/community-full.jpg) 50% 30% / cover; color: #fff; }
   .wl::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(43, 31, 58, 0.86), rgba(43, 31, 58, 0.55)); }
   .wl .wrap { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
   .wl h2 { font-size: clamp(2.6rem, 4.6vw, 3.8rem); }
@@ -341,7 +340,6 @@
     .plan.best { transform: none; order: -1; }
     .cards { grid-template-columns: 1fr 1fr; }
     .posts { grid-template-columns: 1fr; }
-    .trio img { width: 120px; height: 200px; }
     footer .wrap { grid-template-columns: 1fr 1fr; }
     footer .wrap > div:first-child { grid-column: 1 / -1; }
   }
@@ -349,13 +347,10 @@
     .sec { padding: 80px 0; }
     .hero { height: 86vh; min-height: 620px; }
     .slide::after { background: linear-gradient(180deg, rgba(43, 31, 58, 0) 30%, rgba(43, 31, 58, 0.82) 72%); }
-    .s1 .bg { background-image: url(/prifit/img/hero-tall.jpg) !important; background-position: center 20%; }
+    .slide .ph { width: 100%; height: 66%; bottom: auto; -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, #000 70%, transparent 100%); }
     .slide .txt { top: auto; bottom: 74px; transform: none; right: 20px; }
     .slide h1, .slide h2 { font-size: 2.9rem; }
     .slide p { font-size: 1rem; }
-    .trio { top: 90px; transform: none; left: 50%; right: auto; translate: -50% 0; gap: 8px; }
-    .trio img { width: 100px; height: 170px; }
-    .trio img:nth-child(2) { transform: translateY(-20px); }
     .s3 .prod { top: 80px; transform: none; left: 20px; right: 20px; width: auto; }
     .arrow { display: none; }
     .bar .logo b { font-size: 0.9rem; letter-spacing: 0.32em; }
@@ -412,7 +407,8 @@
 
 <section class="hero" id="top" aria-roledescription="carousel" aria-label="PriFit">
   <div class="slide s1 on" aria-roledescription="slide">
-    <div class="bg" style="background-image:url(/prifit/img/hero-wide.jpg);background-position:70% center"></div>
+    <div class="bg"></div>
+    <div class="ph" style="background-image:url(/prifit/img/smoothie-1.jpg);background-position:55% 18%"></div>
     <div class="txt">
       <div class="caps"><span class="en">Performance · Consciousness · Longevity</span><span class="es">Rendimiento · Conciencia · Longevidad</span></div>
       <h1 class="disp"><span class="big"><span class="en">LONGEVITY</span><span class="es">LONGEVIDAD</span></span><em><span class="en">is my mission.</span><span class="es">es mi misión.</span></em></h1>
@@ -420,14 +416,34 @@
       <div class="btns"><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a><a class="btn o" href="#app"><span class="en">See the app</span><span class="es">Ver la app</span></a></div>
     </div>
   </div>
-  <div class="slide s2" aria-roledescription="slide">
+  <div class="slide sq" aria-roledescription="slide">
     <div class="bg"></div>
-    <div class="trio" aria-hidden="true"><img src="/prifit/img/apparel-1.jpg" alt=""><img src="/prifit/img/apparel-2.jpg" alt=""><img src="/prifit/img/apparel-3.jpg" alt=""></div>
+    <div class="ph" style="background-image:url(/prifit/img/poster-train.jpg);background-position:70% 20%"></div>
     <div class="txt">
-      <div class="caps"><span class="en">Where it began</span><span class="es">Donde empezó</span></div>
-      <h2 class="disp"><span class="en">Made in <em>Peru</em>, with care.</span><span class="es">Hecho en <em>Perú</em>, con cuidado.</span></h2>
-      <p><span class="en">PriFit started with skilled artisans in Peru and products made with intention. The products were always part of something bigger.</span><span class="es">PriFit empezó con artesanos en Perú y productos hechos con intención. Los productos siempre fueron parte de algo más grande.</span></p>
-      <div class="btns"><a class="btn w" href="#story"><span class="en">Our story</span><span class="es">Nuestra historia</span></a></div>
+      <div class="caps"><span class="en">Train your way</span><span class="es">Entrena a tu manera</span></div>
+      <h2 class="disp"><span class="en">Build strength, energy &amp; <em>resilience</em></span><span class="es">Construye fuerza, energía y <em>resiliencia</em></span></h2>
+      <p><span class="en">Guided training programs for the gym or at home, built around strength, performance and longevity.</span><span class="es">Programas de entrenamiento guiados para el gimnasio o la casa, centrados en fuerza, rendimiento y longevidad.</span></p>
+      <div class="btns"><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a><a class="btn o" href="#app"><span class="en">See the app</span><span class="es">Ver la app</span></a></div>
+    </div>
+  </div>
+  <div class="slide sm" aria-roledescription="slide">
+    <div class="bg"></div>
+    <div class="ph" style="background-image:url(/prifit/img/poster-mind.jpg);background-position:66% 22%"></div>
+    <div class="txt">
+      <div class="caps">Mindfulness</div>
+      <h2 class="disp"><span class="en">A calmer mind, <em>higher potential</em></span><span class="es">Una mente en calma, <em>más potencial</em></span></h2>
+      <p><span class="en">Breathwork, stillness and daily rituals to reduce stress, improve focus and stay aligned with your purpose.</span><span class="es">Respiración, quietud y rituales diarios para bajar el estrés, mejorar el enfoque y mantenerte alineada con tu propósito.</span></p>
+      <div class="btns"><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a></div>
+    </div>
+  </div>
+  <div class="slide sc" aria-roledescription="slide">
+    <div class="bg"></div>
+    <div class="ph" style="background-image:url(/prifit/img/community-full.jpg);background-position:50% 25%"></div>
+    <div class="txt">
+      <div class="caps"><span class="en">Community</span><span class="es">Comunidad</span></div>
+      <h2 class="disp"><span class="en">Live longer. Live better. <em>Live limitless.</em></span><span class="es">Vive más. Vive mejor. <em>Vive sin límites.</em></span></h2>
+      <p><span class="en">A community of people on the same path, sharing progress, questions and wins.</span><span class="es">Una comunidad de personas en el mismo camino, que comparten avances, preguntas y logros.</span></p>
+      <div class="btns"><a class="btn p" href="#waitlist"><span class="en">Join the waitlist</span><span class="es">Únete a la lista</span></a></div>
     </div>
   </div>
   <div class="slide s3" aria-roledescription="slide">
@@ -600,7 +616,7 @@
       <p><span class="en">A few recipes from the app. Select one to open it.</span><span class="es">Algunas recetas de la app. Elige una para abrirla.</span></p>
     </div>
     <div class="mhead rv">
-      <div class="mbig"><div class="tx"><h3><span class="en">Fuel your potential</span><span class="es">Nutre tu potencial</span></h3><ul><li><span class="en">Performance</span><span class="es">Rendimiento</span></li><li><span class="en">Consciousness</span><span class="es">Conciencia</span></li><li><span class="en">Longevity</span><span class="es">Longevidad</span></li><li><span class="en">Human potential</span><span class="es">Potencial humano</span></li></ul></div><img src="/prifit/img/meal-hero.jpg" alt=""></div>
+      <div class="mbig"><div class="tx"><h3><span class="en">Fuel your potential</span><span class="es">Nutre tu potencial</span></h3><ul><li><span class="en">Performance</span><span class="es">Rendimiento</span></li><li><span class="en">Consciousness</span><span class="es">Conciencia</span></li><li><span class="en">Longevity</span><span class="es">Longevidad</span></li><li><span class="en">Human potential</span><span class="es">Potencial humano</span></li></ul></div><img src="/prifit/img/smoothie-2.jpg" alt=""></div>
       <img src="/prifit/img/meal-cook.jpg" alt="">
       <img src="/prifit/img/meal-juice.jpg" alt="">
     </div>
@@ -634,7 +650,7 @@
 
 <section class="story sec" id="story">
   <div class="wrap">
-    <div class="collage rv" aria-hidden="true"><img class="a" src="/prifit/img/story-sit.jpg" alt=""><img class="b" src="/prifit/img/apparel-1.jpg" alt=""><img class="c" src="/prifit/img/logo-card.jpg" alt=""></div>
+    <div class="collage rv" aria-hidden="true"><img class="a" src="/prifit/img/poster-mind.jpg" alt="" style="object-position:68% 20%"><img class="b" src="/prifit/img/apparel-1.jpg" alt=""><img class="c" src="/prifit/img/logo-card.jpg" alt=""></div>
     <div class="rv">
       <div class="caps"><span class="en">Our story</span><span class="es">Nuestra historia</span></div>
       <h2 class="disp"><span class="en">Your potential has <em>no limits</em>.</span><span class="es">Tu potencial no tiene <em>límites</em>.</span></h2>
