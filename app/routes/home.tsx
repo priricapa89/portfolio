@@ -15,6 +15,7 @@ import { CredentialsSection } from "~/components/sections/CredentialsSection/Cre
 import { QuoteSection } from "~/components/sections/QuoteSection/QuoteSection";
 import { SocialSection } from "~/components/sections/SocialSection/SocialSection";
 import { LogoMarquee, type MarqueeItem } from "~/components/ui/LogoMarquee/LogoMarquee";
+import { RoomStrip, type RoomItem } from "~/components/ui/RoomStrip/RoomStrip";
 import { useLang } from "~/i18n/LanguageContext";
 import { ContactSection } from "~/components/sections/ContactSection/ContactSection";
 
@@ -28,12 +29,19 @@ const EMPLOYERS: MarqueeItem[] = [
   { name: "BanBif", src: "/logos/banbif.png" },
 ];
 
-// Not employers: events and communities I take part in.
-const ROOMS: MarqueeItem[] = [
-  { name: "World Economic Forum", src: "/logos/wef.png" },
-  { name: "MIT", src: "/logos/mit.png", bg: "#f2f4f8" },
-  { name: "Massachusetts AI Coalition", src: "/logos/mass-ai-coalition.png" },
-  { name: "Claude Community Boston" },
+// Not employers: events and communities I take part in. Each tile lists its events from app/data/events.ts.
+const ROOMS: RoomItem[] = [
+  { id: "wef", name: "World Economic Forum", src: "/logos/wef.png" },
+  { id: "mit", name: "MIT", src: "/logos/mit.png", bg: "#f2f4f8" },
+  { id: "harvard", name: "Harvard" },
+  {
+    id: "claude",
+    name: "Claude Community Boston",
+    page: { to: "/claude-community-boston", label: ["Visit Claude Community Boston", "Visitar Claude Community Boston"] },
+  },
+  { id: "massai", name: "Massachusetts AI Coalition", src: "/logos/mass-ai-coalition.png" },
+  { id: "aiweek", name: "Boston AI Week" },
+  { id: "tedx", name: "TEDxBoston" },
 ];
 
 const PAGE_URL = "https://pricapa.com/";
@@ -41,6 +49,16 @@ const PAGE_TITLE = "Pricilla Ricapa | Economics of AI Infrastructure";
 const PAGE_DESCRIPTION =
   "Pricilla Ricapa is an economist and AI strategist working on the economics of AI infrastructure: data centers, photonics, and compute in orbit. Formerly at Lumentum and Volvo Group.";
 const PAGE_IMAGE = "https://pricapa.com/pricapa-og.jpg";
+
+// Serif for the Claude Community Boston tile, close to the one Claude uses.
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500&display=swap",
+    },
+  ];
+}
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -129,14 +147,13 @@ export default function Home() {
       <CommunitySection />
       <QuoteSection />
       <ContactSection />
-      <LogoMarquee
+      <RoomStrip
         label={t("In the room with", "En la sala con")}
         note={t(
           "Events and communities I take part in as a participant or volunteer.",
           "Eventos y comunidades donde participo o soy voluntaria.",
         )}
         items={ROOMS}
-        duration={36}
       />
       <SocialSection />
       <Footer />

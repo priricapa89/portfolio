@@ -1,0 +1,250 @@
+.room-strip {
+  background: var(--bg2);
+  padding: 44px 24px 48px;
+  border-top: 1px solid rgba(156, 91, 78, 0.1);
+  border-bottom: 1px solid rgba(156, 91, 78, 0.1);
+  text-align: center;
+}
+.room-strip-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+.room-strip-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.room-strip-note {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+.room-strip-tiles {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+.room-tile {
+  height: 84px;
+  min-width: 170px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(156, 91, 78, 0.1);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.room-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.room-tile:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+}
+.room-tile.is-open {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 1px var(--purple), var(--shadow-md);
+}
+.room-tile img {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+}
+.room-tile-name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+  white-space: nowrap;
+}
+/* Claude Community Boston: the Claude mark as supplied, and a serif close to Claude's */
+.room-tile--claude {
+  background: #faf9f5;
+}
+.room-tile--claude.is-open {
+  border-color: #d97757;
+  box-shadow: 0 0 0 1px #d97757, var(--shadow-md);
+}
+.room-tile .room-claude-mark {
+  height: 30px;
+  width: 30px;
+}
+.room-claude-name {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.22rem;
+  letter-spacing: -0.01em;
+  color: #b6532f;
+  white-space: nowrap;
+}
+.room-strip-hint {
+  margin: 18px 0 0;
+  font-size: 0.8rem;
+  color: var(--gray-lt);
+}
+.room-strip-panel {
+  max-width: 860px;
+  margin: 24px auto 0;
+  padding: 26px 30px 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  text-align: left;
+}
+.room-strip-panel[hidden] {
+  display: none;
+}
+.room-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.room-panel-head h3 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  color: var(--navy);
+}
+.room-panel-close {
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 8px 4px;
+}
+.room-panel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.room-panel-list li {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(156, 91, 78, 0.1);
+}
+.room-panel-list li:last-child {
+  border-bottom: 0;
+}
+.room-panel-when {
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--purple);
+}
+.room-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.room-panel-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--navy);
+}
+.room-panel-role {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--bg2);
+  color: var(--purple);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+.room-panel-detail {
+  font-size: 0.88rem;
+  color: var(--gray);
+}
+.room-panel-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 6px 0;
+}
+.room-panel-link:hover,
+.room-panel-page:hover {
+  text-decoration: underline;
+}
+.room-panel-page {
+  display: inline-block;
+  margin-top: 16px;
+  font-weight: 600;
+  color: #b6532f;
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  .room-strip-tiles {
+    gap: 12px;
+  }
+  .room-strip-tiles li {
+    flex: 1 1 calc(50% - 6px);
+    max-width: calc(50% - 6px);
+  }
+  .room-tile {
+    width: 100%;
+    min-width: 0;
+    height: 72px;
+    padding: 0 14px;
+  }
+  .room-tile img {
+    height: 34px;
+    max-width: 100%;
+  }
+  .room-tile-name {
+    font-size: 0.98rem;
+    white-space: normal;
+  }
+  .room-strip-tiles li:has(.room-tile--claude) {
+    order: -1;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .room-strip-panel {
+    padding: 20px 18px;
+  }
+  .room-panel-list li {
+    grid-template-columns: 1fr auto;
+    gap: 4px 14px;
+  }
+  .room-panel-when {
+    grid-column: 1 / -1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .room-tile {
+    transition: none;
+  }
+  .room-tile:hover {
+    transform: none;
+  }
+}

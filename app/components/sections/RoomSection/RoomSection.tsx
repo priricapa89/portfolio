@@ -71,10 +71,19 @@ export function RoomSection() {
       <div id="room-events" className="events-list room-events" hidden={!open}>
         {events.map((ev, i) => (
           <div className="event-row" key={i}>
-            <div className="event-year">{ev.year}</div>
+            <div className="event-year">{ev.when}</div>
             <div>
-              <div className="event-name">{ev.name}</div>
-              <div className="event-detail">{ev.detail}</div>
+              <div className="event-name">
+                {ev.href ? (
+                  <a href={ev.href} target="_blank" rel="noopener noreferrer">{ev.name}</a>
+                ) : (
+                  ev.name
+                )}
+              </div>
+              <div className="event-detail">
+                {ev.role && <strong>{lang === "es" ? ev.role[1] : ev.role[0]} · </strong>}
+                {ev.detail}
+              </div>
             </div>
           </div>
         ))}

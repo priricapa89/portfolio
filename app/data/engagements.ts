@@ -70,7 +70,7 @@ export const CATEGORIES: Category[] = [
           ["90-day plan", "Plan de 90 días"],
           ["Readout with your team", "Presentación a tu equipo"],
         ],
-        price: ["$3,500", "$3,500"],
+        price: ["$2,000", "$2,000"],
         note: ["Fixed fee · 2 weeks", "Precio fijo · 2 semanas"],
         cta: ["Discuss your goals", "Hablemos de tus objetivos"],
       },
