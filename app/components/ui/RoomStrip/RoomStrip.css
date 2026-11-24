@@ -23,15 +23,11 @@
   font-size: 0.9rem;
   color: var(--gray);
 }
-.room-strip-tiles {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0;
+.room-strip-window {
+  margin: 0 -24px;
+}
+.room-strip-window li {
+  flex: none;
 }
 .room-tile {
   height: 84px;
@@ -203,31 +199,13 @@
   text-decoration: none;
 }
 @media (max-width: 640px) {
-  .room-strip-tiles {
-    gap: 12px;
-  }
-  .room-strip-tiles li {
-    flex: 1 1 calc(50% - 6px);
-    max-width: calc(50% - 6px);
-  }
   .room-tile {
-    width: 100%;
-    min-width: 0;
     height: 72px;
-    padding: 0 14px;
+    min-width: 140px;
+    padding: 0 20px;
   }
   .room-tile img {
-    height: 34px;
-    max-width: 100%;
-  }
-  .room-tile-name {
-    font-size: 0.98rem;
-    white-space: normal;
-  }
-  .room-strip-tiles li:has(.room-tile--claude) {
-    order: -1;
-    flex-basis: 100%;
-    max-width: 100%;
+    height: 36px;
   }
   .room-strip-panel {
     padding: 20px 18px;
@@ -241,6 +219,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .room-strip-window li[aria-hidden="true"] {
+    display: none;
+  }
   .room-tile {
     transition: none;
   }

@@ -51,27 +51,38 @@ function EmailIcon() {
   );
 }
 
+function SubstackIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="#FF6719">
+      <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+    </svg>
+  );
+}
+
 const SOCIAL_CARDS = [
+  { href: "mailto:pricilla@pricapa.com", cardClass: "soc-mail", Icon: EmailIcon, platform: "Email", handle: "pricilla@pricapa.com" },
   { href: "https://www.linkedin.com/in/pricilla-ricapa/", cardClass: "soc-li", Icon: LinkedInIcon, platform: "LinkedIn", handle: "Pricilla Ricapa" },
   { href: "https://www.instagram.com/pri_ricapa/", cardClass: "soc-ig", Icon: InstagramIcon, platform: "Instagram", handle: "@pri_ricapa" },
   { href: "https://www.youtube.com/channel/UCmkZqwSWDm3AweOb1FD_2zQ", cardClass: "soc-yt", Icon: YouTubeIcon, platform: "YouTube", handle: "Pricilla Ricapa Guerrero" },
   { href: "https://x.com/ricapapricilla", cardClass: "soc-x", Icon: XIcon, platform: "X / Twitter", handle: "@ricapapricilla" },
-  { href: "mailto:pricilla@pricapa.com", cardClass: "soc-mail", Icon: EmailIcon, platform: "Email", handle: "pricilla@pricapa.com" },
+  { href: "https://pricapa.substack.com", cardClass: "soc-ss", Icon: SubstackIcon, platform: "Substack", handle: "pricapa.substack.com" },
 ];
 
+/** Static, centered links. */
 export function SocialSection() {
   const { t } = useLang();
-  // Two copies per half so the loop stays seamless on wide screens.
-  const renderItems = (copy: number) =>
-    [0, 1].flatMap((half) =>
-      SOCIAL_CARDS.map(({ href, Icon, platform, handle }) => {
-        const hidden = copy > 0 || half > 0;
-        return (
-          <li key={`${platform}-${copy}-${half}`} aria-hidden={hidden || undefined}>
+
+  return (
+    <div className="logo-marquee social-strip" id="social">
+      <div className="logo-marquee-head">
+        <span className="logo-marquee-label">{t("Find me", "Encuéntrame")}</span>
+      </div>
+      <ul className="social-static">
+        {SOCIAL_CARDS.map(({ href, Icon, platform, handle }) => (
+          <li key={platform}>
             <a
               href={href}
               className="social-chip"
-              tabIndex={hidden ? -1 : undefined}
               target={href.startsWith("mailto") ? undefined : "_blank"}
               rel={href.startsWith("mailto") ? undefined : "noreferrer"}
             >
@@ -82,21 +93,8 @@ export function SocialSection() {
               </span>
             </a>
           </li>
-        );
-      }),
-    );
-
-  return (
-    <div className="logo-marquee social-strip" id="social">
-      <div className="logo-marquee-head">
-        <span className="logo-marquee-label">{t("Find me", "Encuéntrame")}</span>
-      </div>
-      <div className="logo-marquee-window">
-        <ul className="logo-marquee-track" style={{ animationDuration: "48s" }}>
-          {renderItems(0)}
-          {renderItems(1)}
-        </ul>
-      </div>
+        ))}
+      </ul>
     </div>
   );
 }

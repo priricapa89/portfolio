@@ -40,8 +40,8 @@ const ROOMS: RoomItem[] = [
     page: { to: "/claude-community-boston", label: ["Visit Claude Community Boston", "Visitar Claude Community Boston"] },
   },
   { id: "massai", name: "Massachusetts AI Coalition", src: "/logos/mass-ai-coalition.png" },
-  { id: "aiweek", name: "Boston AI Week" },
-  { id: "tedx", name: "TEDxBoston" },
+  { id: "aiweek", name: "Boston AI Week", src: "/logos/boston-ai-week.png", imgH: 62 },
+  { id: "tedx", name: "TEDxBoston", src: "/logos/tedxboston.png", bg: "#000" },
 ];
 
 const PAGE_URL = "https://pricapa.com/";
@@ -154,6 +154,7 @@ export default function Home() {
           "Eventos y comunidades donde participo o soy voluntaria.",
         )}
         items={ROOMS}
+        duration={40}
       />
       <SocialSection />
       <Footer />
