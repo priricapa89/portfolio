@@ -83,14 +83,13 @@ export function SocialSection() {
             <a
               href={href}
               className="social-chip"
+              title={handle}
+              aria-label={`${platform}: ${handle}`}
               target={href.startsWith("mailto") ? undefined : "_blank"}
               rel={href.startsWith("mailto") ? undefined : "noreferrer"}
             >
               <span className="social-chip-icon"><Icon /></span>
-              <span className="social-chip-text">
-                <span className="soc-platform">{platform}</span>
-                <span className="soc-handle">{handle}</span>
-              </span>
+              <span className="social-chip-name">{platform === "X / Twitter" ? "X" : platform}</span>
             </a>
           </li>
         ))}
